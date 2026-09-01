@@ -9,9 +9,9 @@ Requires `DASHSCOPE_API_KEY` in `.env`. Get one at https://dashscope.aliyun.com/
 
 ## Current API
 
-**CRITICAL:** DashScope's `/compatible-mode/v1/` only supports `/chat/completions` and `/embeddings`. Image generation, TTS, and ASR all use **DashScope-native endpoints** — not OpenAI-compatible paths.
+**CRITICAL:** DashScope's `/compatible-mode/v1/` only supports `/chat/completions` and `/embeddings`. Image generation, TTS, ASR, and video understanding use **DashScope-native endpoints** — not OpenAI-compatible paths.
 
-All three tools use `Authorization: Bearer $DASHSCOPE_API_KEY`.
+All four tools use `Authorization: Bearer $DASHSCOPE_API_KEY`.
 
 ### Image Generation
 
@@ -47,6 +47,20 @@ Header: X-DashScope-Async: enable
 - Body: `{model, input: {file_url: "https://public-url/audio.mp3"}, parameters: {enable_words: true, language_hints: ["zh","en"]}}`
 - Returns `task_id` → poll `GET /api/v1/tasks/{task_id}` until `SUCCEEDED` → download `output.result.transcription_url` → JSON with `transcripts[].sentences[].words[]`
 - Timestamps in `begin_time`/`end_time` are in **milliseconds** — the tool normalizes to seconds
+
+### Video Understanding
+
+```text
+POST https://dashscope.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation
+```
+
+- Model: `qwen3-vl-plus`
+- `dashscope_video_understand` accepts a local image or video `input_path`.
+- For local video it reuses OpenMontage's timestamp-based frame sampling, then
+  sends JPEG frames as Base64 data URLs in one multimodal request.
+- Modes: `describe`, `qa`, and semantic `quality` review.
+- The original video is not uploaded to public storage. Semantic quality output
+  does not replace numeric blur, exposure, or contrast measurements.
 
 ## OpenMontage Usage
 

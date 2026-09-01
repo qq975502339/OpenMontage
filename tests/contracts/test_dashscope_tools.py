@@ -23,24 +23,28 @@ from tools.base_tool import (
 from tools.graphics.dashscope_image import DashscopeImage
 from tools.audio.dashscope_tts import DashscopeTTS
 from tools.analysis.dashscope_asr import DashscopeAsr
+from tools.analysis.dashscope_video_understand import DashscopeVideoUnderstand
 
-TOOLS = [DashscopeImage, DashscopeTTS, DashscopeAsr]
+TOOLS = [DashscopeImage, DashscopeTTS, DashscopeAsr, DashscopeVideoUnderstand]
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 
 EXPECTED_TIER = {
     DashscopeImage: ToolTier.GENERATE,
     DashscopeTTS: ToolTier.VOICE,
     DashscopeAsr: ToolTier.ANALYZE,
+    DashscopeVideoUnderstand: ToolTier.ANALYZE,
 }
 EXPECTED_CAPABILITY = {
     DashscopeImage: "image_generation",
     DashscopeTTS: "tts",
     DashscopeAsr: "analysis",
+    DashscopeVideoUnderstand: "analysis",
 }
 EXPECTED_EXECUTION_MODE = {
     DashscopeImage: ExecutionMode.SYNC,
     DashscopeTTS: ExecutionMode.SYNC,
     DashscopeAsr: ExecutionMode.ASYNC,
+    DashscopeVideoUnderstand: ExecutionMode.SYNC,
 }
 
 
@@ -91,6 +95,9 @@ class TestContract:
         assert skill_path.exists(), f"Missing Layer 3 skill: {skill_path}"
         content = skill_path.read_text(encoding="utf-8")
         assert "DASHSCOPE_API_KEY" in content
+        if cls is DashscopeVideoUnderstand:
+            assert "dashscope_video_understand" in content
+            assert "qwen3-vl-plus" in content
 
     def test_has_fallbacks(self, cls):
         tool = cls()
@@ -170,8 +177,10 @@ class TestContract:
             cost = tool.estimate_cost({"prompt": "test", "n": 1})
         elif cls is DashscopeTTS:
             cost = tool.estimate_cost({"text": "test"})
-        else:
+        elif cls is DashscopeAsr:
             cost = tool.estimate_cost({"audio_url": "https://x.com/a.mp3"})
+        else:
+            cost = tool.estimate_cost({"input_path": "sample.mp4"})
         assert isinstance(cost, float)
         assert cost >= 0.0
 
@@ -181,8 +190,10 @@ class TestContract:
             result = tool.dry_run({"prompt": "test"})
         elif cls is DashscopeTTS:
             result = tool.dry_run({"text": "test"})
-        else:
+        elif cls is DashscopeAsr:
             result = tool.dry_run({"audio_url": "https://x.com/a.mp3"})
+        else:
+            result = tool.dry_run({"input_path": "sample.mp4"})
         assert isinstance(result, dict)
         assert "tool" in result
         assert result["tool"] == tool.name
@@ -682,7 +693,7 @@ class TestDashscopeAsrSpecific:
 
 class TestDashscopeRegistryDiscovery:
 
-    def test_all_three_tools_discoverable(self):
+    def test_all_four_tools_discoverable(self):
         from tools.tool_registry import ToolRegistry
         registry = ToolRegistry()
         registry.discover()
@@ -691,7 +702,19 @@ class TestDashscopeRegistryDiscovery:
             if t.provider == "dashscope"
         ]
         names = {t.name for t in dashscope_tools}
-        assert names == {"dashscope_image", "dashscope_tts", "dashscope_asr"}
+        assert names == {
+            "dashscope_image",
+            "dashscope_tts",
+            "dashscope_asr",
+            "dashscope_video_understand",
+        }
+
+    def test_provider_documentation_lists_video_understanding(self):
+        providers = (PROJECT_ROOT / "docs" / "PROVIDERS.md").read_text(
+            encoding="utf-8"
+        )
+        assert "dashscope_video_understand" in providers
+        assert "qwen3-vl-plus" in providers
 
     def test_image_selector_finds_dashscope(self):
         """image_selector should auto-discover dashscope_image by capability."""

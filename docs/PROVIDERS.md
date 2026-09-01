@@ -253,11 +253,11 @@ Official references: [Seedance model list](https://www.volcengine.com/docs/82379
 
 ---
 
-### Alibaba DashScope — Qwen Image + TTS + ASR
+### Alibaba DashScope — Qwen Image + TTS + ASR + Video Understanding
 
 > **Best for Chinese-language production.** One key unlocks Qwen-Image generation, Qwen-TTS Mandarin narration, and Qwen-ASR with word-level timestamps — the only DashScope path that provides word-level granularity for subtitle alignment.
 
-**Tools unlocked:** `dashscope_image`, `dashscope_tts`, `dashscope_asr`
+**Tools unlocked:** `dashscope_image`, `dashscope_tts`, `dashscope_asr`, `dashscope_video_understand`
 **Env var:** `DASHSCOPE_API_KEY`
 
 #### Setup
@@ -273,12 +273,19 @@ Official references: [Seedance model list](https://www.volcengine.com/docs/82379
 - Natural Mandarin narration (Qwen-TTS, Cherry voice)
 - Word-level timestamp transcription for subtitle alignment (Qwen-ASR filetrans)
 - Replacing the broken `whisperx` slot for ASR
+- Qwen3-VL-Plus video description, cross-frame visual QA, and sampled semantic
+  quality review from local media; no public source-video URL is required
 
 #### API notes
 
-DashScope's `/compatible-mode/v1/` only supports `/chat/completions` and `/embeddings`. Image gen, TTS, and ASR all use DashScope-native endpoints with nested `{model, input, parameters}` request shape — not OpenAI-compatible paths.
+DashScope's `/compatible-mode/v1/` only supports `/chat/completions` and `/embeddings`. Image gen, TTS, ASR, and Qwen3-VL-Plus video understanding use DashScope-native endpoints with nested `{model, input, parameters}` request shape — not OpenAI-compatible paths.
 
 The ASR tool (`qwen3-asr-flash-filetrans`) uses an async submit-poll pattern. Audio must be at a publicly accessible URL (local files are not supported). Word timestamps are in milliseconds, normalized to seconds by the tool.
+
+`dashscope_video_understand` keeps source media local: it samples local video
+frames with FFmpeg, submits JPEG Base64 frame data to `qwen3-vl-plus`, and
+returns description, visual QA, or semantic quality feedback. It complements,
+but does not replace, local numeric blur, brightness, and contrast checks.
 
 #### Pricing
 
