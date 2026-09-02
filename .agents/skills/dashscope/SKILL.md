@@ -54,7 +54,7 @@ Header: X-DashScope-Async: enable
 POST https://dashscope.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation
 ```
 
-- Model: `qwen3-vl-plus`
+- Model: `qwen3-vl-flash`
 - `dashscope_video_understand` accepts a local image or video `input_path`.
 - For local video it reuses OpenMontage's timestamp-based frame sampling, then
   sends JPEG frames as Base64 data URLs in one multimodal request.

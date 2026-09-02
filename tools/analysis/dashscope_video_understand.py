@@ -1,4 +1,4 @@
-"""DashScope Qwen3-VL-Plus video and image understanding."""
+"""DashScope Qwen3-VL-Flash video and image understanding."""
 
 from __future__ import annotations
 
@@ -88,8 +88,8 @@ class DashscopeVideoUnderstand(BaseTool):
             },
             "model": {
                 "type": "string",
-                "enum": ["qwen3-vl-plus"],
-                "default": "qwen3-vl-plus",
+                "enum": ["qwen3-vl-flash"],
+                "default": "qwen3-vl-flash",
             },
             "frame_indices": {
                 "type": "array",
@@ -132,7 +132,7 @@ class DashscopeVideoUnderstand(BaseTool):
         "frame_indices",
         "max_frames",
     ]
-    side_effects = ["calls DashScope (Alibaba Cloud) Qwen3-VL-Plus API"]
+    side_effects = ["calls DashScope (Alibaba Cloud) Qwen3-VL-Flash API"]
     user_visible_verification = [
         "Compare the response with sampled video frames",
         "Treat semantic quality feedback as sampled evidence, not a "
@@ -196,7 +196,7 @@ class DashscopeVideoUnderstand(BaseTool):
         content = [{"image": self._frame_to_data_url(frame)} for frame in frames]
         content.append({"text": self._prompt_for(mode=mode, query=query)})
         return {
-            "model": "qwen3-vl-plus",
+            "model": "qwen3-vl-flash",
             "input": {"messages": [{"role": "user", "content": content}]},
             "parameters": {"result_format": "message"},
         }
@@ -322,7 +322,7 @@ class DashscopeVideoUnderstand(BaseTool):
             success=True,
             data={
                 "provider": "dashscope",
-                "model": "qwen3-vl-plus",
+                "model": "qwen3-vl-flash",
                 "mode": mode,
                 "summary": summary,
                 "frames": [
@@ -332,5 +332,5 @@ class DashscopeVideoUnderstand(BaseTool):
             },
             cost_usd=self.estimate_cost(inputs),
             duration_seconds=round(time.time() - start, 2),
-            model="qwen3-vl-plus",
+            model="qwen3-vl-flash",
         )

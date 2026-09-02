@@ -97,7 +97,7 @@ class TestContract:
         assert "DASHSCOPE_API_KEY" in content
         if cls is DashscopeVideoUnderstand:
             assert "dashscope_video_understand" in content
-            assert "qwen3-vl-plus" in content
+            assert "qwen3-vl-flash" in content
 
     def test_has_fallbacks(self, cls):
         tool = cls()
@@ -714,7 +714,7 @@ class TestDashscopeRegistryDiscovery:
             encoding="utf-8"
         )
         assert "dashscope_video_understand" in providers
-        assert "qwen3-vl-plus" in providers
+        assert "qwen3-vl-flash" in providers
 
     def test_image_selector_finds_dashscope(self):
         """image_selector should auto-discover dashscope_image by capability."""

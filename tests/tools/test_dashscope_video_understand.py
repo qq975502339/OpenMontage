@@ -1,4 +1,4 @@
-"""Tests for the DashScope Qwen3-VL-Plus video-understanding provider."""
+"""Tests for the DashScope Qwen3-VL-Flash video-understanding provider."""
 
 from PIL import Image
 
@@ -27,7 +27,7 @@ def test_contract_identifies_qwen_video_understanding_provider():
     assert tool.runtime == ToolRuntime.API
     assert tool.execution_mode == ExecutionMode.SYNC
     assert tool.agent_skills == ["dashscope"]
-    assert tool.input_schema["properties"]["model"]["default"] == "qwen3-vl-plus"
+    assert tool.input_schema["properties"]["model"]["default"] == "qwen3-vl-flash"
 
 
 def test_status_requires_dashscope_key(monkeypatch):
@@ -47,7 +47,7 @@ def test_build_payload_sends_jpeg_data_urls_before_prompt():
     payload = tool._build_payload([image], mode="describe", query=None)
 
     content = payload["input"]["messages"][0]["content"]
-    assert payload["model"] == "qwen3-vl-plus"
+    assert payload["model"] == "qwen3-vl-flash"
     assert content[0]["image"].startswith("data:image/jpeg;base64,")
     assert "Describe" in content[-1]["text"]
     assert payload["parameters"] == {"result_format": "message"}
@@ -100,7 +100,7 @@ def test_execute_uses_one_request_and_returns_provider_summary(monkeypatch, tmp_
     assert result.data["summary"] == "Two sampled frames show a presenter."
     assert result.data["frame_count"] == 2
     assert captured["url"] == tool.ENDPOINT
-    assert captured["json"]["model"] == "qwen3-vl-plus"
+    assert captured["json"]["model"] == "qwen3-vl-flash"
     assert captured["headers"]["Authorization"] == "Bearer secret-key"
 
 
