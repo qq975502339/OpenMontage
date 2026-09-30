@@ -1,0 +1,314 @@
+{
+  "brand": {
+    "column": "社会观察",
+    "issue": "2026年9月 · 人口特刊",
+    "title": "日本：老去的发达国家"
+  },
+  "skin": "finance-paper",
+  "pages": [
+    {
+      "id": "ch01",
+      "type": "chapter",
+      "durationSeconds": 3.9,
+      "narration": "audio/jp/ch01.wav",
+      "kicker": "人口结构 · 观察",
+      "chapterNumber": "01",
+      "tags": [
+        "深度老龄化",
+        "发达国家",
+        "样本切片"
+      ],
+      "title": "日本，一个老去的发达国家",
+      "dek": "当六十五岁以上人口接近三成，经济、财政与地方社会被同时改写。",
+      "subtitles": [
+        {
+          "start": 0,
+          "end": 2.98,
+          "text": "日本，全球第一个深度老龄化的发达国家。"
+        }
+      ]
+    },
+    {
+      "id": "stat-29",
+      "type": "stat",
+      "durationSeconds": 14.7,
+      "narration": "audio/jp/stat-29.wav",
+      "kicker": "65岁以上人口占比",
+      "statValue": 29,
+      "statUnit": "%",
+      "compare": [
+        {
+          "value": "7.1%",
+          "label": "1970年，进入老龄化社会"
+        },
+        {
+          "value": "14.1%",
+          "label": "1995年，站上高龄社会门槛"
+        },
+        {
+          "value": "34.8%",
+          "label": "2040年预测，约每三人一位老人"
+        }
+      ],
+      "title": "如今，每三个半人里就有一位老人",
+      "note": "数据为日本总务省、国立社会保障与人口问题研究所口径，2040年为推算值。",
+      "subtitles": [
+        {
+          "start": 0,
+          "end": 4.16,
+          "text": "如今，六十五岁以上人口占到百分之二十九，"
+        },
+        {
+          "start": 4.1,
+          "end": 5.94,
+          "text": "每三个半人里，就有一位老人。"
+        },
+        {
+          "start": 5.88,
+          "end": 9.22,
+          "text": "这个比例，在一九七零年只有百分之七；"
+        },
+        {
+          "start": 9.16,
+          "end": 12.4,
+          "text": "到二零四零年，预计将逼近百分之三十五。"
+        }
+      ]
+    },
+    {
+      "id": "footage-city",
+      "type": "footage",
+      "durationSeconds": 9.9,
+      "narration": "audio/jp/footage-city.wav",
+      "source": "footage_1080/px35462656.mp4",
+      "sourceIsVideo": true,
+      "figure": "图 01",
+      "location": "日本 · 东京",
+      "caption": "繁华依旧，但在出租车、便利店与写字楼下，白发人已是常见的身影。",
+      "subtitles": [
+        {
+          "start": 0,
+          "end": 1.8,
+          "text": "这里是日本东京。"
+        },
+        {
+          "start": 1.74,
+          "end": 4.22,
+          "text": "城市繁华依旧，但在出租车、"
+        },
+        {
+          "start": 4.16,
+          "end": 6.76,
+          "text": "便利店与写字楼下，白发人，"
+        },
+        {
+          "start": 6.7,
+          "end": 8.12,
+          "text": "已是随处可见的身影。"
+        }
+      ]
+    },
+    {
+      "id": "body-cause",
+      "type": "body",
+      "durationSeconds": 23.9,
+      "narration": "audio/jp/body-cause.wav",
+      "kicker": "为什么是日本",
+      "title": "长寿与少子之间的剪刀差",
+      "dek": "一端是全球最长的预期寿命，另一端是持续半个世纪的低生育。",
+      "paragraphs": [
+        "日本人的平均寿命连续多年位居世界前列，人均预期寿命超过**84岁**；与此同时，总和生育率自一九九零年代起跌破政策警戒线，长期在**1.3至1.4**之间徘徊。",
+        "出生的人越来越少，老去的人越来越多。新增劳动力不足以填补退休缺口，人口总量自二零一零年前后见顶回落，此后逐年收缩。",
+        "这不是一次短暂波动，而是一段延续数十年的结构性趋势——财政、产业、城市与家庭，都在为这道剪刀差重新定价。"
+      ],
+      "note": "注：总和生育率指一名女性一生平均生育子女数，人口世代更替水平约为2.1。",
+      "subtitles": [
+        {
+          "start": 0,
+          "end": 2.28,
+          "text": "一端，是全球最长的预期寿命，"
+        },
+        {
+          "start": 2.22,
+          "end": 5.8,
+          "text": "人均超过八十四岁；另一端，"
+        },
+        {
+          "start": 5.74,
+          "end": 7.56,
+          "text": "是持续半个世纪的低生育，"
+        },
+        {
+          "start": 7.5,
+          "end": 11.48,
+          "text": "总和生育率长期在一点三到一点四之间。"
+        },
+        {
+          "start": 11.42,
+          "end": 15.7,
+          "text": "出生的人越来越少，老去的人越来越多，"
+        },
+        {
+          "start": 15.64,
+          "end": 18.76,
+          "text": "人口总量自二零一零年前后见顶回落。"
+        },
+        {
+          "start": 19.22,
+          "end": 23.22,
+          "text": "这不是短暂波动，而是延续数十年的结构性趋势。"
+        }
+      ]
+    },
+    {
+      "id": "footage-crossing",
+      "type": "footage",
+      "durationSeconds": 12.0,
+      "narration": "audio/jp/footage-crossing.wav",
+      "source": "footage_1080/px35488258.mp4",
+      "sourceIsVideo": true,
+      "figure": "图 02",
+      "location": "东京 · 涩谷十字路口",
+      "caption": "每天数百万人穿行于此，人潮依旧汹涌，却掩不住每年减少五十万人口的事实。",
+      "subtitles": [
+        {
+          "start": 0,
+          "end": 3.7,
+          "text": "东京涩谷十字路口，每天数百万人穿行于此。"
+        },
+        {
+          "start": 3.64,
+          "end": 7.1,
+          "text": "人潮依旧汹涌，却掩不住一个事实："
+        },
+        {
+          "start": 7.04,
+          "end": 10.46,
+          "text": "日本总人口，每年减少约五十万。"
+        }
+      ]
+    },
+    {
+      "id": "stat-vacant",
+      "type": "stat",
+      "durationSeconds": 8.7,
+      "narration": "audio/jp/stat-vacant.wav",
+      "kicker": "全国空置住宅",
+      "statValue": 900,
+      "statUnit": "万间",
+      "title": "每七套住宅，就有一套空着",
+      "note": "数据为日本总务省住宅·土地统计调查口径，地方空置问题尤为突出。",
+      "subtitles": [
+        {
+          "start": 0,
+          "end": 3.58,
+          "text": "老龄化也写在房子上：全国空置住宅已达九百万间，"
+        },
+        {
+          "start": 3.52,
+          "end": 6.24,
+          "text": "每七套住宅里，就有一套无人居住。"
+        }
+      ]
+    },
+    {
+      "id": "list-pressure",
+      "type": "list",
+      "durationSeconds": 17.7,
+      "narration": "audio/jp/list-pressure.wav",
+      "ordered": true,
+      "kicker": "三重压力",
+      "title": "老龄化的账单，向谁兑现",
+      "dek": "压力沿劳动力、财政与地方社会三条线同时传导。",
+      "items": [
+        "劳动力持续收缩，招工难蔓延到护理、零售与制造业",
+        "养老金与医疗支出不断膨胀，账单压向在职一代",
+        "偏远乡镇人口流失，学校、商店与公交相继关闭"
+      ],
+      "itemNotes": [
+        "老年再就业比例攀升，65岁以上仍在工作者超过四分之一。",
+        "社会保障支出占政府预算比重持续抬升。",
+        "多地被划为「可能消失的市区」，空置房无人继承。"
+      ],
+      "subtitles": [
+        {
+          "start": 0,
+          "end": 2.62,
+          "text": "老龄化的账单，沿三条线同时传导。"
+        },
+        {
+          "start": 2.56,
+          "end": 5.82,
+          "text": "劳动力持续收缩，招工难蔓延到护理、"
+        },
+        {
+          "start": 6.02,
+          "end": 9.34,
+          "text": "零售和制造业；养老金与医疗支出不断膨胀，"
+        },
+        {
+          "start": 9.28,
+          "end": 12.66,
+          "text": "压向在职一代；偏远乡镇人口流失，"
+        },
+        {
+          "start": 12.6,
+          "end": 15.04,
+          "text": "学校、商店和公交相继关闭。"
+        }
+      ]
+    },
+    {
+      "id": "media-park",
+      "type": "media-text",
+      "durationSeconds": 12.1,
+      "narration": "audio/jp/media-park.wav",
+      "mediaSide": "left",
+      "source": "footage_1080/px32284502.mp4",
+      "sourceIsVideo": true,
+      "figure": "图 03",
+      "location": "东京 · 夜色街区",
+      "caption": "霓虹之下，繁华与衰老在同一座城市并存。",
+      "kicker": "大都市的另一面",
+      "title": "繁华之中，无处安放的晚年",
+      "dek": "养老护理长期缺人，独居老人在城市中孤独老去。",
+      "paragraphs": [
+        "即便在东京，养老护理岗位也常年存在数十万缺口，从业者频繁流动。",
+        "大量独居老人与子女、社区失去联系，「**孤独死**」早已不是边缘话题。"
+      ],
+      "note": "城市解决了收入，却未必能解决陪伴与照护。",
+      "subtitles": [
+        {
+          "start": 0,
+          "end": 4.14,
+          "text": "即便在东京，养老护理岗位也常年存在数十万缺口。"
+        },
+        {
+          "start": 4.08,
+          "end": 7.82,
+          "text": "大量独居老人与子女、社区失去联系，"
+        },
+        {
+          "start": 7.76,
+          "end": 10.46,
+          "text": "孤独死，早已不是边缘话题。"
+        }
+      ]
+    },
+    {
+      "id": "quote-end",
+      "type": "quote",
+      "durationSeconds": 3.6,
+      "narration": "audio/jp/quote-end.wav",
+      "kicker": "留给后来者的问题",
+      "quote": "日本的今天，会不会是许多国家的明天？",
+      "subtitles": [
+        {
+          "start": 0,
+          "end": 2.46,
+          "text": "日本的今天，会不会是许多国家的明天？"
+        }
+      ]
+    }
+  ]
+}

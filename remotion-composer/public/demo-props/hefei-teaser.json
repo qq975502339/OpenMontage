@@ -1,0 +1,195 @@
+{
+  "brand": {
+    "column": "城市资本观察",
+    "issue": "2026年9月 · 合肥特刊",
+    "title": "合肥：国资的激进实验"
+  },
+  "skin": "finance-paper",
+  "pages": [
+    {
+      "id": "ch01",
+      "type": "chapter",
+      "durationSeconds": 6.0,
+      "narration": "audio/hefei/ch01.wav",
+      "kicker": "深度封面",
+      "chapterNumber": "第一章",
+      "tags": [
+        "国资投资",
+        "股权财政",
+        "城市竞合"
+      ],
+      "title": "一座城市的国资冒险",
+      "dek": "一座中部省会，用真金白银把自己变成了产业投资人。",
+      "subtitles": [
+        {
+          "start": 0,
+          "end": 5.16,
+          "text": "合肥，一座中部省会，正在进行一场大胆的国资冒险。"
+        }
+      ]
+    },
+    {
+      "id": "stat-248",
+      "type": "stat",
+      "durationSeconds": 5.4,
+      "narration": "audio/hefei/stat-248.wav",
+      "kicker": "过去十年 · 国资出资",
+      "statValue": 248,
+      "statUnit": "亿元",
+      "compare": [
+        {
+          "value": "京东方",
+          "label": "面板：重金押注，换来了显示产业集群"
+        },
+        {
+          "value": "蔚来",
+          "label": "电车：70亿元入局，串起新能源链条"
+        },
+        {
+          "value": "长鑫",
+          "label": "存储：持续加码，切入芯片制造腹地"
+        }
+      ],
+      "title": "合肥，把财政变成了资本",
+      "note": "数据为节目叙事口径，非审计结论。",
+      "subtitles": [
+        {
+          "start": 0,
+          "end": 3.86,
+          "text": "过去十年，它累计拿出二百四十八亿元国资，"
+        },
+        {
+          "start": 3.8,
+          "end": 5.14,
+          "text": "把财政变成了资本。"
+        }
+      ]
+    },
+    {
+      "id": "footage-city",
+      "type": "footage",
+      "durationSeconds": 8.0,
+      "narration": "audio/hefei/footage-city.wav",
+      "source": "footage_1080/px29472039.mp4",
+      "sourceIsVideo": true,
+      "figure": "图 01",
+      "location": "合肥 · 城市天际线",
+      "caption": "这座城市的天际线，在十年里被厂房、产线和产业园重新定义。",
+      "subtitles": [
+        {
+          "start": 0,
+          "end": 1.72,
+          "text": "这就是合肥。"
+        },
+        {
+          "start": 1.66,
+          "end": 4.94,
+          "text": "这座城市的天际线，在十年里被厂房、"
+        },
+        {
+          "start": 4.88,
+          "end": 7.08,
+          "text": "产线和产业园，重新定义。"
+        }
+      ]
+    },
+    {
+      "id": "media-panel",
+      "type": "media-text",
+      "durationSeconds": 7.9,
+      "narration": "audio/hefei/media-panel.wav",
+      "mediaSide": "left",
+      "source": "footage_1080/px30288953.mp4",
+      "sourceIsVideo": true,
+      "figure": "图 02",
+      "location": "智能制造 · 生产线",
+      "caption": "产线上的合肥样本。",
+      "kicker": "三场豪赌",
+      "title": "面板、电车、存储芯片",
+      "dek": "三笔投资，让合肥从产业配角走到台前。",
+      "paragraphs": [
+        "京东方、蔚来、长鑫，三笔投资让合肥名声在外。",
+        "它验证了一种可能：**政府可以像投资人一样下注产业**。"
+      ],
+      "subtitles": [
+        {
+          "start": 0,
+          "end": 2.94,
+          "text": "面板、电车、存储芯片，京东方、"
+        },
+        {
+          "start": 2.88,
+          "end": 6.28,
+          "text": "蔚来、长鑫，三笔投资让它从配角走到台前。"
+        }
+      ]
+    },
+    {
+      "id": "list-questions",
+      "type": "list",
+      "durationSeconds": 11.3,
+      "narration": "audio/hefei/list-questions.wav",
+      "ordered": true,
+      "kicker": "模式的追问",
+      "title": "赢面之外，还有三笔账要算",
+      "dek": "股权财政的故事，不止有赢家的一面。",
+      "items": [
+        "赚了，收益如何在国资、企业与市民之间分配？",
+        "亏了，风险最终由谁兜底，是否绑架地方财政？",
+        "别的城市学合肥，学得会眼光，也输得起本金吗？"
+      ],
+      "itemNotes": [
+        "退出机制与分红规则，考验国资管理人的专业度。",
+        "产业基金普遍结构化设计，地方仍承担部分兜底责任。",
+        "成功建立在专业判断与产业基础之上，难以简单复制。"
+      ],
+      "subtitles": [
+        {
+          "start": 0,
+          "end": 1.98,
+          "text": "但赢面之外，还有三笔账要算。"
+        },
+        {
+          "start": 1.92,
+          "end": 4.2,
+          "text": "赚了，收益怎么分？"
+        },
+        {
+          "start": 4.14,
+          "end": 6.22,
+          "text": "亏了，风险谁兜底？"
+        },
+        {
+          "start": 6.16,
+          "end": 8.46,
+          "text": "别的城市学合肥，学得会眼光，"
+        },
+        {
+          "start": 8.68,
+          "end": 9.64,
+          "text": "又输得起本金吗？"
+        }
+      ]
+    },
+    {
+      "id": "quote-hook",
+      "type": "quote",
+      "durationSeconds": 4.8,
+      "narration": "audio/hefei/quote-hook.wav",
+      "kicker": "留给观察者的悬念",
+      "quote": "股权财政，是接力土地财政，还是一颗新雷？",
+      "subtitles": [
+        {
+          "start": 0,
+          "end": 2.68,
+          "text": "股权财政，究竟是接力土地财政，"
+        },
+        {
+          "start": 2.62,
+          "end": 4.0,
+          "text": "还是一颗新雷？"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3955 @@
+{
+  "brand": {
+    "column": "经济观察",
+    "issue": "2026年9月 · 日本经济特刊",
+    "title": "日本经济2026：一个“旧体制”的缓慢换挡"
+  },
+  "skin": "finance-paper",
+  "pages": [
+    {
+      "id": "p01",
+      "type": "chapter",
+      "durationSeconds": 6.08,
+      "narration": "audio/je2026/p01.wav",
+      "kicker": "经济观察 · 大国切片",
+      "tags": [
+        "通缩",
+        "换挡",
+        "2026"
+      ],
+      "title": "把三十年日本经济，浓缩成一本书",
+      "dek": "一个努力想涨价、却怎么也涨不起来的国家，正在翻页。",
+      "chapterNumber": "01",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 1.86,
+          "text": "想象你现在站在东京街头，"
+        },
+        {
+          "start": 1.8,
+          "end": 5.52,
+          "text": "把过去三十年的日本经济，浓缩成一本书。"
+        }
+      ]
+    },
+    {
+      "id": "p02",
+      "type": "footage",
+      "durationSeconds": 11.6,
+      "narration": "audio/je2026/p02.wav",
+      "figure": "图 01",
+      "source": "footage_1080/px30488070.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "location": "东京 · 繁华街夜景",
+      "caption": "这本书的前二十几年，主角只有一个",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.88,
+          "text": "这本书的前二十几年，只有一个主角，"
+        },
+        {
+          "start": 2.82,
+          "end": 4.08,
+          "text": "叫“便宜”。"
+        },
+        {
+          "start": 4.02,
+          "end": 8.6,
+          "text": "东西越来越便宜，工资几十年不太动，"
+        },
+        {
+          "start": 8.54,
+          "end": 10.98,
+          "text": "银行的利息几乎等于零。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px30488070.mp4",
+          "durationSeconds": 7.12
+        },
+        {
+          "source": "footage_1080/px18413833.mp4",
+          "durationSeconds": 10.047
+        }
+      ]
+    },
+    {
+      "id": "p03",
+      "type": "quote",
+      "durationSeconds": 11.6,
+      "narration": "audio/je2026/p03.wav",
+      "kicker": "旧日本的广告话术",
+      "quote": "现在买不如等一等，下周可能更便宜。",
+      "attribution": "通缩年代的消费共识",
+      "title": "涨不起来的国家",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.72,
+          "text": "广告里反复出现一句话——现在买不如等一等，"
+        },
+        {
+          "start": 3.66,
+          "end": 5.24,
+          "text": "下周可能更便宜。"
+        },
+        {
+          "start": 5.18,
+          "end": 7.02,
+          "text": "这就是我们印象里的日本："
+        },
+        {
+          "start": 7.38,
+          "end": 10.72,
+          "text": "一个努力想涨价、却怎么也涨不起来的国家。"
+        }
+      ]
+    },
+    {
+      "id": "p04",
+      "type": "footage",
+      "durationSeconds": 7.12,
+      "narration": "audio/je2026/p04.wav",
+      "figure": "图 02",
+      "source": "footage_1080/px35488258.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "location": "东京 · 涩谷十字路口",
+      "caption": "2026，剧情反过来了",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.38,
+          "text": "可是到了二〇二六年，这本书的剧情反过来了，"
+        },
+        {
+          "start": 4.26,
+          "end": 6.58,
+          "text": "而且是四件事同时发生。"
+        }
+      ]
+    },
+    {
+      "id": "p05",
+      "type": "media-text",
+      "durationSeconds": 11.84,
+      "narration": "audio/je2026/p05.wav",
+      "kicker": "2026 · 四个箭头",
+      "tags": [
+        "物价",
+        "工资",
+        "利率",
+        "股市"
+      ],
+      "title": "四件事，第一次同时发生",
+      "dek": "这里说的利率，就是借钱的价钱——利息高不高。",
+      "source": "footage_1080/px10901926.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.14,
+          "text": "物价在涨，工资在涨，利率在涨，"
+        },
+        {
+          "start": 3.5,
+          "end": 4.88,
+          "text": "股市也在涨。"
+        },
+        {
+          "start": 4.92,
+          "end": 8.16,
+          "text": "这里说的利率，就是借钱的价钱，"
+        },
+        {
+          "start": 8.84,
+          "end": 11.24,
+          "text": "也就是利息高不高，先记住这个词。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px10901926.mp4",
+          "durationSeconds": 11.37
+        },
+        {
+          "source": "footage_1080/px30488069.mp4",
+          "durationSeconds": 6.68
+        }
+      ]
+    },
+    {
+      "id": "p06",
+      "type": "media-text",
+      "durationSeconds": 21.6,
+      "narration": "audio/je2026/p06.wav",
+      "kicker": "核心消费者物价 · 今年",
+      "title": "从约4%的高点，回落到2%以下",
+      "paragraphs": [
+        "**约1.7%–1.8%**：剔除价格上蹿下跳的生鲜食品，只看更稳当的部分。"
+      ],
+      "source": "footage_1080/px29376327.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 1.98,
+          "text": "这几组数字很说明问题。"
+        },
+        {
+          "start": 1.92,
+          "end": 9.74,
+          "text": "核心物价——简单说，就是把价格上蹿下跳的生鲜食品剔掉、"
+        },
+        {
+          "start": 9.68,
+          "end": 16.22,
+          "text": "只看更稳当那部分的物价——从高点大约百分之四，"
+        },
+        {
+          "start": 16.1,
+          "end": 18.12,
+          "text": "回落到今年的百分之二以下，"
+        },
+        {
+          "start": 18.06,
+          "end": 21.0,
+          "text": "大约百分之一点七到一点八。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px29376327.mp4",
+          "durationSeconds": 10.8
+        },
+        {
+          "source": "footage_1080/px29832465.mp4",
+          "durationSeconds": 14.28
+        }
+      ]
+    },
+    {
+      "id": "p07",
+      "type": "stat",
+      "durationSeconds": 4.16,
+      "narration": "audio/je2026/p07.wav",
+      "kicker": "2026年春斗 · 平均加薪",
+      "statDisplay": "5%",
+      "statUnit": "平均加薪",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.24,
+          "text": "春季的工资谈判，平均加薪又站上了百分之五。"
+        }
+      ]
+    },
+    {
+      "id": "p08",
+      "type": "media-text",
+      "durationSeconds": 12.88,
+      "narration": "audio/je2026/p08.wav",
+      "kicker": "日本央行 · 政策利率",
+      "title": "1% → 1.25%，三十一年来最高",
+      "paragraphs": [
+        "年中提到 **1%**，九月再提到 **1.25%**——给整个市场定下的基准利息。"
+      ],
+      "source": "footage_1080/px39020626.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 4.94,
+          "text": "日本央行把政策利率，也就是它给整个市场定下的那个基准利息，"
+        },
+        {
+          "start": 4.88,
+          "end": 10.36,
+          "text": "先在年中提到百分之一，到了九月又提到百分之一点二五，"
+        },
+        {
+          "start": 10.24,
+          "end": 12.32,
+          "text": "这是三十一年来的最高水平。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px39020626.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px30488069.mp4",
+          "durationSeconds": 6.68
+        }
+      ]
+    },
+    {
+      "id": "p09",
+      "type": "media-text",
+      "durationSeconds": 15.2,
+      "narration": "audio/je2026/p09.wav",
+      "kicker": "日经指数 · 2026",
+      "title": "5万 → 6万，一度逼近7万点",
+      "paragraphs": [
+        "日本最具代表性的大盘指数，年中一度冲到 **近7万点**。"
+      ],
+      "source": "footage_1080/px38975928.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 4.76,
+          "text": "日经指数——就是日本股市最有名的大盘指数，"
+        },
+        {
+          "start": 5.22,
+          "end": 9.96,
+          "text": "挑一批有代表性的公司股价算出来的——从五万点，"
+        },
+        {
+          "start": 10.1,
+          "end": 14.6,
+          "text": "站上了六万点，到了年中还一度冲到接近七万点。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px38975928.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px30488069.mp4",
+          "durationSeconds": 6.68
+        }
+      ]
+    },
+    {
+      "id": "p10",
+      "type": "quote",
+      "durationSeconds": 6.32,
+      "narration": "audio/je2026/p10.wav",
+      "kicker": "三十年叙事里的稀奇画面",
+      "quote": "物价、工资、利率、股市——四个箭头，全都朝上。",
+      "attribution": "本期观察",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 1.94,
+          "text": "四个箭头，全都朝上。"
+        },
+        {
+          "start": 2.36,
+          "end": 5.78,
+          "text": "这在三十年的日本叙事里，是很稀奇的。"
+        }
+      ]
+    },
+    {
+      "id": "p11",
+      "type": "list",
+      "durationSeconds": 21.92,
+      "narration": "audio/je2026/p11.wav",
+      "kicker": "本期 · 三个问题",
+      "ordered": true,
+      "items": [
+        "这四件事为什么会同时发生？",
+        "这股力量是真的、可持续的吗？",
+        "如果是真的，日本付出了什么代价，还欠着哪些旧账？"
+      ],
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 4.66,
+          "text": "但今天这一期，我不想只给你讲“日本变好了”这种结论，"
+        },
+        {
+          "start": 5.22,
+          "end": 8.26,
+          "text": "我想带你往里走一层，问三个问题："
+        },
+        {
+          "start": 9.12,
+          "end": 11.66,
+          "text": "这四件事为什么会同时发生？"
+        },
+        {
+          "start": 12.14,
+          "end": 15.02,
+          "text": "这股力量是真的、可持续的吗？"
+        },
+        {
+          "start": 15.9,
+          "end": 19.44,
+          "text": "如果它是真的，日本付出的代价是什么，"
+        },
+        {
+          "start": 19.9,
+          "end": 21.36,
+          "text": "又还欠着哪些旧账？"
+        }
+      ]
+    },
+    {
+      "id": "p12",
+      "type": "media-text",
+      "durationSeconds": 18.16,
+      "narration": "audio/je2026/p12.wav",
+      "kicker": "全片总框架",
+      "title": "不是普通回暖，是旧体制在换挡",
+      "paragraphs": [
+        "一套运行了三十年的经济体制，正在**缓慢地、带着摩擦地**换挡。"
+      ],
+      "source": "footage_1080/px17219531.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 4.8,
+          "text": "先给你一个总的框架，后面每一节都是在往这个框架上贴零件。"
+        },
+        {
+          "start": 5.44,
+          "end": 8.56,
+          "text": "一句话概括：日本正在经历的，"
+        },
+        {
+          "start": 8.5,
+          "end": 11.4,
+          "text": "不是一次普通的经济回暖，"
+        },
+        {
+          "start": 11.34,
+          "end": 14.48,
+          "text": "而是一套运行了三十年的经济体制，"
+        },
+        {
+          "start": 14.42,
+          "end": 17.62,
+          "text": "在缓慢地、带着摩擦地，换挡。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px17219531.mp4",
+          "durationSeconds": 11.93
+        },
+        {
+          "source": "footage_1080/px30488069.mp4",
+          "durationSeconds": 6.68
+        }
+      ]
+    },
+    {
+      "id": "p13",
+      "type": "footage",
+      "durationSeconds": 25.68,
+      "narration": "audio/je2026/p13.wav",
+      "figure": "图 03",
+      "source": "footage_1080/px30488069.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "location": "东京 · 涩谷",
+      "caption": "三个卡死的零件，第一次开始松动",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.14,
+          "text": "用一个比喻，你可以把它想成一辆车。"
+        },
+        {
+          "start": 3.6,
+          "end": 6.88,
+          "text": "开了三十年，油门踩到底也不提速，"
+        },
+        {
+          "start": 7.34,
+          "end": 11.1,
+          "text": "因为发动机里卡着三个零件——需求不够、"
+        },
+        {
+          "start": 11.04,
+          "end": 13.08,
+          "text": "物价不涨、利率为零。"
+        },
+        {
+          "start": 13.62,
+          "end": 17.18,
+          "text": "这三个零件互相咬合，形成了一个死循环。"
+        },
+        {
+          "start": 17.7,
+          "end": 19.56,
+          "text": "二〇二六年真正发生的事，"
+        },
+        {
+          "start": 19.5,
+          "end": 22.3,
+          "text": "是这三个零件第一次开始松动。"
+        },
+        {
+          "start": 22.82,
+          "end": 25.14,
+          "text": "那我们就从这个死循环讲起。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px30488069.mp4",
+          "durationSeconds": 6.68
+        },
+        {
+          "source": "footage_1080/px35462656.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px18413833.mp4",
+          "durationSeconds": 10.047
+        }
+      ]
+    },
+    {
+      "id": "p14",
+      "type": "chapter",
+      "durationSeconds": 8.8,
+      "narration": "audio/je2026/p14.wav",
+      "kicker": "通缩 · 为什么是一种病",
+      "tags": [
+        "物价",
+        "预期",
+        "债务"
+      ],
+      "title": "物价不涨，难道不是好事吗？",
+      "dek": "对单个消费者短期是好事；对一整个经济体，长期下跌是一种病。",
+      "chapterNumber": "02",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.26,
+          "text": "很多人有个直觉：物价不涨多好，"
+        },
+        {
+          "start": 3.2,
+          "end": 4.64,
+          "text": "钱更值钱了。"
+        },
+        {
+          "start": 5.22,
+          "end": 8.16,
+          "text": "买东西越来越便宜，不是好事吗？"
+        }
+      ]
+    },
+    {
+      "id": "p15",
+      "type": "footage",
+      "durationSeconds": 14.72,
+      "narration": "audio/je2026/p15.wav",
+      "figure": "图 04",
+      "source": "footage_1080/px12245077.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "location": "现金 · 美元",
+      "caption": "对一整个经济体，长期下跌是一种病",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.82,
+          "text": "对单个消费者，短期看是好事。"
+        },
+        {
+          "start": 3.72,
+          "end": 7.86,
+          "text": "但对一整个经济体，长期持续的物价下跌——"
+        },
+        {
+          "start": 7.8,
+          "end": 11.28,
+          "text": "也就是我们说的通缩——是一种很难治的病。"
+        },
+        {
+          "start": 12.14,
+          "end": 12.56,
+          "text": "为什么？"
+        },
+        {
+          "start": 12.5,
+          "end": 14.1,
+          "text": "我给你拆成四层。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px12245077.mp4",
+          "durationSeconds": 12.01
+        },
+        {
+          "source": "footage_1080/px11471492.mp4",
+          "durationSeconds": 6.76
+        }
+      ]
+    },
+    {
+      "id": "p16",
+      "type": "media-text",
+      "durationSeconds": 22.08,
+      "narration": "audio/je2026/p16.wav",
+      "kicker": "第一层 · 等待降价",
+      "title": "越等越跌，越跌越等",
+      "paragraphs": [
+        "推迟消费 → 打折促销 → 预期更坚定，一个**自我实现**的循环。"
+      ],
+      "source": "footage_1080/px31593748.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 1.86,
+          "text": "第一层，叫“等待降价”。"
+        },
+        {
+          "start": 2.78,
+          "end": 5.32,
+          "text": "如果所有人都预期下个月更便宜，"
+        },
+        {
+          "start": 5.26,
+          "end": 8.12,
+          "text": "理性选择就是推迟消费。"
+        },
+        {
+          "start": 8.5,
+          "end": 11.74,
+          "text": "货卖不动就得打折，一打折，"
+        },
+        {
+          "start": 12.02,
+          "end": 15.74,
+          "text": "大家的预期就更坚定——还会降。"
+        },
+        {
+          "start": 16.32,
+          "end": 18.46,
+          "text": "这是一个自我实现的循环，"
+        },
+        {
+          "start": 18.84,
+          "end": 21.44,
+          "text": "越等越跌，越跌越等。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px31593748.mp4",
+          "durationSeconds": 10.0
+        },
+        {
+          "source": "footage_1080/px35044984.mp4",
+          "durationSeconds": 11.033
+        },
+        {
+          "source": "footage_1080/px11471492.mp4",
+          "durationSeconds": 6.76
+        }
+      ]
+    },
+    {
+      "id": "p17",
+      "type": "media-text",
+      "durationSeconds": 20.48,
+      "narration": "audio/je2026/p17.wav",
+      "kicker": "第二层 · 工资僵住",
+      "title": "物价、工资、消费，互相往下拽",
+      "paragraphs": [
+        "物价跌 → 利润薄 → 名义工资冻住 → 消费更弱，**向下的死循环**。"
+      ],
+      "source": "footage_1080/px8134702.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 1.88,
+          "text": "第二层，叫“工资僵住”。"
+        },
+        {
+          "start": 2.46,
+          "end": 4.68,
+          "text": "企业的价格降了，利润薄了，"
+        },
+        {
+          "start": 4.62,
+          "end": 6.24,
+          "text": "名义工资就冻住了。"
+        },
+        {
+          "start": 6.76,
+          "end": 10.64,
+          "text": "工资不涨，消费就更弱，回到第一层。"
+        },
+        {
+          "start": 10.58,
+          "end": 15.74,
+          "text": "物价跌是因为大家不买，大家不买是因为工资不涨，"
+        },
+        {
+          "start": 15.62,
+          "end": 19.94,
+          "text": "工资不涨是因为物价跌——一个向下的死循环。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px8134702.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px8425704.mp4",
+          "durationSeconds": 15.573
+        }
+      ]
+    },
+    {
+      "id": "p18",
+      "type": "footage",
+      "durationSeconds": 6.72,
+      "narration": "audio/je2026/p18.wav",
+      "figure": "图 05",
+      "source": "footage_1080/px3943971.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "location": "硬币 · 储蓄",
+      "caption": "第三层，最要命：债务会变重",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.56,
+          "text": "第三层，也是最少被提到、"
+        },
+        {
+          "start": 2.5,
+          "end": 6.1,
+          "text": "但最要命的一层：债务会变重。"
+        }
+      ]
+    },
+    {
+      "id": "p19",
+      "type": "media-text",
+      "durationSeconds": 24.16,
+      "narration": "audio/je2026/p19.wav",
+      "kicker": "第三层 · 债务变重",
+      "title": "欠的数字没变，相对收入却变重了",
+      "paragraphs": [
+        "物价和收入一起跌两成，**一百万债务**一个数字没变，你却要多干活、少花钱才能填上。"
+      ],
+      "source": "footage_1080/px11471492.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.34,
+          "text": "这一层我用一个数字说透。"
+        },
+        {
+          "start": 3.3,
+          "end": 7.28,
+          "text": "假设你欠了一百万，年收入也是这个水平。"
+        },
+        {
+          "start": 8.44,
+          "end": 11.1,
+          "text": "如果物价和收入一起跌了两成，"
+        },
+        {
+          "start": 11.7,
+          "end": 14.2,
+          "text": "你欠的一百万一个数字都没变，"
+        },
+        {
+          "start": 14.76,
+          "end": 17.78,
+          "text": "但相对于你的收入，它变重了。"
+        },
+        {
+          "start": 18.18,
+          "end": 21.66,
+          "text": "你得多干活、少花钱、多还债，"
+        },
+        {
+          "start": 21.6,
+          "end": 23.62,
+          "text": "才能填上这个窟窿。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px11471492.mp4",
+          "durationSeconds": 6.76
+        },
+        {
+          "source": "footage_1080/px10433645.mp4",
+          "durationSeconds": 5.6
+        },
+        {
+          "source": "footage_1080/px33402648.mp4",
+          "durationSeconds": 20.12
+        }
+      ]
+    },
+    {
+      "id": "p20",
+      "type": "media-text",
+      "durationSeconds": 19.76,
+      "narration": "audio/je2026/p20.wav",
+      "kicker": "债务通缩",
+      "title": "一起省钱还债，把经济省进更深的坑",
+      "paragraphs": [
+        "全社会支出减少 → 物价再跌 → 债务相对更重，经济学家称为**债务通缩**。"
+      ],
+      "source": "footage_1080/px3945008.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.9,
+          "text": "可当你这么做的时候，全社会的支出又少了一块，"
+        },
+        {
+          "start": 4.36,
+          "end": 7.5,
+          "text": "物价又往下走，债务又相对更重。"
+        },
+        {
+          "start": 8.14,
+          "end": 16.1,
+          "text": "经济学家管这个叫“债务通缩”——大家一起省钱还债，"
+        },
+        {
+          "start": 16.54,
+          "end": 19.2,
+          "text": "结果把经济省进了更深的坑。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px3945008.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px7118320.mp4",
+          "durationSeconds": 15.0
+        }
+      ]
+    },
+    {
+      "id": "p21",
+      "type": "footage",
+      "durationSeconds": 26.0,
+      "narration": "audio/je2026/p21.wav",
+      "figure": "图 06",
+      "source": "footage_1080/px38440689.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "location": "交易室 · K线大屏",
+      "caption": "第四层：预期锚死",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 4.46,
+          "text": "第四层，叫“预期锚死”，这是最顽固的。"
+        },
+        {
+          "start": 4.96,
+          "end": 9.06,
+          "text": "一旦一代人形成了“东西不涨价”的肌肉记忆，"
+        },
+        {
+          "start": 9.0,
+          "end": 12.9,
+          "text": "央行放再多水，钱也进不了实体。"
+        },
+        {
+          "start": 13.32,
+          "end": 17.26,
+          "text": "过去二十多年，零利率、量化宽松、"
+        },
+        {
+          "start": 17.6,
+          "end": 20.1,
+          "text": "负利率、收益率曲线控制，"
+        },
+        {
+          "start": 20.04,
+          "end": 23.02,
+          "text": "日本几乎试遍了，效果有，"
+        },
+        {
+          "start": 22.96,
+          "end": 25.4,
+          "text": "但物价就是起不来。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px38440689.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px11471492.mp4",
+          "durationSeconds": 6.76
+        },
+        {
+          "source": "footage_1080/px10433645.mp4",
+          "durationSeconds": 5.6
+        },
+        {
+          "source": "footage_1080/px31593748.mp4",
+          "durationSeconds": 10.0
+        }
+      ]
+    },
+    {
+      "id": "p22",
+      "type": "quote",
+      "durationSeconds": 14.48,
+      "narration": "audio/je2026/p22.wav",
+      "kicker": "通缩体质 · 最难的一题",
+      "quote": "最难的从来不是把物价压下去，而是让物价涨起来。",
+      "attribution": "病了三十年，怎么会突然开始涨价？",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.26,
+          "text": "所以对染上通缩体质的国家来说，"
+        },
+        {
+          "start": 2.74,
+          "end": 5.3,
+          "text": "最难的从来不是把物价压下去，"
+        },
+        {
+          "start": 5.24,
+          "end": 7.62,
+          "text": "而是让物价涨起来。"
+        },
+        {
+          "start": 8.64,
+          "end": 12.08,
+          "text": "那问题来了：一个病了三十年的经济体，"
+        },
+        {
+          "start": 12.02,
+          "end": 14.02,
+          "text": "怎么会突然开始涨价了？"
+        }
+      ]
+    },
+    {
+      "id": "p23",
+      "type": "chapter",
+      "durationSeconds": 5.68,
+      "narration": "audio/je2026/p23.wav",
+      "kicker": "转折的起点",
+      "tags": [
+        "劳动力",
+        "输入型通胀"
+      ],
+      "title": "是央行放水放够了吗？",
+      "dek": "水放了二十年，早该涨了——这一次，靠的是两股现实的力量。",
+      "chapterNumber": "03",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.56,
+          "text": "你可能会想：是不是央行终于把水放够了，"
+        },
+        {
+          "start": 3.84,
+          "end": 5.1,
+          "text": "量变引起质变？"
+        }
+      ]
+    },
+    {
+      "id": "p24",
+      "type": "footage",
+      "durationSeconds": 16.96,
+      "narration": "audio/je2026/p24.wav",
+      "figure": "图 07",
+      "source": "footage_1080/px18413834.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "location": "东京 · 城市天际线",
+      "caption": "两股靠现实、不靠政策的力量",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 1.62,
+          "text": "不完全是。"
+        },
+        {
+          "start": 1.5,
+          "end": 4.54,
+          "text": "如果只是放水，过去二十年一直在放，"
+        },
+        {
+          "start": 4.86,
+          "end": 5.94,
+          "text": "早该涨了。"
+        },
+        {
+          "start": 6.78,
+          "end": 9.46,
+          "text": "二〇二六年这次涨价不太一样，"
+        },
+        {
+          "start": 9.46,
+          "end": 11.8,
+          "text": "是因为背后有两股不靠政策、"
+        },
+        {
+          "start": 12.12,
+          "end": 16.44,
+          "text": "而是靠现实的力量，第一次同时出现。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px18413834.mp4",
+          "durationSeconds": 7.72
+        },
+        {
+          "source": "footage_1080/px20391410.mp4",
+          "durationSeconds": 10.367
+        }
+      ]
+    },
+    {
+      "id": "p25",
+      "type": "media-text",
+      "durationSeconds": 15.92,
+      "narration": "audio/je2026/p25.wav",
+      "kicker": "第一股力量 · 劳动力市场",
+      "title": "从“人太多”，变成“人不够”",
+      "paragraphs": [
+        "团块世代退出、年轻人口减少，日本悄悄变成**岗位多、人不够**。"
+      ],
+      "source": "footage_1080/px6971150.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.1,
+          "text": "第一股力量，在劳动力市场。"
+        },
+        {
+          "start": 2.04,
+          "end": 4.1,
+          "text": "战后出生的“团块世代”，"
+        },
+        {
+          "start": 4.04,
+          "end": 7.34,
+          "text": "这几年基本全部退出了劳动力市场，"
+        },
+        {
+          "start": 7.28,
+          "end": 9.48,
+          "text": "年轻人口持续减少。"
+        },
+        {
+          "start": 9.42,
+          "end": 12.22,
+          "text": "日本从“人太多、岗位不够”，"
+        },
+        {
+          "start": 12.16,
+          "end": 15.4,
+          "text": "悄悄变成了“岗位多、人不够”。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px6971150.mp4",
+          "durationSeconds": 12.01
+        },
+        {
+          "source": "footage_1080/px12891229.mp4",
+          "durationSeconds": 12.0
+        }
+      ]
+    },
+    {
+      "id": "p26",
+      "type": "media-text",
+      "durationSeconds": 14.48,
+      "narration": "audio/je2026/p26.wav",
+      "kicker": "招工难",
+      "title": "便利店、出租车、护理、建筑、物流",
+      "paragraphs": [
+        "最大的烦恼不是没生意，是**招不到人**——企业不得不加薪留人。"
+      ],
+      "source": "footage_1080/px38298405.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.32,
+          "text": "你去看便利店、出租车、护理、"
+        },
+        {
+          "start": 2.26,
+          "end": 5.8,
+          "text": "建筑、物流，它们最大的烦恼不是没生意，"
+        },
+        {
+          "start": 5.74,
+          "end": 6.86,
+          "text": "是招不到人。"
+        },
+        {
+          "start": 7.32,
+          "end": 10.9,
+          "text": "只要招不到人，企业就不得不做一件事："
+        },
+        {
+          "start": 10.84,
+          "end": 13.94,
+          "text": "加薪，否则留不住人。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px38298405.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px12891229.mp4",
+          "durationSeconds": 12.0
+        }
+      ]
+    },
+    {
+      "id": "p27",
+      "type": "quote",
+      "durationSeconds": 14.16,
+      "narration": "audio/je2026/p27.wav",
+      "kicker": "含金量完全不同",
+      "quote": "过去是“政策希望的涨”，现在有一部分工资，是“不得不涨”。",
+      "attribution": "外力 vs 内生",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 1.48,
+          "text": "这就是关键。"
+        },
+        {
+          "start": 1.87,
+          "end": 4.84,
+          "text": "过去日本涨工资，是“政策希望的涨”；"
+        },
+        {
+          "start": 5.3,
+          "end": 8.52,
+          "text": "现在有一部分工资，是“不得不涨”。"
+        },
+        {
+          "start": 8.46,
+          "end": 11.08,
+          "text": "前者是外力，后者是内生的，"
+        },
+        {
+          "start": 11.02,
+          "end": 13.46,
+          "text": "这两者的含金量完全不同。"
+        }
+      ]
+    },
+    {
+      "id": "p28",
+      "type": "media-text",
+      "durationSeconds": 23.52,
+      "narration": "audio/je2026/p28.wav",
+      "kicker": "第二股力量 · 输入型通胀",
+      "title": "能源、食品涨价，日元偏弱放大账单",
+      "paragraphs": [
+        "能源高度依赖进口，**地缘冲突 + 日元贬值**，几乎把通胀直接搬了进来。"
+      ],
+      "source": "footage_1080/px32746859.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 4.46,
+          "text": "第二股力量，来自外部：输入型通胀。"
+        },
+        {
+          "start": 5.1,
+          "end": 8.62,
+          "text": "俄乌冲突把能源和粮食价格推了上去，"
+        },
+        {
+          "start": 9.06,
+          "end": 14.04,
+          "text": "日本能源高度依赖进口，几乎是把通胀直接搬了进来。"
+        },
+        {
+          "start": 14.62,
+          "end": 18.32,
+          "text": "日元偏弱，进口的东西换成日元就更贵，"
+        },
+        {
+          "start": 18.66,
+          "end": 22.9,
+          "text": "能源贵、食品贵，每一个人都能感受到。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px32746859.mp4",
+          "durationSeconds": 12.01
+        },
+        {
+          "source": "footage_1080/px36026534.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px8344448.mp4",
+          "durationSeconds": 12.01
+        }
+      ]
+    },
+    {
+      "id": "p29",
+      "type": "footage",
+      "durationSeconds": 29.04,
+      "narration": "audio/je2026/p29.wav",
+      "figure": "图 08",
+      "source": "footage_1080/px12891229.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "location": "化工厂 · 储罐",
+      "caption": "外部通胀 + 内部短缺，合力推着物价",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 1.98,
+          "text": "于是你看到一个很特殊的组合："
+        },
+        {
+          "start": 2.62,
+          "end": 6.42,
+          "text": "外部的输入型通胀，加上内部的劳动力短缺，"
+        },
+        {
+          "start": 6.98,
+          "end": 10.0,
+          "text": "两股力量同时推着物价往上走。"
+        },
+        {
+          "start": 11.22,
+          "end": 14.26,
+          "text": "这两股力量都不是央行想停就能停的，"
+        },
+        {
+          "start": 14.6,
+          "end": 20.06,
+          "text": "能源涨价是地缘决定的，人手不足是人口曲线决定的。"
+        },
+        {
+          "start": 21.28,
+          "end": 27.1,
+          "text": "物价起来了，那最关键的链条——工资，"
+        },
+        {
+          "start": 27.84,
+          "end": 28.44,
+          "text": "跟上了没有？"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px12891229.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px37151630.mp4",
+          "durationSeconds": 12.01
+        },
+        {
+          "source": "footage_1080/px15357261.mp4",
+          "durationSeconds": 10.47
+        }
+      ]
+    },
+    {
+      "id": "p30",
+      "type": "chapter",
+      "durationSeconds": 8.16,
+      "narration": "audio/je2026/p30.wav",
+      "kicker": "春斗 · 春季工资谈判",
+      "tags": [
+        "制度化",
+        "中小企业",
+        "实际工资"
+      ],
+      "title": "日本工资，有一个制度化的舞台",
+      "dek": "工会出“要求值”，企业还价，最后形成全行业参照的水平。",
+      "chapterNumber": "04",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.26,
+          "text": "在日本，工资不是随便涨的，"
+        },
+        {
+          "start": 2.2,
+          "end": 4.54,
+          "text": "它有一个非常制度化的舞台，"
+        },
+        {
+          "start": 4.48,
+          "end": 7.6,
+          "text": "叫“春斗”——春季工资谈判。"
+        }
+      ]
+    },
+    {
+      "id": "p31",
+      "type": "footage",
+      "durationSeconds": 15.44,
+      "narration": "audio/je2026/p31.wav",
+      "figure": "图 09",
+      "source": "footage_1080/px34575153.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "location": "东京 · 现代建筑",
+      "caption": "春斗，是日本工资的心跳监测仪",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.46,
+          "text": "每年这个时候，工会先出个“要求值”，"
+        },
+        {
+          "start": 4.08,
+          "end": 9.32,
+          "text": "企业再还价，最后达成一个全行业被广泛参照的水平。"
+        },
+        {
+          "start": 10.14,
+          "end": 14.8,
+          "text": "这个数字，几乎是日本工资的心跳监测仪。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px34575153.mp4",
+          "durationSeconds": 9.57
+        },
+        {
+          "source": "footage_1080/px7578632.mp4",
+          "durationSeconds": 10.04
+        }
+      ]
+    },
+    {
+      "id": "p32",
+      "type": "media-text",
+      "durationSeconds": 14.72,
+      "narration": "audio/je2026/p32.wav",
+      "kicker": "2026春斗 · 全过程",
+      "title": "要求逼近6%，最终落在5%附近",
+      "paragraphs": [
+        "工会要求**近6%** → 首轮汇总约 **5.26%** → 最终统计约 **5%**。"
+      ],
+      "source": "footage_1080/px5909916.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.56,
+          "text": "二〇二六年这一次，心跳明显偏强："
+        },
+        {
+          "start": 4.12,
+          "end": 8.86,
+          "text": "工会提出的加薪要求，平均逼近百分之六；"
+        },
+        {
+          "start": 8.74,
+          "end": 12.22,
+          "text": "第一轮汇总大约百分之五点二六；"
+        },
+        {
+          "start": 12.1,
+          "end": 14.18,
+          "text": "最终统计落在百分之五附近。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px5909916.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px7578632.mp4",
+          "durationSeconds": 10.04
+        }
+      ]
+    },
+    {
+      "id": "p33",
+      "type": "stat",
+      "durationSeconds": 3.36,
+      "narration": "audio/je2026/p33.wav",
+      "kicker": "春斗 · 历史坐标",
+      "statDisplay": "连续3年",
+      "statUnit": "加薪站上5%",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.32,
+          "text": "连续第三年，站上了百分之五。"
+        }
+      ]
+    },
+    {
+      "id": "p34",
+      "type": "media-text",
+      "durationSeconds": 17.28,
+      "narration": "audio/je2026/p34.wav",
+      "kicker": "方向一 · 大企 vs 中小企",
+      "title": "七成就业在中小企业，它们才是试金石",
+      "paragraphs": [
+        "真正要盯的，是中小企业能不能也加到 **4%–5%**。"
+      ],
+      "source": "footage_1080/px30283091.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.26,
+          "text": "这件事的第一个方向，是大企业容易、"
+        },
+        {
+          "start": 2.7,
+          "end": 3.76,
+          "text": "中小企业难。"
+        },
+        {
+          "start": 4.84,
+          "end": 7.36,
+          "text": "日本七成的就业在中小企业，"
+        },
+        {
+          "start": 7.3,
+          "end": 10.1,
+          "text": "中小企业才是真正的试金石。"
+        },
+        {
+          "start": 10.98,
+          "end": 16.32,
+          "text": "每年真正要盯的，是中小企业能不能也加到百分之四、"
+        },
+        {
+          "start": 16.2,
+          "end": 16.72,
+          "text": "五个点。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px30283091.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px7578632.mp4",
+          "durationSeconds": 10.04
+        }
+      ]
+    },
+    {
+      "id": "p35",
+      "type": "media-text",
+      "durationSeconds": 20.48,
+      "narration": "audio/je2026/p35.wav",
+      "kicker": "方向二 · 名义 vs 实际",
+      "title": "工资单在涨，不等于能多买东西",
+      "paragraphs": [
+        "**实际工资**＝名义工资扣掉物价；前几年物价跑得更快，实际工资老是负的。"
+      ],
+      "source": "footage_1080/px4393482.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.28,
+          "text": "第二个方向更微妙：名义工资涨，"
+        },
+        {
+          "start": 3.22,
+          "end": 5.1,
+          "text": "不等于实际工资涨。"
+        },
+        {
+          "start": 5.04,
+          "end": 8.12,
+          "text": "名义工资是工资单上的数字，"
+        },
+        {
+          "start": 8.06,
+          "end": 13.34,
+          "text": "实际工资是扣掉物价之后你真的能多买多少东西。"
+        },
+        {
+          "start": 13.28,
+          "end": 15.66,
+          "text": "日本前几年名义工资在涨，"
+        },
+        {
+          "start": 15.6,
+          "end": 19.92,
+          "text": "实际工资却老是负的，因为物价跑得更快。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px4393482.mp4",
+          "durationSeconds": 10.78
+        },
+        {
+          "source": "footage_1080/px5981731.mp4",
+          "durationSeconds": 8.24
+        },
+        {
+          "source": "footage_1080/px7578632.mp4",
+          "durationSeconds": 10.04
+        }
+      ]
+    },
+    {
+      "id": "p36",
+      "type": "footage",
+      "durationSeconds": 23.76,
+      "narration": "audio/je2026/p36.wav",
+      "figure": "图 10",
+      "source": "footage_1080/px7578632.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "location": "外汇牌价屏",
+      "caption": "实际工资由负转正，靠的是通胀先降温",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 5.92,
+          "text": "今年终于出现转折：随着物价从百分之四的高点回落到百分之一点七、"
+        },
+        {
+          "start": 6.02,
+          "end": 8.6,
+          "text": "一点八，实际工资由负转正了。"
+        },
+        {
+          "start": 8.54,
+          "end": 12.12,
+          "text": "注意这个因果顺序：实际工资转正，"
+        },
+        {
+          "start": 12.06,
+          "end": 16.42,
+          "text": "不是靠工资涨得更猛，而是靠通胀自己先降温。"
+        },
+        {
+          "start": 16.36,
+          "end": 20.22,
+          "text": "好循环成不成立，就看工资能不能连续、"
+        },
+        {
+          "start": 20.16,
+          "end": 23.16,
+          "text": "稳定地跑赢物价，得看三年五年。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px7578632.mp4",
+          "durationSeconds": 10.04
+        },
+        {
+          "source": "footage_1080/px38990769.mp4",
+          "durationSeconds": 15.88
+        }
+      ]
+    },
+    {
+      "id": "p37",
+      "type": "chapter",
+      "durationSeconds": 7.2,
+      "narration": "audio/je2026/p37.wav",
+      "kicker": "央行退场",
+      "tags": [
+        "加息",
+        "历史资产",
+        "中性利率"
+      ],
+      "title": "进场很豪迈，退出难十倍",
+      "dek": "零利率、买国债、买股票基金——浇了二十年的水，要慢慢收回来。",
+      "chapterNumber": "05",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.82,
+          "text": "过去二十多年，日本央行干的是一件很豪迈的事，"
+        },
+        {
+          "start": 4.28,
+          "end": 6.62,
+          "text": "而退出，比进场难十倍。"
+        }
+      ]
+    },
+    {
+      "id": "p38",
+      "type": "footage",
+      "durationSeconds": 8.16,
+      "narration": "audio/je2026/p38.wav",
+      "figure": "图 11",
+      "source": "footage_1080/px4319342.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "location": "银行 · 古典建筑",
+      "caption": "零利率、买国债、买股票基金",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.3,
+          "text": "它把利率压到零、压到负，"
+        },
+        {
+          "start": 2.24,
+          "end": 4.76,
+          "text": "把大量国债买进自己口袋，"
+        },
+        {
+          "start": 4.7,
+          "end": 7.58,
+          "text": "甚至直接买股票基金和房地产基金。"
+        }
+      ]
+    },
+    {
+      "id": "p39",
+      "type": "media-text",
+      "durationSeconds": 20.4,
+      "narration": "audio/je2026/p39.wav",
+      "kicker": "园丁的比喻",
+      "title": "花活了，先把温度慢慢调回来",
+      "paragraphs": [
+        "把温度调到最高、水浇到最多，一浇二十年；**降温比升温难十倍**。"
+      ],
+      "source": "footage_1080/px38600650.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.5,
+          "text": "你可以这么理解：它像一个园丁，"
+        },
+        {
+          "start": 2.96,
+          "end": 6.3,
+          "text": "为了让花活过来，把温度调到最高、"
+        },
+        {
+          "start": 6.24,
+          "end": 9.28,
+          "text": "水浇到最多，一浇就是二十年。"
+        },
+        {
+          "start": 10.6,
+          "end": 13.9,
+          "text": "花一旦活了，园丁要做的第一件事，"
+        },
+        {
+          "start": 13.84,
+          "end": 19.82,
+          "text": "是慢慢把温度调回来，而这个过程比调上去难十倍。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px38600650.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px7844373.mp4",
+          "durationSeconds": 12.16
+        }
+      ]
+    },
+    {
+      "id": "p40",
+      "type": "media-text",
+      "durationSeconds": 16.88,
+      "narration": "audio/je2026/p40.wav",
+      "kicker": "原因一 · 政府债务",
+      "title": "加息一个百分点，利息压力成倍上升",
+      "paragraphs": [
+        "不是在跟通胀赛跑，是在**通胀与财政之间走钢丝**。"
+      ],
+      "source": "footage_1080/px38656963.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.3,
+          "text": "第一个原因，加息会直接打在政府债务上。"
+        },
+        {
+          "start": 3.96,
+          "end": 7.58,
+          "text": "利率从接近零往上走，哪怕只走一个百分点，"
+        },
+        {
+          "start": 8.0,
+          "end": 11.18,
+          "text": "对这么庞大的债务，利息压力成倍上升。"
+        },
+        {
+          "start": 12.06,
+          "end": 13.96,
+          "text": "所以它不是在跟通胀赛跑，"
+        },
+        {
+          "start": 13.9,
+          "end": 16.3,
+          "text": "是在通胀和财政之间走钢丝。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px38656963.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px38600650.mp4",
+          "durationSeconds": 12.0
+        }
+      ]
+    },
+    {
+      "id": "p41",
+      "type": "media-text",
+      "durationSeconds": 15.92,
+      "narration": "audio/je2026/p41.wav",
+      "kicker": "原因二 · 历史遗留资产",
+      "title": "海量国债，外加一大笔股票基金",
+      "paragraphs": [
+        "卖快了**市场会慌**，不卖，资产负债表一直臃肿。"
+      ],
+      "source": "footage_1080/px38557069.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 4.1,
+          "text": "第二个原因，它手里压着一大堆历史遗留资产："
+        },
+        {
+          "start": 4.04,
+          "end": 7.44,
+          "text": "海量国债，还有一大笔股票基金，"
+        },
+        {
+          "start": 7.38,
+          "end": 10.6,
+          "text": "光浮盈一度就有几十万亿日元。"
+        },
+        {
+          "start": 10.54,
+          "end": 15.4,
+          "text": "卖快了市场会慌，不卖，资产负债表就一直臃肿。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px38557069.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px38600650.mp4",
+          "durationSeconds": 12.0
+        }
+      ]
+    },
+    {
+      "id": "p42",
+      "type": "footage",
+      "durationSeconds": 20.24,
+      "narration": "audio/je2026/p42.wav",
+      "figure": "图 12",
+      "source": "footage_1080/px38440687.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "location": "行情图表 · 多屏",
+      "caption": "2025秋：超宽松的“最终出口”",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.44,
+          "text": "二〇二五年秋天，日本央行终于明确方向："
+        },
+        {
+          "start": 3.86,
+          "end": 8.02,
+          "text": "开始逐步出售手里的股票基金和房地产基金，"
+        },
+        {
+          "start": 7.96,
+          "end": 13.04,
+          "text": "它给这事起了个名字，叫“超宽松的最终出口”。"
+        },
+        {
+          "start": 13.5,
+          "end": 15.8,
+          "text": "这说明连央行自己都承认："
+        },
+        {
+          "start": 15.74,
+          "end": 19.42,
+          "text": "这是一场要花很多年才能走完的退场。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px38440687.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px38055933.mp4",
+          "durationSeconds": 19.32
+        }
+      ]
+    },
+    {
+      "id": "p43",
+      "type": "media-text",
+      "durationSeconds": 19.76,
+      "narration": "audio/je2026/p43.wav",
+      "kicker": "原因三 · 中性利率是空白",
+      "title": "太久没正常加息，只能摸着黑走路",
+      "paragraphs": [
+        "加太快怕**摁住经济**，加太慢怕**通胀失控**，只能一次次看反应。"
+      ],
+      "source": "footage_1080/px38358369.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 4.04,
+          "text": "第三个原因最有意思：日本的中性利率到底在哪，"
+        },
+        {
+          "start": 3.98,
+          "end": 5.2,
+          "text": "其实没人知道。"
+        },
+        {
+          "start": 5.76,
+          "end": 9.62,
+          "text": "因为太久没正常加息，这个刻度几乎是空白的，"
+        },
+        {
+          "start": 9.56,
+          "end": 12.34,
+          "text": "央行是在摸着黑走路。"
+        },
+        {
+          "start": 12.28,
+          "end": 16.0,
+          "text": "加太快怕摁住经济，加太慢怕通胀失控，"
+        },
+        {
+          "start": 16.34,
+          "end": 19.22,
+          "text": "只能一次次加、一次次看反应。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px38358369.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px11839715.mp4",
+          "durationSeconds": 20.053
+        }
+      ]
+    },
+    {
+      "id": "p44",
+      "type": "quote",
+      "durationSeconds": 18.88,
+      "narration": "audio/je2026/p44.wav",
+      "kicker": "拆除自己搭的脚手架",
+      "quote": "加息不是庆祝胜利，而是小心翼翼地拆掉搭了二十年的脚手架。",
+      "attribution": "利率，重新回到经济生活",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 4.1,
+          "text": "所以日本央行的加息，本质不是庆祝胜利，"
+        },
+        {
+          "start": 4.59,
+          "end": 8.08,
+          "text": "而是小心翼翼地拆除自己搭了二十年的脚手架。"
+        },
+        {
+          "start": 8.92,
+          "end": 11.36,
+          "text": "它终于敢让“利率”这个东西，"
+        },
+        {
+          "start": 11.3,
+          "end": 13.64,
+          "text": "重新回到经济生活里了。"
+        },
+        {
+          "start": 14.22,
+          "end": 18.3,
+          "text": "接下来，看看更直观的地方——股市。"
+        }
+      ]
+    },
+    {
+      "id": "p45",
+      "type": "chapter",
+      "durationSeconds": 5.92,
+      "narration": "audio/je2026/p45.wav",
+      "kicker": "股市 · 两种涨法",
+      "tags": [
+        "治理改革",
+        "回购",
+        "半导体"
+      ],
+      "title": "先分清“变便宜”和“变能赚”",
+      "dek": "从5万到6万再到近7万，涨的原因其实有两层。",
+      "chapterNumber": "06",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 5.34,
+          "text": "股市从五万到六万，先要分清“变便宜”和“变能赚”。"
+        }
+      ]
+    },
+    {
+      "id": "p46",
+      "type": "footage",
+      "durationSeconds": 15.76,
+      "narration": "audio/je2026/p46.wav",
+      "figure": "图 13",
+      "source": "footage_1080/px38484636.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "location": "交易室 · 多屏行情",
+      "caption": "5万 → 6万 → 一度近7万",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 0.9,
+          "text": "先说现象。"
+        },
+        {
+          "start": 1.28,
+          "end": 4.56,
+          "text": "日经指数二〇二五年秋天第一次站上五万点，"
+        },
+        {
+          "start": 5.02,
+          "end": 7.08,
+          "text": "二〇二六年春天站上六万点，"
+        },
+        {
+          "start": 7.02,
+          "end": 10.58,
+          "text": "年中一度冲到接近七万点，随后回落。"
+        },
+        {
+          "start": 11.1,
+          "end": 15.16,
+          "text": "三十多年前泡沫顶峰的那个影子，被追上了。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px38484636.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px32243766.mp4",
+          "durationSeconds": 12.0
+        }
+      ]
+    },
+    {
+      "id": "p47",
+      "type": "media-text",
+      "durationSeconds": 9.52,
+      "narration": "audio/je2026/p47.wav",
+      "kicker": "先踩一脚刹车",
+      "title": "股市涨，有两种完全不同的原因",
+      "paragraphs": [
+        "混在一起听，很容易得出**错误的结论**。"
+      ],
+      "source": "footage_1080/px38512646.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.04,
+          "text": "但我想在这里给你一个刹车。"
+        },
+        {
+          "start": 2.44,
+          "end": 5.16,
+          "text": "因为股市涨有两种完全不同的原因，"
+        },
+        {
+          "start": 5.58,
+          "end": 9.0,
+          "text": "混在一起听，很容易得出错误的结论。"
+        }
+      ]
+    },
+    {
+      "id": "p48",
+      "type": "media-text",
+      "durationSeconds": 14.4,
+      "narration": "audio/je2026/p48.wav",
+      "kicker": "第一层 · 公司治理",
+      "title": "东证所点名：股价长期偏低的公司",
+      "paragraphs": [
+        "2023年春要求这些公司认真考虑**资本成本和股价**。"
+      ],
+      "source": "footage_1080/px38656971.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.1,
+          "text": "第一种原因，是公司治理变好了。"
+        },
+        {
+          "start": 3.38,
+          "end": 7.74,
+          "text": "二〇二三年春天，东京证券交易所公开要求那"
+        },
+        {
+          "start": 7.68,
+          "end": 10.88,
+          "text": "些股价相对于净资产长期偏低的公司，"
+        },
+        {
+          "start": 11.56,
+          "end": 13.86,
+          "text": "认真考虑资本成本和股价。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px38656971.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px32243766.mp4",
+          "durationSeconds": 12.0
+        }
+      ]
+    },
+    {
+      "id": "p49",
+      "type": "media-text",
+      "durationSeconds": 14.96,
+      "narration": "audio/je2026/p49.wav",
+      "kicker": "翻译成大白话",
+      "title": "提效率，或者把钱还给股东",
+      "paragraphs": [
+        "账上躺着现金和资产，股价却这么低——**别当永远不给股东回报的公司**。"
+      ],
+      "source": "footage_1080/px7580441.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 4.68,
+          "text": "翻译成大白话：你们账上躺着那么多现金和资产，"
+        },
+        {
+          "start": 4.62,
+          "end": 8.86,
+          "text": "股价却这么低，要么把效率提上去，"
+        },
+        {
+          "start": 8.8,
+          "end": 14.36,
+          "text": "要么把钱还给股东，别当一家永远不给股东回报的公司。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px7580441.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px32243766.mp4",
+          "durationSeconds": 12.0
+        }
+      ]
+    },
+    {
+      "id": "p50",
+      "type": "media-text",
+      "durationSeconds": 20.08,
+      "narration": "audio/je2026/p50.wav",
+      "kicker": "多米诺的第一张牌",
+      "title": "回购约22万亿日元，连续五年创新高",
+      "paragraphs": [
+        "加上**提高分红、改善披露**，都是实实在在把钱塞回股东口袋。"
+      ],
+      "source": "footage_1080/px39558578.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.36,
+          "text": "这一要求像推倒了一块多米诺骨牌。"
+        },
+        {
+          "start": 2.78,
+          "end": 6.42,
+          "text": "最直接的后果，是股票回购创下历史新高："
+        },
+        {
+          "start": 6.84,
+          "end": 10.68,
+          "text": "二〇二六年回购规模大约到了二十二万亿日元，"
+        },
+        {
+          "start": 11.0,
+          "end": 13.32,
+          "text": "而且是连续第五年创新高。"
+        },
+        {
+          "start": 14.1,
+          "end": 16.5,
+          "text": "加上提高分红、改善披露，"
+        },
+        {
+          "start": 16.44,
+          "end": 19.46,
+          "text": "都是实实在在把钱塞回股东口袋。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px39558578.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px7580271.mp4",
+          "durationSeconds": 13.08
+        }
+      ]
+    },
+    {
+      "id": "p51",
+      "type": "quote",
+      "durationSeconds": 15.44,
+      "narration": "audio/je2026/p51.wav",
+      "kicker": "第一层上涨的本质",
+      "quote": "同样的盈利能力，因为治理改善、回报提高，市场愿意给更高的价格。",
+      "attribution": "估值修复 · 有含金量",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 6.96,
+          "text": "所以第一层上涨，本质是“估值修复”——同样的盈利能力，"
+        },
+        {
+          "start": 6.9,
+          "end": 9.4,
+          "text": "因为治理改善、回报提高，"
+        },
+        {
+          "start": 9.34,
+          "end": 12.1,
+          "text": "市场愿意给更高的价格。"
+        },
+        {
+          "start": 12.6,
+          "end": 14.94,
+          "text": "这一层，是有含金量的。"
+        }
+      ]
+    },
+    {
+      "id": "p52",
+      "type": "media-text",
+      "durationSeconds": 6.72,
+      "narration": "audio/je2026/p52.wav",
+      "kicker": "第二层 · 新的故事",
+      "title": "人工智能与半导体",
+      "paragraphs": [
+        "这是与估值修复完全不同的一层上涨逻辑。"
+      ],
+      "source": "footage_1080/px36435763.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.32,
+          "text": "第二种原因，是新的故事，"
+        },
+        {
+          "start": 2.26,
+          "end": 6.2,
+          "text": "也就是人们常说的人工智能和半导体。"
+        }
+      ]
+    },
+    {
+      "id": "p53",
+      "type": "media-text",
+      "durationSeconds": 23.52,
+      "narration": "audio/je2026/p53.wav",
+      "kicker": "日本的半导体重注",
+      "title": "熊本台积电，北海道下一代制程",
+      "paragraphs": [
+        "两地国家补贴**超1万亿日元**；但回报要多年后兑现，**周期＋资本密集**，要打问号。"
+      ],
+      "source": "footage_1080/px29906414.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.72,
+          "text": "日本这几年在半导体上重新下了重手："
+        },
+        {
+          "start": 3.46,
+          "end": 7.7,
+          "text": "熊本引来台积电，北海道做更先进的下一代制程，"
+        },
+        {
+          "start": 8.08,
+          "end": 12.1,
+          "text": "国家补贴在这两个地方就超过一万亿日元。"
+        },
+        {
+          "start": 12.04,
+          "end": 16.1,
+          "text": "但半导体是最典型的周期加资本密集行业，"
+        },
+        {
+          "start": 16.04,
+          "end": 21.66,
+          "text": "回报要很多年后才兑现，能不能变成实实在在的盈利和工资，"
+        },
+        {
+          "start": 21.6,
+          "end": 22.96,
+          "text": "要打一个问号。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px29906414.mp4",
+          "durationSeconds": 12.01
+        },
+        {
+          "source": "footage_1080/px32386530.mp4",
+          "durationSeconds": 8.69
+        },
+        {
+          "source": "footage_1080/px32243766.mp4",
+          "durationSeconds": 12.0
+        }
+      ]
+    },
+    {
+      "id": "p54",
+      "type": "footage",
+      "durationSeconds": 31.84,
+      "narration": "audio/je2026/p54.wav",
+      "figure": "图 14",
+      "source": "footage_1080/px32243766.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "location": "工业生产线",
+      "caption": "盯一个指标：ROE 净资产收益率",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.12,
+          "text": "所以判断这段行情能不能走远，"
+        },
+        {
+          "start": 2.06,
+          "end": 6.34,
+          "text": "只需要盯一个指标：R O E，"
+        },
+        {
+          "start": 7.12,
+          "end": 8.5,
+          "text": "净资产收益率。"
+        },
+        {
+          "start": 9.84,
+          "end": 12.56,
+          "text": "如果企业能持续赚出更高回报，"
+        },
+        {
+          "start": 12.5,
+          "end": 15.9,
+          "text": "行情中途回调后还有更高点位；"
+        },
+        {
+          "start": 16.72,
+          "end": 19.84,
+          "text": "如果只是靠回购把每股收益挤上去，"
+        },
+        {
+          "start": 19.78,
+          "end": 24.4,
+          "text": "那就是一场漂亮的化妆，卸妆之后还得看脸。"
+        },
+        {
+          "start": 25.48,
+          "end": 31.28,
+          "text": "股市的乐观，和另一件事形成强烈反差——日本政府的账本。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px32243766.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px32386590.mp4",
+          "durationSeconds": 11.32
+        },
+        {
+          "source": "footage_1080/px35451880.mp4",
+          "durationSeconds": 16.55
+        }
+      ]
+    },
+    {
+      "id": "p55",
+      "type": "chapter",
+      "durationSeconds": 10.0,
+      "narration": "audio/je2026/p55.wav",
+      "kicker": "政府债务",
+      "tags": [
+        "约2.3倍GDP",
+        "内债",
+        "利息账单"
+      ],
+      "title": "债务两倍于经济总量，为什么三十年没崩？",
+      "dek": "真正的风险从来不是存量大，而是能不能滚得动。",
+      "chapterNumber": "07",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.42,
+          "text": "这是很多人对日本最想不通的一点："
+        },
+        {
+          "start": 3.24,
+          "end": 6.9,
+          "text": "一个政府债务相当于经济总量两倍三的国家，"
+        },
+        {
+          "start": 6.84,
+          "end": 9.42,
+          "text": "为什么过了三十年还没崩？"
+        }
+      ]
+    },
+    {
+      "id": "p56",
+      "type": "footage",
+      "durationSeconds": 17.28,
+      "narration": "audio/je2026/p56.wav",
+      "figure": "图 15",
+      "source": "footage_1080/px9921281.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "location": "夜间摩天楼",
+      "caption": "真正的风险：能不能滚得动",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 1.36,
+          "text": "我先把问题问准确一点。"
+        },
+        {
+          "start": 1.82,
+          "end": 4.46,
+          "text": "真正的风险，从来不是存量大不大，"
+        },
+        {
+          "start": 4.78,
+          "end": 6.32,
+          "text": "而是能不能滚得动。"
+        },
+        {
+          "start": 7.1,
+          "end": 10.0,
+          "text": "只要利息付得起、到期能借新还旧，"
+        },
+        {
+          "start": 9.94,
+          "end": 13.6,
+          "text": "日子就能过下去；哪天利息付不起，"
+        },
+        {
+          "start": 13.54,
+          "end": 16.72,
+          "text": "或没人肯借新钱，才是崩的那一天。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px9921281.mp4",
+          "durationSeconds": 11.48
+        },
+        {
+          "source": "footage_1080/px32347687.mp4",
+          "durationSeconds": 10.4
+        }
+      ]
+    },
+    {
+      "id": "p57",
+      "type": "media-text",
+      "durationSeconds": 21.52,
+      "narration": "audio/je2026/p57.wav",
+      "kicker": "支柱一、二",
+      "title": "自己人持有，日元计价",
+      "paragraphs": [
+        "绝大部分由**银行、保险、养老金、家庭**持有；**日元计价**，央行能印日元。"
+      ],
+      "source": "footage_1080/px10630297.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.8,
+          "text": "日本之所以滚得动，靠四个支柱。"
+        },
+        {
+          "start": 3.68,
+          "end": 7.94,
+          "text": "第一，这些债绝大部分是日本人自己持有的，"
+        },
+        {
+          "start": 8.38,
+          "end": 12.86,
+          "text": "银行、保险、养老金、家庭，都是自己人。"
+        },
+        {
+          "start": 14.08,
+          "end": 17.18,
+          "text": "第二，这些债是日元计价的，"
+        },
+        {
+          "start": 17.6,
+          "end": 20.9,
+          "text": "只要央行愿意，它就能印日元。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px10630297.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px34579102.mp4",
+          "durationSeconds": 12.012
+        }
+      ]
+    },
+    {
+      "id": "p58",
+      "type": "media-text",
+      "durationSeconds": 7.44,
+      "narration": "audio/je2026/p58.wav",
+      "kicker": "支柱三",
+      "title": "利率长期几乎为零",
+      "paragraphs": [
+        "借多少钱，利息都接近于**不用付**。"
+      ],
+      "source": "footage_1080/px34579102.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.7,
+          "text": "第三，很长一段时间里，利率几乎为零，"
+        },
+        {
+          "start": 4.0,
+          "end": 6.82,
+          "text": "借多少钱，利息都接近于不用付。"
+        }
+      ]
+    },
+    {
+      "id": "p59",
+      "type": "media-text",
+      "durationSeconds": 13.36,
+      "narration": "audio/je2026/p59.wav",
+      "kicker": "支柱四 · 最特别",
+      "title": "央行自己就是最大的债主",
+      "paragraphs": [
+        "大量国债在央行表上，某种程度是**左手欠右手**，内部记账。"
+      ],
+      "source": "footage_1080/px39391959.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.2,
+          "text": "第四，也是最特别的一条："
+        },
+        {
+          "start": 2.72,
+          "end": 4.92,
+          "text": "央行自己就是最大的债主，"
+        },
+        {
+          "start": 4.86,
+          "end": 8.26,
+          "text": "把大量国债买进了自己的资产负债表。"
+        },
+        {
+          "start": 8.64,
+          "end": 11.94,
+          "text": "某种程度上说，是左手欠右手的钱，"
+        },
+        {
+          "start": 11.88,
+          "end": 12.86,
+          "text": "内部记账。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px39391959.mp4",
+          "durationSeconds": 12.01
+        },
+        {
+          "source": "footage_1080/px32347687.mp4",
+          "durationSeconds": 10.4
+        }
+      ]
+    },
+    {
+      "id": "p60",
+      "type": "footage",
+      "durationSeconds": 19.28,
+      "narration": "audio/je2026/p60.wav",
+      "figure": "图 16",
+      "source": "footage_1080/px3977228.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "location": "英镑现金",
+      "caption": "有一根支柱正在被抽走：利率",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.44,
+          "text": "但是请注意，四根支柱里有一根正在被抽走，"
+        },
+        {
+          "start": 3.38,
+          "end": 4.74,
+          "text": "那就是利率。"
+        },
+        {
+          "start": 5.12,
+          "end": 8.74,
+          "text": "你可以把日本财政想象成一个背着巨额房贷的人，"
+        },
+        {
+          "start": 8.68,
+          "end": 11.92,
+          "text": "过去三十年享受接近零的浮动利率，"
+        },
+        {
+          "start": 11.86,
+          "end": 15.18,
+          "text": "还得很轻松；现在利率往上走，"
+        },
+        {
+          "start": 15.12,
+          "end": 18.74,
+          "text": "债务存量没变，每年的利息账单要涨了。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px3977228.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px32347687.mp4",
+          "durationSeconds": 10.4
+        }
+      ]
+    },
+    {
+      "id": "p61",
+      "type": "media-text",
+      "durationSeconds": 30.48,
+      "narration": "audio/je2026/p61.wav",
+      "kicker": "利息账单开始上涨",
+      "title": "短期爆不掉，也永远不会轻松",
+      "paragraphs": [
+        "利率每上一点，就会被债务**持续扣掉**本可用在教育、育儿、医疗、防卫的钱。"
+      ],
+      "source": "footage_1080/px32347687.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 4.78,
+          "text": "如果长期利率继续往上，国债支出会很快挤压教育、"
+        },
+        {
+          "start": 5.06,
+          "end": 6.64,
+          "text": "育儿、医疗、防卫。"
+        },
+        {
+          "start": 7.42,
+          "end": 11.16,
+          "text": "我的判断是：日本债务短期内爆不掉，"
+        },
+        {
+          "start": 11.54,
+          "end": 14.34,
+          "text": "因为有自己人持有、本币计价、"
+        },
+        {
+          "start": 14.28,
+          "end": 19.04,
+          "text": "央行托底这套组合拳；但它也永远不会轻松，"
+        },
+        {
+          "start": 19.58,
+          "end": 24.58,
+          "text": "利率每上一点，就会被债务持续扣掉本可用在别处的钱。"
+        },
+        {
+          "start": 25.58,
+          "end": 29.76,
+          "text": "比债务更无解的，是——人。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px32347687.mp4",
+          "durationSeconds": 10.4
+        },
+        {
+          "source": "footage_1080/px12819878.mp4",
+          "durationSeconds": 12.01
+        },
+        {
+          "source": "footage_1080/px15534571.mp4",
+          "durationSeconds": 9.557
+        }
+      ]
+    },
+    {
+      "id": "p62",
+      "type": "chapter",
+      "durationSeconds": 3.6,
+      "narration": "audio/je2026/p62.wav",
+      "kicker": "人口 · 下沉的地板",
+      "tags": [
+        "少子化",
+        "老龄化",
+        "潜在增长率"
+      ],
+      "title": "日本人口的地板，正在往下沉",
+      "dek": "比债务更无解的，是人。",
+      "chapterNumber": "08",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.48,
+          "text": "日本人口的地板，正在往下沉。"
+        }
+      ]
+    },
+    {
+      "id": "p63",
+      "type": "stat",
+      "durationSeconds": 18.56,
+      "narration": "audio/je2026/p63.wav",
+      "kicker": "人口 · 2026",
+      "statDisplay": "<70万",
+      "statUnit": "年出生人口",
+      "note": "现约1.22亿人 · 65岁以上近三成 · 中叶或不足1亿",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.62,
+          "text": "日本现在大约一亿两千两百多万人，"
+        },
+        {
+          "start": 2.56,
+          "end": 4.38,
+          "text": "而且在持续减少。"
+        },
+        {
+          "start": 5.12,
+          "end": 7.58,
+          "text": "六十五岁以上占将近三成，"
+        },
+        {
+          "start": 8.17,
+          "end": 11.54,
+          "text": "每年新出生的孩子已经少到七十万以下。"
+        },
+        {
+          "start": 12.12,
+          "end": 15.4,
+          "text": "有测算认为，到本世纪中叶之后，"
+        },
+        {
+          "start": 15.79,
+          "end": 17.96,
+          "text": "人口可能萎缩到一亿以下。"
+        }
+      ]
+    },
+    {
+      "id": "p64",
+      "type": "media-text",
+      "durationSeconds": 20.4,
+      "narration": "audio/je2026/p64.wav",
+      "kicker": "第一层 · 劳动人口减少",
+      "title": "招不到人，既是通胀原因，也是增长枷锁",
+      "paragraphs": [
+        "干活的年轻人越来越少，服务业**被迫涨价**。"
+      ],
+      "source": "footage_1080/px12345283.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.66,
+          "text": "人口在经济上的意义不是总数变少这么简单，"
+        },
+        {
+          "start": 4.2,
+          "end": 5.28,
+          "text": "我拆成三层。"
+        },
+        {
+          "start": 5.96,
+          "end": 8.58,
+          "text": "第一层，叫劳动人口减少："
+        },
+        {
+          "start": 8.94,
+          "end": 12.72,
+          "text": "干活的年轻人越来越少，企业招不到人，"
+        },
+        {
+          "start": 13.08,
+          "end": 17.88,
+          "text": "服务业被迫涨价——这既是通胀的原因，"
+        },
+        {
+          "start": 17.82,
+          "end": 19.8,
+          "text": "也是增长的枷锁。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px12345283.mp4",
+          "durationSeconds": 6.32
+        },
+        {
+          "source": "footage_1080/px17956563.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px6693623.mp4",
+          "durationSeconds": 7.12
+        }
+      ]
+    },
+    {
+      "id": "p65",
+      "type": "media-text",
+      "durationSeconds": 17.36,
+      "narration": "audio/je2026/p65.wav",
+      "kicker": "第二层 · 负担结构变化",
+      "title": "领的人变多，交的人变少",
+      "paragraphs": [
+        "社会对未来更保守、更不愿冒险，反而**压抑消费和创新**。"
+      ],
+      "source": "footage_1080/px6693623.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 1.86,
+          "text": "第二层，叫负担结构变化。"
+        },
+        {
+          "start": 1.8,
+          "end": 5.72,
+          "text": "领养老金的人在变多，交社保的人在变少，"
+        },
+        {
+          "start": 6.12,
+          "end": 8.74,
+          "text": "每一代年轻人肩上的比例在变重。"
+        },
+        {
+          "start": 9.38,
+          "end": 11.76,
+          "text": "这会改变社会对未来的态度，"
+        },
+        {
+          "start": 11.7,
+          "end": 14.88,
+          "text": "人们变得更保守、更不愿冒风险，"
+        },
+        {
+          "start": 14.82,
+          "end": 16.8,
+          "text": "反而压抑消费和创新。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px6693623.mp4",
+          "durationSeconds": 7.12
+        },
+        {
+          "source": "footage_1080/px35600746.mp4",
+          "durationSeconds": 12.0
+        }
+      ]
+    },
+    {
+      "id": "p66",
+      "type": "media-text",
+      "durationSeconds": 17.68,
+      "narration": "audio/je2026/p66.wav",
+      "kicker": "第三层 · 最本质",
+      "title": "潜在增长率，约0.5%上下",
+      "paragraphs": [
+        "不引发通胀前提下长期最多能增长多少；稍有意外，就可能被**抹平**。"
+      ],
+      "source": "footage_1080/px35488300.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.76,
+          "text": "第三层最本质：人口减少，"
+        },
+        {
+          "start": 2.7,
+          "end": 5.22,
+          "text": "最终会压到潜在增长率上。"
+        },
+        {
+          "start": 5.6,
+          "end": 10.56,
+          "text": "它指的是经济在不引发通胀前提下长期最多能增长多少，"
+        },
+        {
+          "start": 11.06,
+          "end": 14.36,
+          "text": "日本这个数字大概在百分之零点五上下，"
+        },
+        {
+          "start": 14.3,
+          "end": 17.08,
+          "text": "稍有一个意外，就可能被抹平。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px35488300.mp4",
+          "durationSeconds": 12.01
+        },
+        {
+          "source": "footage_1080/px19756786.mp4",
+          "durationSeconds": 12.0
+        }
+      ]
+    },
+    {
+      "id": "p67",
+      "type": "footage",
+      "durationSeconds": 21.92,
+      "narration": "audio/je2026/p67.wav",
+      "figure": "图 17",
+      "source": "footage_1080/px3723453.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "location": "机场跑道 · 舷窗视角",
+      "caption": "三张牌：本国劳动 / 外国劳动者 / 自动化",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 5.08,
+          "text": "日本应对的牌也就三张：一是让更多本国人参与劳动，"
+        },
+        {
+          "start": 5.46,
+          "end": 8.7,
+          "text": "女性和老人的劳动参与率确实提高了；"
+        },
+        {
+          "start": 9.42,
+          "end": 13.62,
+          "text": "二是引进外国人，外国劳动者数量创新高，"
+        },
+        {
+          "start": 13.56,
+          "end": 16.52,
+          "text": "制度不断往长期留下来的方向转；"
+        },
+        {
+          "start": 17.34,
+          "end": 21.34,
+          "text": "三是用技术和自动化补人。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px3723453.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px35488267.mp4",
+          "durationSeconds": 12.0
+        }
+      ]
+    },
+    {
+      "id": "p68",
+      "type": "media-text",
+      "durationSeconds": 17.6,
+      "narration": "audio/je2026/p68.wav",
+      "kicker": "三张牌的边界",
+      "title": "只能改变斜率，改变不了方向",
+      "paragraphs": [
+        "未来二十年的剧本今天已写好大半——**明天会成为老人的人，今天都已经出生了**。"
+      ],
+      "source": "footage_1080/px4396425.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.68,
+          "text": "但你注意，这三张牌都只能改变下降的斜率，"
+        },
+        {
+          "start": 3.98,
+          "end": 5.2,
+          "text": "改变不了方向。"
+        },
+        {
+          "start": 6.28,
+          "end": 13.24,
+          "text": "未来二十年的剧本今天已写好大半——因为明天会成为老人的人，"
+        },
+        {
+          "start": 14.06,
+          "end": 17.12,
+          "text": "今天都已经出生了。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px4396425.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px12345283.mp4",
+          "durationSeconds": 6.32
+        }
+      ]
+    },
+    {
+      "id": "p69",
+      "type": "media-text",
+      "durationSeconds": 20.72,
+      "narration": "audio/je2026/p69.wav",
+      "kicker": "真正的天花板",
+      "title": "不在财政、央行，而在生产率",
+      "paragraphs": [
+        "劳动投入未来只会是负贡献，只剩**每小时创造多少价值**能往上顶。"
+      ],
+      "source": "footage_1080/px19756786.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.54,
+          "text": "所以日本经济的天花板，不在财政、"
+        },
+        {
+          "start": 3.68,
+          "end": 6.96,
+          "text": "不在央行、也不在股市，而是生产率。"
+        },
+        {
+          "start": 8.08,
+          "end": 10.4,
+          "text": "劳动投入未来只会是负贡献，"
+        },
+        {
+          "start": 10.62,
+          "end": 15.06,
+          "text": "能往上顶的，只剩下每个人每小时能创造多少价值。"
+        },
+        {
+          "start": 15.9,
+          "end": 20.12,
+          "text": "人少了、内需薄了，日本靠什么跟世界打交道？"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px19756786.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px8512857.mp4",
+          "durationSeconds": 10.067
+        }
+      ]
+    },
+    {
+      "id": "p70",
+      "type": "chapter",
+      "durationSeconds": 7.2,
+      "narration": "audio/je2026/p70.wav",
+      "kicker": "对外交往 · 冰与火",
+      "tags": [
+        "入境游",
+        "进口账单",
+        "海外资产"
+      ],
+      "title": "一个容易被忽略的结构变化",
+      "dek": "火的一面是游客，冰的一面是进口，真正的底牌在海外资产。",
+      "chapterNumber": "09",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.24,
+          "text": "日本的对外交往，有冰与火两副表情，"
+        },
+        {
+          "start": 3.66,
+          "end": 6.56,
+          "text": "这里有一个特别容易被忽略的结构变化。"
+        }
+      ]
+    },
+    {
+      "id": "p71",
+      "type": "footage",
+      "durationSeconds": 14.08,
+      "narration": "audio/je2026/p71.wav",
+      "figure": "图 18",
+      "source": "footage_1080/px29472039.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "location": "河滨城市 · 黄昏",
+      "caption": "火：入境游消费创历史新高",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 1.0,
+          "text": "先看火的一面。"
+        },
+        {
+          "start": 1.48,
+          "end": 4.38,
+          "text": "疫情之后，赴日旅游反弹得非常猛，"
+        },
+        {
+          "start": 4.72,
+          "end": 8.36,
+          "text": "消费额已经超过疫情前高点，创出历史新高。"
+        },
+        {
+          "start": 9.12,
+          "end": 11.58,
+          "text": "你在东京、大阪、京都街头，"
+        },
+        {
+          "start": 11.52,
+          "end": 13.44,
+          "text": "会直接感受到那种热度。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px29472039.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px4778070.mp4",
+          "durationSeconds": 6.08
+        }
+      ]
+    },
+    {
+      "id": "p72",
+      "type": "media-text",
+      "durationSeconds": 14.0,
+      "narration": "audio/je2026/p72.wav",
+      "kicker": "变化一 · 人均含金量",
+      "title": "更愿意为体验、住宿、购物花钱",
+      "paragraphs": [
+        "地方政府和商家**尝到了甜头**。"
+      ],
+      "source": "footage_1080/px37420458.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 4.5,
+          "text": "二〇二六年一件事是，消费的人均含金量在提"
+        },
+        {
+          "start": 4.44,
+          "end": 8.14,
+          "text": "高——客人更愿意在体验、"
+        },
+        {
+          "start": 8.42,
+          "end": 13.4,
+          "text": "住宿、购物上花钱，地方政府和商家尝到了甜头。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px37420458.mp4",
+          "durationSeconds": 7.64
+        },
+        {
+          "source": "footage_1080/px29472039.mp4",
+          "durationSeconds": 12.0
+        }
+      ]
+    },
+    {
+      "id": "p73",
+      "type": "media-text",
+      "durationSeconds": 14.08,
+      "narration": "audio/je2026/p73.wav",
+      "kicker": "变化二 · 地理再分配",
+      "title": "客源从传统市场，转向欧美与东南亚",
+      "paragraphs": [
+        "一些传统大客源地回落，新兴市场客人**创出新高**。"
+      ],
+      "source": "footage_1080/px32284502.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.18,
+          "text": "另一件是，热度在地理上重新分配。"
+        },
+        {
+          "start": 3.68,
+          "end": 6.94,
+          "text": "来自某些传统大客源地的客流回落了，"
+        },
+        {
+          "start": 7.4,
+          "end": 11.72,
+          "text": "但来自欧美、东南亚和一些新兴市场的客人，"
+        },
+        {
+          "start": 11.8,
+          "end": 13.48,
+          "text": "却在创自己的新高。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px32284502.mp4",
+          "durationSeconds": 12.01
+        },
+        {
+          "source": "footage_1080/px4778070.mp4",
+          "durationSeconds": 6.08
+        }
+      ]
+    },
+    {
+      "id": "p74",
+      "type": "quote",
+      "durationSeconds": 12.4,
+      "narration": "audio/je2026/p74.wav",
+      "kicker": "客源多元化",
+      "quote": "日本正在从“某一批客人的日本”，变成“大家的日本”。",
+      "attribution": "越多元，越扛得住变化",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.1,
+          "text": "这两件事放在一起其实是好事。"
+        },
+        {
+          "start": 2.62,
+          "end": 6.2,
+          "text": "客源越多元，行业越扛得住变化。"
+        },
+        {
+          "start": 7.06,
+          "end": 9.54,
+          "text": "日本正在从“某一批客人的日本”，"
+        },
+        {
+          "start": 10.02,
+          "end": 11.78,
+          "text": "变成“大家的日本”。"
+        }
+      ]
+    },
+    {
+      "id": "p75",
+      "type": "media-text",
+      "durationSeconds": 20.08,
+      "narration": "audio/je2026/p75.wav",
+      "kicker": "冰的一面 · 进口依赖",
+      "title": "能源一高、日元一弱，贸易经常逆差",
+      "paragraphs": [
+        "能源、粮食、原材料大量靠进口；出口挣的钱，**被进口花掉了**。"
+      ],
+      "source": "footage_1080/px4778070.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 1.2,
+          "text": "再看冰的一面。"
+        },
+        {
+          "start": 2.2,
+          "end": 5.74,
+          "text": "日本资源匮乏，能源、粮食、"
+        },
+        {
+          "start": 5.98,
+          "end": 7.8,
+          "text": "原材料大量依赖进口。"
+        },
+        {
+          "start": 8.38,
+          "end": 10.72,
+          "text": "只要能源一高、日元一弱，"
+        },
+        {
+          "start": 11.16,
+          "end": 17.88,
+          "text": "进口账单就非常沉重，贸易收支经常掉进逆差——出口挣的钱，"
+        },
+        {
+          "start": 17.82,
+          "end": 19.56,
+          "text": "被进口花掉了。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px4778070.mp4",
+          "durationSeconds": 6.08
+        },
+        {
+          "source": "footage_1080/px11930178.mp4",
+          "durationSeconds": 12.01
+        },
+        {
+          "source": "footage_1080/px4778079.mp4",
+          "durationSeconds": 9.16
+        }
+      ]
+    },
+    {
+      "id": "p76",
+      "type": "media-text",
+      "durationSeconds": 20.24,
+      "narration": "audio/je2026/p76.wav",
+      "kicker": "谜一样的顺差",
+      "title": "靠海外资产收益，而不是出口商品",
+      "paragraphs": [
+        "分红、利息以**第一次所得收入**回流，补上贸易赤字还有富余。"
+      ],
+      "source": "footage_1080/px10391545.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 4.62,
+          "text": "但奇怪的是，日本的经常收支很多时候仍然是顺差。"
+        },
+        {
+          "start": 5.46,
+          "end": 8.1,
+          "text": "因为它靠海外资产的收益赚钱，"
+        },
+        {
+          "start": 8.04,
+          "end": 9.96,
+          "text": "而不是靠出口商品。"
+        },
+        {
+          "start": 11.28,
+          "end": 15.66,
+          "text": "这些分红、利息以“第一次所得收入”的名义回流，"
+        },
+        {
+          "start": 15.6,
+          "end": 19.62,
+          "text": "规模足以补上贸易赤字，甚至还有富余。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px10391545.mp4",
+          "durationSeconds": 12.01
+        },
+        {
+          "source": "footage_1080/px30281175.mp4",
+          "durationSeconds": 12.01
+        }
+      ]
+    },
+    {
+      "id": "p77",
+      "type": "footage",
+      "durationSeconds": 19.92,
+      "narration": "audio/je2026/p77.wav",
+      "figure": "图 19",
+      "source": "footage_1080/px9831955.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "location": "黄昏港口 · 货轮",
+      "caption": "从贸易国家，变成投资收租国家",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.04,
+          "text": "所以日本正从一个靠卖东西赚钱的贸易国家，"
+        },
+        {
+          "start": 2.98,
+          "end": 6.12,
+          "text": "变成一个靠海外资产收租的投资国家。"
+        },
+        {
+          "start": 6.46,
+          "end": 10.2,
+          "text": "国力越来越取决于它在全世界持有多少好资产。"
+        },
+        {
+          "start": 10.68,
+          "end": 14.36,
+          "text": "日元贬值让海外收益换回日元时变得更多，"
+        },
+        {
+          "start": 14.96,
+          "end": 17.82,
+          "text": "所以日元走势对它是一把双刃剑，"
+        },
+        {
+          "start": 17.76,
+          "end": 19.36,
+          "text": "而不是一个简单的指标。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px9831955.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px32747083.mp4",
+          "durationSeconds": 12.01
+        },
+        {
+          "source": "footage_1080/px15187012.mp4",
+          "durationSeconds": 10.2
+        }
+      ]
+    },
+    {
+      "id": "p78",
+      "type": "chapter",
+      "durationSeconds": 6.88,
+      "narration": "audio/je2026/p78.wav",
+      "kicker": "未来 · 四个变量",
+      "tags": [
+        "工资",
+        "日元",
+        "利率",
+        "产业"
+      ],
+      "title": "往前看，盯住这四件事",
+      "dek": "四个变量，分别对应日本经济最脆弱的四个地方。",
+      "chapterNumber": "10",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.08,
+          "text": "主要部件都拆开看过了，往前看，"
+        },
+        {
+          "start": 3.46,
+          "end": 6.3,
+          "text": "这几年最该盯住的，是四个变量。"
+        }
+      ]
+    },
+    {
+      "id": "p79",
+      "type": "media-text",
+      "durationSeconds": 16.4,
+      "narration": "audio/je2026/p79.wav",
+      "kicker": "变量一 · 工资",
+      "title": "中小企业的春斗，是最好的温度计",
+      "paragraphs": [
+        "它们利润薄、议价弱，环境一变，**最先停止加薪**。"
+      ],
+      "source": "footage_1080/px32268481.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.5,
+          "text": "第一个变量：工资能不能继续涨，"
+        },
+        {
+          "start": 2.44,
+          "end": 5.06,
+          "text": "尤其是中小企业。"
+        },
+        {
+          "start": 5.0,
+          "end": 8.72,
+          "text": "它们利润薄、议价弱，一旦外部环境变差，"
+        },
+        {
+          "start": 8.66,
+          "end": 11.06,
+          "text": "最先停止加薪的就是它们。"
+        },
+        {
+          "start": 11.96,
+          "end": 15.82,
+          "text": "春天那场谈判的结果，会是一个很好的温度计。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px32268481.mp4",
+          "durationSeconds": 12.01
+        },
+        {
+          "source": "footage_1080/px29906415.mp4",
+          "durationSeconds": 12.012
+        }
+      ]
+    },
+    {
+      "id": "p80",
+      "type": "media-text",
+      "durationSeconds": 15.28,
+      "narration": "audio/je2026/p80.wav",
+      "kicker": "变量二 · 日元与进口物价",
+      "title": "弱了伤民生，强了伤出口",
+      "paragraphs": [
+        "真正想要的，是一个**不大起大落**的稳定状态。"
+      ],
+      "source": "footage_1080/px7263305.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.62,
+          "text": "第二个变量：日元和进口物价。"
+        },
+        {
+          "start": 3.42,
+          "end": 6.58,
+          "text": "日元弱，进口就贵，生活成本上去；"
+        },
+        {
+          "start": 6.98,
+          "end": 10.08,
+          "text": "日元太强，又打击出口和海外收益。"
+        },
+        {
+          "start": 10.72,
+          "end": 14.72,
+          "text": "日本真正想要的，是一个不大起大落的稳定状态。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px7263305.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px32268481.mp4",
+          "durationSeconds": 12.012
+        }
+      ]
+    },
+    {
+      "id": "p81",
+      "type": "media-text",
+      "durationSeconds": 14.72,
+      "narration": "audio/je2026/p81.wav",
+      "kicker": "变量三 · 长期利率",
+      "title": "最大的潜在雷区：政府利息账单",
+      "paragraphs": [
+        "国债利息是**滚雪球式**的，决定财政未来有多少腾挪空间。"
+      ],
+      "source": "footage_1080/px9705417.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "left",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.44,
+          "text": "第三个变量：长期利率和政府利息账单，"
+        },
+        {
+          "start": 4.22,
+          "end": 6.26,
+          "text": "这是我认为最大的潜在雷区。"
+        },
+        {
+          "start": 7.08,
+          "end": 10.78,
+          "text": "国债利息是滚雪球式的，它不会明天就出事，"
+        },
+        {
+          "start": 11.16,
+          "end": 14.12,
+          "text": "但决定了日本财政未来有多少腾挪空间。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px9705417.mp4",
+          "durationSeconds": 12.01
+        },
+        {
+          "source": "footage_1080/px32268481.mp4",
+          "durationSeconds": 12.012
+        }
+      ]
+    },
+    {
+      "id": "p82",
+      "type": "media-text",
+      "durationSeconds": 15.52,
+      "narration": "audio/je2026/p82.wav",
+      "kicker": "变量四 · 新故事落地",
+      "title": "能不能量产、赚钱、带动整条产业链",
+      "paragraphs": [
+        "AI、半导体、先进制程，需要**几年时间**验证。"
+      ],
+      "source": "footage_1080/px29906415.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.98,
+          "text": "第四个变量：那些新故事能不能落地。"
+        },
+        {
+          "start": 3.72,
+          "end": 6.8,
+          "text": "人工智能、半导体、先进制程，"
+        },
+        {
+          "start": 7.26,
+          "end": 9.38,
+          "text": "真正值钱的是能不能量产、"
+        },
+        {
+          "start": 9.32,
+          "end": 12.92,
+          "text": "能不能赚钱、能不能带动周边一整条产业链，"
+        },
+        {
+          "start": 12.86,
+          "end": 14.98,
+          "text": "这需要几年时间验证。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px29906415.mp4",
+          "durationSeconds": 12.01
+        },
+        {
+          "source": "footage_1080/px32268481.mp4",
+          "durationSeconds": 12.012
+        }
+      ]
+    },
+    {
+      "id": "p83",
+      "type": "quote",
+      "durationSeconds": 13.36,
+      "narration": "audio/je2026/p83.wav",
+      "kicker": "四个变量 · 四处软肋",
+      "quote": "工资对应内需，汇率对应民生，利率对应财政，产业对应未来。",
+      "attribution": "观察清单",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.92,
+          "text": "这四个变量，分别对应日本经济最脆弱的四个地方："
+        },
+        {
+          "start": 4.52,
+          "end": 8.28,
+          "text": "工资对应内需，汇率对应民生，"
+        },
+        {
+          "start": 8.82,
+          "end": 12.82,
+          "text": "利率对应财政，产业对应未来。"
+        }
+      ]
+    },
+    {
+      "id": "p84",
+      "type": "chapter",
+      "durationSeconds": 4.8,
+      "narration": "audio/je2026/p84.wav",
+      "kicker": "结语",
+      "tags": [
+        "低烧",
+        "正常化",
+        "旧包袱"
+      ],
+      "title": "一个也许最贴切的比喻",
+      "dek": "体温回到正常，不等于身体强壮。",
+      "chapterNumber": "11",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 4.26,
+          "text": "讲到最后，我想给你一个也许最贴切的比喻。"
+        }
+      ]
+    },
+    {
+      "id": "p85",
+      "type": "footage",
+      "durationSeconds": 14.4,
+      "narration": "audio/je2026/p85.wav",
+      "figure": "图 20",
+      "source": "footage_1080/px4961639.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "location": "海湾城市天际线",
+      "caption": "像一场很长的低烧，体温正在回归",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.68,
+          "text": "日本这些年的经历，像一个人发了一场很长的低烧。"
+        },
+        {
+          "start": 4.22,
+          "end": 7.6,
+          "text": "通缩就是那场低烧，体温一直偏低，"
+        },
+        {
+          "start": 8.06,
+          "end": 9.46,
+          "text": "人昏昏沉沉。"
+        },
+        {
+          "start": 9.88,
+          "end": 13.88,
+          "text": "而现在，日本的体温正在慢慢回到正常区间。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px4961639.mp4",
+          "durationSeconds": 12.01
+        },
+        {
+          "source": "footage_1080/px30288953.mp4",
+          "durationSeconds": 12.0
+        }
+      ]
+    },
+    {
+      "id": "p86",
+      "type": "media-text",
+      "durationSeconds": 14.88,
+      "narration": "audio/je2026/p86.wav",
+      "kicker": "退烧不等于强壮",
+      "title": "人口减少、债务极限、生产率偏低",
+      "paragraphs": [
+        "发低烧的这二三十年里，还同时背着**沉重的底子**。"
+      ],
+      "source": "footage_1080/px30288953.mp4",
+      "sourceIsVideo": true,
+      "loopVideo": true,
+      "mediaSide": "right",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 3.62,
+          "text": "但你要特别注意：退烧，不等于强壮。"
+        },
+        {
+          "start": 4.54,
+          "end": 6.78,
+          "text": "日本在发低烧的这二三十年里，"
+        },
+        {
+          "start": 6.72,
+          "end": 10.94,
+          "text": "还同时背着沉重的底子：人口持续减少，"
+        },
+        {
+          "start": 10.88,
+          "end": 14.34,
+          "text": "债务堆到极限，生产率长期偏低。"
+        }
+      ],
+      "clips": [
+        {
+          "source": "footage_1080/px30288953.mp4",
+          "durationSeconds": 12.0
+        },
+        {
+          "source": "footage_1080/px4961639.mp4",
+          "durationSeconds": 12.012
+        }
+      ]
+    },
+    {
+      "id": "p87",
+      "type": "list",
+      "durationSeconds": 27.44,
+      "narration": "audio/je2026/p87.wav",
+      "kicker": "三样新东西，三样老包袱",
+      "ordered": false,
+      "items": [
+        "新：温和通胀 · 上涨工资 · 正数利率",
+        "旧：减少人口 · 高企债务 · 偏低生产率"
+      ],
+      "itemNotes": [
+        "新东西让它重新有了呼吸",
+        "老包袱让它永远不可能轻松"
+      ],
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 2.06,
+          "text": "日本经济真正发生的变化，"
+        },
+        {
+          "start": 2.0,
+          "end": 7.66,
+          "text": "是找回三样新东西——温和的通胀、"
+        },
+        {
+          "start": 7.6,
+          "end": 10.46,
+          "text": "上涨的工资、正数的利率；"
+        },
+        {
+          "start": 11.0,
+          "end": 16.58,
+          "text": "但仍然背着三样老包袱——减少的人口、"
+        },
+        {
+          "start": 17.0,
+          "end": 19.78,
+          "text": "高企的债务、偏低的生产率。"
+        },
+        {
+          "start": 20.62,
+          "end": 23.14,
+          "text": "新东西让它重新有了呼吸，"
+        },
+        {
+          "start": 23.74,
+          "end": 26.86,
+          "text": "老包袱让它永远不可能轻松。"
+        }
+      ]
+    },
+    {
+      "id": "p88",
+      "type": "quote",
+      "durationSeconds": 28.08,
+      "narration": "audio/je2026/p88.wav",
+      "kicker": "如果只留一句话",
+      "quote": "它能不能在不引爆债务、不撕裂社会的前提下，把这场昂贵的正常化，慢慢走完？",
+      "attribution": "全世界第一个这样的成熟经济体",
+      "subtitles": [
+        {
+          "start": 0.0,
+          "end": 4.84,
+          "text": "如果只留一句话：日本，是全世界第一个，"
+        },
+        {
+          "start": 5.56,
+          "end": 10.12,
+          "text": "必须在人口持续萎缩、债务堆到极限这两个条件下，"
+        },
+        {
+          "start": 10.58,
+          "end": 14.1,
+          "text": "让一个成熟经济体重回正常运转的国家。"
+        },
+        {
+          "start": 14.88,
+          "end": 17.54,
+          "text": "所以与其问它是不是要重新崛起，"
+        },
+        {
+          "start": 18.16,
+          "end": 21.72,
+          "text": "不如问：它能不能在不引爆债务、"
+        },
+        {
+          "start": 21.66,
+          "end": 25.92,
+          "text": "不撕裂社会的前提下，把这场昂贵的正常化，"
+        },
+        {
+          "start": 25.86,
+          "end": 27.48,
+          "text": "慢慢走完？"
+        }
+      ]
+    }
+  ]
+}

@@ -16,6 +16,17 @@ import { ProductReveal, ProductRevealProps } from "./components/ProductReveal";
 import { CaptionOverlay, WordCaption } from "./components/CaptionOverlay";
 import { CollageBurst, CollageBurstProps } from "./CollageBurst";
 import { LyricOverlay, LyricOverlayProps } from "./LyricOverlay";
+import { Magazine } from "./magazine/Magazine";
+import { MagazineV } from "./magazine/MagazineV";
+import type { MagazineProps } from "./magazine/types";
+import hefeiTeaser from "../public/demo-props/hefei-teaser.json";
+import japanAging from "../public/demo-props/japan-aging.json";
+import japanEconomy from "../public/demo-props/japan-economy.json";
+import japanEconomyClone from "../public/demo-props/japan-economy-clone.json";
+import japanEconomyCloneV35 from "../public/demo-props/japan-economy-clone-v35.json";
+import japanEconomy2026 from "../public/demo-props/japan-economy-2026.json";
+import japanEconomyNew from "../public/demo-props/japan-economy-new.json";
+import japanEconomyShort from "../public/demo-props/japan-economy-short.json";
 
 // ---------------------------------------------------------------------------
 // Theme System — prevents every video from looking like dark fintech
@@ -329,6 +340,142 @@ export const Root: React.FC = () => {
           fadeOutSeconds: 1.5,
           overlay: true,
         } as EndTagProps}
+      />
+      <Composition
+        id="MagazineHefeiTeaser"
+        component={Magazine}
+        durationInFrames={420}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={hefeiTeaser as MagazineProps}
+        calculateMetadata={async ({ props }) => {
+          const total = (props.pages || []).reduce(
+            (acc: number, p: { durationSeconds?: number }) =>
+              acc + Math.max(1, Math.round((p.durationSeconds || 1) * 30)),
+            0
+          );
+          return { durationInFrames: total };
+        }}
+      />
+      <Composition
+        id="MagazineJapanAging"
+        component={Magazine}
+        durationInFrames={420}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={japanAging as MagazineProps}
+        calculateMetadata={async ({ props }) => {
+          const total = (props.pages || []).reduce(
+            (acc: number, p: { durationSeconds?: number }) =>
+              acc + Math.max(1, Math.round((p.durationSeconds || 1) * 30)),
+            0
+          );
+          return { durationInFrames: total };
+        }}
+      />
+      <Composition
+        id="MagazineJapanEconomy"
+        component={Magazine}
+        durationInFrames={420}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={japanEconomy as MagazineProps}
+        calculateMetadata={async ({ props }) => {
+          const total = (props.pages || []).reduce(
+            (acc: number, p: { durationSeconds?: number }) =>
+              acc + Math.max(1, Math.round((p.durationSeconds || 1) * 30)),
+            0
+          );
+          return { durationInFrames: total };
+        }}
+      />
+      <Composition
+        id="MagazineJapanEconomyClone"
+        component={Magazine}
+        durationInFrames={420}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={japanEconomyClone as MagazineProps}
+        calculateMetadata={async ({ props }) => {
+          const total = (props.pages || []).reduce(
+            (acc: number, p: { durationSeconds?: number }) =>
+              acc + Math.max(1, Math.round((p.durationSeconds || 1) * 30)),
+            0
+          );
+          return { durationInFrames: total };
+        }}
+      />
+      <Composition
+        id="MagazineJapanEconomyCloneV35"
+        component={Magazine}
+        durationInFrames={420}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={japanEconomyCloneV35 as MagazineProps}
+        calculateMetadata={async ({ props }) => {
+          const total = (props.pages || []).reduce(
+            (acc: number, p: { durationSeconds?: number }) =>
+              acc + Math.max(1, Math.round((p.durationSeconds || 1) * 30)),
+            0
+          );
+          return { durationInFrames: total };
+        }}
+      />
+      <Composition
+        id="MagazineJapanEconomy2026"
+        component={Magazine}
+        durationInFrames={420}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={japanEconomy2026 as MagazineProps}
+        calculateMetadata={async ({ props }) => {
+          const total = (props.pages || []).reduce(
+            (acc: number, p: { durationSeconds?: number }) =>
+              acc + Math.max(1, Math.round((p.durationSeconds || 1) * 30)),
+            0
+          );
+          return { durationInFrames: total };
+        }}
+      />
+      <Composition
+        id="MagazineJapanEconomyNew"
+        component={Magazine}
+        durationInFrames={420}
+        fps={30}
+        width={1920}
+        height={1080}
+        defaultProps={japanEconomyNew as MagazineProps}
+        calculateMetadata={async ({ props }) => {
+          const total = (props.pages || []).reduce(
+            (acc: number, p: { durationSeconds?: number }) =>
+              acc + Math.max(1, Math.round((p.durationSeconds || 1) * 30)),
+            0
+          );
+          return { durationInFrames: total };
+        }}
+      />
+      <Composition
+        id="MagazineJapanEconomyShort"
+        component={MagazineV}
+        durationInFrames={420}
+        fps={30}
+        width={1080}
+        height={1920}
+        defaultProps={japanEconomyShort as MagazineProps}
+        calculateMetadata={async ({ props }) => {
+          const total = (props.pages || []).reduce(
+            (acc: number, p: { durationSeconds?: number }) =>
+              acc + Math.max(1, Math.round((p.durationSeconds || 1) * 30)),
+            0
+          );
+          return { durationInFrames: total };
+        }}
       />
     </>
   );
