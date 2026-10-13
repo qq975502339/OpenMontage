@@ -7,6 +7,7 @@ the tool file in tools/graphics/; no changes to this selector are needed.
 
 from __future__ import annotations
 
+import os
 from typing import Any
 
 from tools.base_tool import BaseTool, ToolResult, ToolRuntime, ToolStability, ToolStatus, ToolTier
@@ -341,6 +342,13 @@ class ImageSelector(BaseTool):
         from lib.scoring import rank_providers
 
         preferred = inputs.get("preferred_provider", "auto")
+        # Global default override: when the caller leaves the choice to "auto",
+        # an IMAGE_PROVIDER env var seeds the preference. Mirrors the env-hint
+        # tie-breaker pattern already used by video_selector.
+        if preferred == "auto":
+            env_default = os.environ.get("IMAGE_PROVIDER", "").strip()
+            if env_default:
+                preferred = env_default
         allowed = set(inputs.get("allowed_providers") or [])
         if allowed:
             candidates = [tool for tool in candidates if tool.provider in allowed]

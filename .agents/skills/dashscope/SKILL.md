@@ -1,6 +1,6 @@
 ---
 name: dashscope
-description: DashScope (Alibaba Cloud Bailian / 阿里云百炼) integration — image generation (qwen-image-2.0-pro), text-to-speech (qwen3-tts-flash), and ASR with word-level timestamps (qwen3-asr-flash-filetrans). Use when generating images via Qwen-Image, narrating via Qwen-TTS, or transcribing with word-level timestamps via Qwen-ASR.
+description: DashScope (Alibaba Cloud Bailian) integration — image generation (qwen-image-3.0), text-to-speech (qwen3-tts-flash), and ASR with word-level timestamps (qwen3-asr-flash-filetrans). Use when generating images via Qwen-Image, narrating via Qwen-TTS, or transcribing with word-level timestamps via Qwen-ASR.
 ---
 
 # DashScope
@@ -19,7 +19,7 @@ All four tools use `Authorization: Bearer $DASHSCOPE_API_KEY`.
 POST https://dashscope.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation
 ```
 
-- Model: `qwen-image-2.0-pro` (default), `qwen-image-max`, `wan2.7-image`, `z-image-turbo`
+- Model: `qwen-image-3.0` (default), `qwen-image-3.0-pro`, `qwen-image-2.0-pro`, `qwen-image-max`, `wan2.7-image`, `z-image-turbo`
 - Body: `{model, input: {messages: [{role: "user", content: [{text: "prompt"}]}]}, parameters: {size: "W*H", n, prompt_extend, watermark}}`
 - **Size format uses asterisk:** `"1024*1024"` not `"1024x1024"`
 - Response: `output.choices[0].message.content[0].image` (URL, valid ~24h) — must download separately
@@ -113,7 +113,7 @@ result = DashscopeAsr().execute({
 
 ### Image (`dashscope_image`)
 - `prompt` (required): text prompt
-- `model`: default `qwen-image-2.0-pro`
+- `model`: default `qwen-image-3.0`
 - `size`: default `"1024*1024"` — **asterisk separator, not "x"**
 - `n`: 1-6 images
 - `negative_prompt`: things to avoid (max 500 chars)

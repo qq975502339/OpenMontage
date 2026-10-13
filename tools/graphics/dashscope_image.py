@@ -69,12 +69,14 @@ class DashscopeImage(BaseTool):
             "model": {
                 "type": "string",
                 "enum": [
+                    "qwen-image-3.0",
+                    "qwen-image-3.0-pro",
                     "qwen-image-2.0-pro",
                     "qwen-image-max",
                     "wan2.7-image",
                     "z-image-turbo",
                 ],
-                "default": "qwen-image-2.0-pro",
+                "default": "qwen-image-3.0",
             },
             "size": {
                 "type": "string",
@@ -254,7 +256,7 @@ class DashscopeImage(BaseTool):
             parameters["seed"] = int(inputs["seed"])
 
         return {
-            "model": inputs.get("model", "qwen-image-2.0-pro"),
+            "model": inputs.get("model", "qwen-image-3.0"),
             "input": {
                 "messages": [
                     {

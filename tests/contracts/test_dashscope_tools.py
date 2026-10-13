@@ -205,9 +205,9 @@ class TestContract:
 
 class TestDashscopeImageSpecific:
 
-    def test_default_model_is_qwen_image_2_pro(self):
+    def test_default_model_is_qwen_image_3_0(self):
         tool = DashscopeImage()
-        assert tool.input_schema["properties"]["model"]["default"] == "qwen-image-2.0-pro"
+        assert tool.input_schema["properties"]["model"]["default"] == "qwen-image-3.0"
 
     def test_default_size_uses_asterisk_format(self):
         """CRITICAL: DashScope uses W*H (asterisk), not WxH."""

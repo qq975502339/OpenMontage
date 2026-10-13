@@ -287,11 +287,15 @@ frames with FFmpeg, submits JPEG Base64 frame data to `qwen3-vl-flash`, and
 returns description, visual QA, or semantic quality feedback. It complements,
 but does not replace, local numeric blur, brightness, and contrast checks.
 
+The image tool defaults to `qwen-image-3.0`. Set `IMAGE_PROVIDER=dashscope` in
+`.env` to make `image_selector` auto-routing prefer DashScope (unset or `auto`
+restores pure scored routing).
+
 #### Pricing
 
 | Model | Price |
 |------|-------|
-| `qwen-image-2.0-pro` | ~$0.02 per image (check console for current rates) |
+| `qwen-image-3.0` | ~$0.025 per image (¥0.18; check console for current rates) |
 | `qwen3-tts-flash` | ~$0.000015 per character |
 | `qwen3-asr-flash-filetrans` | Per-minute billing (check console) |
 
