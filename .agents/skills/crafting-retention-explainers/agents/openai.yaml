@@ -1,0 +1,7 @@
+interface:
+  display_name: "高留存深度口播"
+  short_description: "用深度研究写出有钩子、有证据的中文口播"
+  default_prompt: "使用 $crafting-retention-explainers 撰写一篇 12 分钟中文深度口播，主题是……"
+
+policy:
+  allow_implicit_invocation: true
