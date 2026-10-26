@@ -110,7 +110,7 @@ class DashscopeTTS(BaseTool):
     ]
 
     MODEL = "qwen-audio-3.1-tts-flash"
-    WEBSOCKET_DEFAULT_URL = "wss://maas.qianwenaiapi.com/api-ws/v1/inference"
+    WEBSOCKET_DEFAULT_URL = "wss://cn-beijing.maas.qianwenaiapi.com/api-ws/v1/inference"
     WEBSOCKET_DEFAULT_VOICE = "xuyuyuan_v3.1"
     DEFAULT_SPEECH_RATE = 0.65
 
