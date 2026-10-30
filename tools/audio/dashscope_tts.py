@@ -6,6 +6,7 @@ import os
 import time
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlsplit
 
 from tools.base_tool import (
     BaseTool,
@@ -23,7 +24,7 @@ from tools.base_tool import (
 
 class DashscopeTTS(BaseTool):
     name = "dashscope_tts"
-    version = "0.2.0"
+    version = "0.2.1"
     tier = ToolTier.VOICE
     capability = "tts"
     provider = "dashscope"
@@ -110,7 +111,7 @@ class DashscopeTTS(BaseTool):
     ]
 
     MODEL = "qwen-audio-3.1-tts-flash"
-    WEBSOCKET_DEFAULT_URL = "wss://cn-beijing.maas.qianwenaiapi.com/api-ws/v1/inference"
+    WEBSOCKET_DEFAULT_URL = "wss://dashscope.aliyuncs.com/api-ws/v1/inference"
     WEBSOCKET_DEFAULT_VOICE = "xuyuyuan_v3.1"
     DEFAULT_SPEECH_RATE = 0.65
 
@@ -155,6 +156,7 @@ class DashscopeTTS(BaseTool):
             ).strip()
             if not endpoint:
                 raise ValueError("DASHSCOPE_WS_BASE_URL cannot be empty")
+            self._add_endpoint_to_no_proxy(endpoint)
 
             voice = inputs.get("voice") or self.WEBSOCKET_DEFAULT_VOICE
             speech_rate = inputs.get("speech_rate", self.DEFAULT_SPEECH_RATE)
@@ -216,6 +218,31 @@ class DashscopeTTS(BaseTool):
             "Japanese": ["ja"],
             "Korean": ["ko"],
         }.get(language)
+
+    @staticmethod
+    def _add_endpoint_to_no_proxy(endpoint: str) -> None:
+        """Keep DashScope WebSocket calls off a stale local HTTP proxy.
+
+        Some desktop environments expose an HTTP(S) proxy globally even when
+        the local proxy service is unavailable. The SDK's WebSocket transport
+        then fails before reaching DashScope. Bypass only this endpoint while
+        preserving proxy use for unrelated network calls.
+        """
+        hostname = urlsplit(endpoint).hostname
+        if not hostname:
+            return
+        entries: list[str] = []
+        for variable in ("NO_PROXY", "no_proxy"):
+            entries.extend(
+                item.strip()
+                for item in os.environ.get(variable, "").split(",")
+                if item.strip()
+            )
+        if hostname not in entries:
+            entries.append(hostname)
+        value = ",".join(dict.fromkeys(entries))
+        os.environ["NO_PROXY"] = value
+        os.environ["no_proxy"] = value
 
     @staticmethod
     def _safe_error(exc: Exception) -> str:

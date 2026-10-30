@@ -162,7 +162,11 @@ class PexelsVideo(BaseTool):
                     data={"total_results": data.get("total_results", 0)},
                 )
 
-            video = videos[0]
+            # User-facing sourcing rule: exclude the first ten filtered
+            # results, then search within everything that remains. When fewer
+            # than ten results exist, use the final few available results.
+            eligible_videos = videos[10:] if len(videos) > 10 else videos[-3:]
+            video = eligible_videos[0]
             preferred_quality = inputs.get("preferred_quality", "hd")
 
             # Pick the best matching video file

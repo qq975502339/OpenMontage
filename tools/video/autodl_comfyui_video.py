@@ -325,16 +325,22 @@ class AutoDLComfyUIVideo(BaseTool):
         poll_interval = float(inputs.get("poll_interval_seconds", 4.0) or 4.0)
         timeout = int(inputs.get("timeout_seconds", 1200) or 1200)
 
-        # Body shape: prompt + duration + resolution are the universal
-        # H3 t2v knobs shown in AutoDL's docs example; any workflow-
-        # specific extras merge in via ``body``.
-        body: dict[str, Any] = {
-            "prompt": prompt,
-            "duration": duration,
-            "resolution": resolution,
-        }
-        for key, value in extra_body.items():
-            body.setdefault(key, value)
+        # Most AutoDL H3 workflows use the universal text-to-video fields.
+        # The image+audio lip-sync workflow has a strict schema instead:
+        # audio_duration, ref_audio_0, ref_image_0, and resolution. Sending
+        # prompt/duration to that workflow makes AutoDL reject an otherwise
+        # valid request with RequestParameterIsWrong.
+        if workflow_id == "minimax_h3_image_audio_to_video":
+            body = dict(extra_body)
+            body.setdefault("resolution", resolution)
+        else:
+            body = {
+                "prompt": prompt,
+                "duration": duration,
+                "resolution": resolution,
+            }
+            for key, value in extra_body.items():
+                body.setdefault(key, value)
 
         start = time.time()
         try:

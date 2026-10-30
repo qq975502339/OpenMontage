@@ -174,7 +174,11 @@ class PixabayVideo(BaseTool):
                     data={"total_results": data.get("total", 0)},
                 )
 
-            hit = hits[0]
+            # User-facing sourcing rule: exclude the first ten filtered
+            # results, then search within everything that remains. When fewer
+            # than ten results exist, use the final few available results.
+            eligible_hits = hits[10:] if len(hits) > 10 else hits[-3:]
+            hit = eligible_hits[0]
             preferred = inputs.get("preferred_quality", "large")
             video_info = hit.get("videos", {}).get(preferred)
             if not video_info:
