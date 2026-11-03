@@ -1,0 +1,7 @@
+interface:
+  display_name: "小 Lin 说 Skill"
+  short_description: "小 Lin 说式选题诊断、机制解释、脚本改写与评审流程"
+  default_prompt: "Use $xiao-lin-shuo to diagnose my topic and rewrite my draft into a clear mechanism-first explainer."
+
+policy:
+  allow_implicit_invocation: true
