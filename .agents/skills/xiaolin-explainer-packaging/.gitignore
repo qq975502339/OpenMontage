@@ -1,0 +1,10 @@
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+# fonts that must not be redistributed
+YouShe.ttf
+# local projects and render output
+/demo/
+*.mp4
+*.wav
