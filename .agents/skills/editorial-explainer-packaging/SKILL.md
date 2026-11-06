@@ -1,15 +1,19 @@
 ---
 name: editorial-explainer-packaging
-description: Use when packaging Chinese educational or finance explainer videos with the user's approved calm editorial component library, including configurable Remotion cards, charts, formulas, titles and visual annotations, and portrait stories about people, startups and companies.
+description: Use when packaging Chinese educational or finance explainer videos with the user's approved calm editorial component library, including configurable Remotion cards, charts, formulas, portrait stories and Wall Street style evidence and presenter scenes.
 ---
 
 # 个人风格讲解包装
 
-横屏讲解使用仓库中的个人组件引擎 `visual-components/editorial-engine` 制作画面。先阅读引擎内的 `COMPONENT_GUIDE.md`；处理口播、分镜、资料和混音时，结合仓库中 `.agents/skills/xiaolin-explainer-packaging/SKILL.md` 的相关流程，横屏画面组件必须使用个人引擎，不要新建原版引擎后误称已经使用个人风格。安装到其他位置时，从仓库运行或用环境变量 `EDITORIAL_ENGINE_PATH` 指向个人引擎。
+横屏讲解使用仓库中的个人组件引擎 `visual-components/editorial-engine` 制作画面。先阅读引擎内的 `COMPONENT_GUIDE.md`；处理口播、分镜、资料和混音时，结合仓库中 `.agents/skills/xiaolin-explainer-packaging/SKILL.md` 的相关流程，个人视觉画面使用个人引擎；已批准的华尔街画面使用独立华尔街引擎并保留原版风格，不要混称两者。安装到其他位置时，从仓库运行或用环境变量 `EDITORIAL_ENGINE_PATH` 指向个人引擎。
 
 ## 人物、创业和公司故事
 
 遇到人物经历、创业故事、公司历史中适合故事化呈现的内容，主动调用随技能内置的 **bighead-collage 大头剪贴故事视觉模式**，保留其原版人物剪纸、小舞台、道具、字体、颜色、动作、镜头和转场；如果只是视频中的一段，该模式可作为独立故事片段使用。用户有明确视觉或画幅要求时优先服从。先读 [故事模式](references/story-mode.md) 和内置原项目 `vendor/bighead-collage/SKILL.md`，按其完整制作流程执行；使用 `node scripts/create-story.mjs <新工程目录>` 创建原版竖屏故事工程；横屏故事使用 `--landscape` 参数，再按横屏重新编排。横屏提供人物、道具和固定字幕辅助函数；故事片段可与个人图表片段通过合成清单拼接及混音，具体步骤见故事模式。故事画面仍需根据题目设计，跨引擎组合不等于自动嵌入 Remotion。既有横屏个人组件保持原样。
+
+## 财经证据与真人口播
+
+用户确认接入 `wallstreet-explainer` 的大数字、柱状图、折线图和其他已列入清单的财经、关系、素材和真人口播能力，保留其原版深蓝金色风格；不接入该项目的公式 `equation`、标题卡 `title` 和开场关键词 `flash`。原有个人组件及大头剪贴均保留。先读 [华尔街财经与真人口播模式](references/wallstreet-mode.md)，按文案选择，并用 `node scripts/create-wallstreet.mjs <新工程目录>` 创建。不同引擎的画面需实际渲染与组合，人物、图表、新闻和旁白按语义、授权及时间线准备。
 
 ## 图标与真实素材
 
