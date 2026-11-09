@@ -76,5 +76,5 @@
 4. **画布画图要等图片解码**：用 canvas 画生图时，第一帧可能在解码完成前就画了（出现黑洞）。styles4 的 `redraw()`：没解码完就往 `__vk.pend` 登记一次「解码后用同一个 t 重画」。
 5. **Vision 抠图的投影不在蒙版里**：主体抠走后地面投影还留在底图上。补洞时把蒙版往投影方向（右下）拖拽求并集再膨胀；纯色纸面用中位色加噪声补，比 inpaint 干净。
 6. **Vision 的 `generateMaskedImage` 输出会错位**：改用 `generateScaledMaskForImage` 只导出蒙版，再用 PIL 合成（工具 `tools/vision_layers.swift`）。
-8. **超宽画幅用 Nano Banana 2**：Midjourney 最宽 16:9，长卷要 4:1 时用 nano-banana-2（2k，12 积分/张，比 MJ 贵）；4128×1024 按 1080 高缩放后约 4354 宽，正好够横移。
+8. **超宽画幅**：qwen-image-3.0 支持按 `W*H` 自定义，长卷先试宽幅（如 4128×1024 若接口不接受就按最宽比例出图再裁切留白）；仍有缺口时才回退 nano-banana-2（2k，12 积分/张，比常规配图贵）。
 7. **离屏挖洞用 destination-out，不要用 evenodd 裁剪**：多块剥落区域重叠时，evenodd 会把重叠处又补回来。

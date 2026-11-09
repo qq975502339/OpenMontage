@@ -1,5 +1,5 @@
 // 风格样片集 · 第七批「增强档」：长卷、铜版博物。同一段开场（复用第 01 期 B01 旁白）。
-// 长卷：Nano Banana 2 出 4:1 全卷 + 16:9 局部（12 积分/张）；铜版：mj-v8.2 图版 + 标本页（4 积分/张）。展卷、横移、放大镜、刻线显影、淡彩渗入、翻页全是代码。
+// 长卷：qwen-image-3.0 出 4:1 全卷 + 16:9 局部（0.18 元/张）；铜版：qwen-image-3.0 图版 + 标本页（0.18 元/张）。展卷、横移、放大镜、刻线显影、淡彩渗入、翻页全是代码。
 import { clamp, lerp, eOutCubic, eInOutCubic, eOutQuint, eOutBack, el, css, rng } from "../../cine/engine/util.js";
 import { bg } from "../../cine/engine/know.js";
 
@@ -87,8 +87,8 @@ function copper(s, h, z, B) {
 }
 
 const STY = [
-  { name: "长卷", en: "HANDSCROLL", fit: "一条时间线 · 城市生活 · 东亚史", th: { bg: 0x241910, ink: "#F3E7CF", dim: "#B49A78", accent: "#C08A52" }, make: scroll, cost: "2 张 Nano Banana 2（4:1 全卷 + 局部，24 积分）" },
-  { name: "铜版博物", en: "COPPERPLATE", fit: "动植物 · 博物学 · 器物与发明", th: { bg: 0xEFE6D2, ink: "#3A2E22", dim: "#8A7A60", accent: "#7A1E14", light: true }, make: copper, cost: "2 张 Midjourney V8.2（图版 + 标本页，8 积分）" },
+  { name: "长卷", en: "HANDSCROLL", fit: "一条时间线 · 城市生活 · 东亚史", th: { bg: 0x241910, ink: "#F3E7CF", dim: "#B49A78", accent: "#C08A52" }, make: scroll, cost: "2 张 qwen-image-3.0（4:1 全卷 + 局部，0.36 元）" },
+  { name: "铜版博物", en: "COPPERPLATE", fit: "动植物 · 博物学 · 器物与发明", th: { bg: 0xEFE6D2, ink: "#3A2E22", dim: "#8A7A60", accent: "#7A1E14", light: true }, make: copper, cost: "2 张 qwen-image-3.0（图版 + 标本页，0.36 元）" },
 ];
 
 export async function build(ctx) {

@@ -9,7 +9,7 @@
 1. 工作区 / 系列不存在就调用 ai-teardown 的 new_series.py --style cine 建好（引擎、字体、渲染工具）。
 2. 把 kit/know.js 装进 <系列>/cine/engine/，给 cine/tools/record.py、stills.py 打补丁：每次 seek 之后 await window.__vk.wait()（等配图、视频帧解码完再截图）。
 3. 克隆音色参照拷到 <系列>/voice/host-ref.wav（默认 assets/voice/default-voice-ref.wav：MiMo 音色设计生成的 AI 声音，不是真人）。
-4. lessons/<期号>/：narration.json（母版旁白骨架）、film.js（画面骨架）、facts.md（事实清单）、assets.json（Renoise 资产清单）、assets/{img,clips,audio}/。
+4. lessons/<期号>/：narration.json（母版旁白骨架）、film.js（画面骨架）、facts.md（事实清单）、assets.json（增强档素材清单：qwen-image-3.0 配图 / H3 15s 视频）、assets/{img,clips,audio}/。
 """
 import argparse
 import os

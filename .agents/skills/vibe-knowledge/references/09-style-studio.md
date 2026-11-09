@@ -49,4 +49,4 @@
 
 - 新建 / 大改风格：Opus（high 或 xhigh）。
 - 用已固化的风格量产：Opus 或 Sonnet high 都可以（Lemo-Opuscar 作者实测 Sonnet 5.5 High 也稳；本 skill 尚未实测 Sonnet，第一次用要看样帧）。
-- 每套风格都能出基础档（0 积分）和 Renoise 增强档（STYLE.md 里有前缀）。
+- 每套风格都能出基础档（0 积分）和增强档（qwen-image-3.0 生图，STYLE.md 里有前缀）。

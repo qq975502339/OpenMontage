@@ -2,11 +2,13 @@
 
 每条都是真实踩过的坑：现象 → 原因 → 做法。风格相关的坑（MJ 把「青花」画成碗、年代词带偏服饰、ESRGAN 分块错位、画布等解码、Vision 投影）见 12-style-families.md。
 
-## 生成（Renoise）
+## 生成（qwen-image-3.0 / H3）
 
 - **AI 画的器物结构不对**（04b 冰鉴图多了玻璃窗）：文物、仪器、机械这类「结构就是知识点」的东西，AI 图容易画错。做法：这类镜头改用 know.js 的 `cutaway` 代码画线稿剖面，画面标「代码示意」，脚注写文物出处。AI 图只用来交代场景和氛围。
-- **Wan 3.0 报 `InvalidParameter: Failed to download <url>`**：首帧图的链接临时拉不到。做法：换一个新的 idempotency key 原样重提一次，一般就过了；失败那次是否退回积分，用 get_account 前后对比确认。
-- **Wan 出片自带上下黑边**（1282×718 里上下各约 40px）：`clip2frames.py` 会自动裁掉，info.json 里有 crop 记录；`vclip` 按 cover 铺满，不用另外处理。
+- **H3 工作流报素材拉不到**（参考图 / 音频的 URL 临时失效）：换远端可访问的地址（本机路径不行）重提一次，一般就过了；失败那次是否计费，按平台账单核对。
+- **H3 出片自带上下黑边**（如 1282×718 里上下各约 40px）：`clip2frames.py` 会自动裁掉，info.json 里有 crop 记录；`vclip` 按 cover 铺满，不用另外处理。
+- **H3 不传 `duration` 只出 5 秒**：工作流默认 5 秒，提示词里写 15 秒也没用；body 里必须显式 `duration: 15`（15 秒实测 ≈8–9 分钟 / 362 帧 / 24fps）。
+- **素材路径写成站点根会全黑**：`plate` / `vclip` 的 src 是浏览器相对 `film.js` 解析的，必须 `const A = (p) => new URL("./assets/" + p, import.meta.url).href`；写成 `"lessons/NN/assets/…"` 会落到 `/cine/lessons/…` 404，画面只剩黑底（stills 报「Failed to load resource」就是它）。
 
 ## 配音（MiMo）
 

@@ -21,7 +21,7 @@ export async function build(ctx) {
   const add = (from, to, b, r) => shots.push({ from, to, build: b, render: r });
   const cue = (t, type, o = {}) => sfx.push({ t, type, ...o });
 
-  // 配乐：Renoise Lyria Pro 定制（assets/audio/score.wav），旁白段 finish.py 会自动再压低；没有就用 sections 合成铺底
+  // 配乐：强制用技能自带 vibe-bgm（music.push 条目 + fit_bgm 裁切），旁白段 finish.py 会自动再压低；没有就靠 sections 合成铺底
   // 默认 BGM（skill 自带 vibe-bgm，fit_bgm.py --lesson 按片长裁好放在 assets/audio/bgm.wav）
   music.push({ src: P("audio/bgm.wav"), from: 0, at: 0, dur: END + TAIL, gain_curve: [[0, -11], [END, -11], [END + TAIL, -8]], fade_in: 0.3, fade_out: 1.8 });
   // 单个音效（ElevenLabs SFX）：music.push({ src: P("audio/sfx_bell.wav"), from: 0, at: T("B07.reveal"), dur: 3, gain: -8 });

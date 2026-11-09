@@ -60,7 +60,7 @@ figcaption{{color:var(--dim);font-size:14px;margin-top:6px}}
 .how{{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}}.box{{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}}
 .box h4{{margin:0 0 8px;font-size:17px}}.tier{{display:inline-block;margin-left:6px;padding:0 8px;border-radius:10px;background:var(--acc);color:var(--bg);font-size:11px;letter-spacing:1px}}h2 small{{color:var(--dim);font-size:15px;font-weight:500;margin-left:8px}}code{{background:rgba(127,127,127,.15);padding:1px 6px;border-radius:5px}}ul{{padding-left:20px;margin:0}}
 </style></head><body><main>
-<h1>风格图鉴</h1><p class="lead">一期知识短片 = <b>母版</b>（怎么讲）× <b>风格</b>（长什么样）× <b>档位</b>（0 积分代码画面，或用 Renoise 增强写实镜头）。下面 {len(CAT['styles'])} 套风格分成 {len(fams)} 个家族，都已用同一段开场实际渲染过；说一个选题，会按选题推荐其中 3 套。</p>
+<h1>风格图鉴</h1><p class="lead">一期知识短片 = <b>母版</b>（怎么讲）× <b>风格</b>（长什么样）× <b>档位</b>（0 积分代码画面，或按镜头挑生成模型补写实镜头）。下面 {len(CAT['styles'])} 套风格分成 {len(fams)} 个家族，都已用同一段开场实际渲染过；说一个选题，会按选题推荐其中 3 套。</p>
 <h2>先看片</h2><div class="vids">{''.join(vids) or '<p class="lead">（样片尚未生成）</p>'}</div>
 {''.join(f'<h2>{html.escape(f)}<small>{len(cards.get(f, []))} 套</small></h2><div class="grid">' + ''.join(cards.get(f, [])) + '</div>' for f in fams if cards.get(f))}
 <h2>怎么开口</h2><div class="how">
@@ -70,7 +70,7 @@ figcaption{{color:var(--dim);font-size:14px;margin-top:6px}}
 </div>
 <h2>两档</h2><div class="how">
 <div class="box"><h4>基础档 · 0 积分</h4><p>标「增强档」以外的风格都能做。代码画面（Opus 手写插画 + 动效）、小米 MiMo 配音、曲库配乐、earshot 代码音效。</p></div>
-<div class="box"><h4>增强档 · 按镜头挑</h4><p>只把写实场景和最需要被记住的 1–3 个时刻交给 Renoise（配图 / 动态镜头 / 定制配乐 / 音效）。轻 ≈25–40、标准 ≈250–300、旗舰 ≈600–700 积分，每次先报价、你确认才生成。</p></div>
+<div class="box"><h4>增强档 · 按镜头挑</h4><p>只把写实场景和最需要被记住的 1–3 个时刻交给生成模型（qwen-image-3.0 配图 0.18 元/张、H3 15s 动态镜头 0.05 元/秒、ElevenLabs 音效）。轻 ≈0.6–1.5、标准 ≈2.6–3.3、旗舰 ≈4.8–6 元，每次先报价、你确认才生成。</p></div>
 </div>
 <h2>6 种母版</h2><div class="box"><ul>{tpls}</ul></div>
 <h2>每期流程</h2><div class="box"><p>① 选题 + 母版 + 风格 + 档位 → ② 事实清单（每条对原文）→ ③ 旁白稿 + 独立审稿 → ④ 分镜 / 报价 → ⑤ 开场试听定音色语速 → ⑥ 配音、画面、渲染 → ⑦ 质检（文字回读核对事实、响度）→ ⑧ 发布包（标题、话题、两张封面）。</p></div>

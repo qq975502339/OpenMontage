@@ -78,7 +78,7 @@ if __name__ == "__main__":
     print(f"选题：{topic}\n")
     for x in r:
         tag = "（推荐）" if x["rank"] == 1 else ""
-        print(f"{x['rank']}. {x['name']}{tag}{' · 我的风格' if x['mine'] else ''}（{x['fam']} · {'增强档，需生图' if x['tier'] == '增强' else '0 积分'}）—— {x['one']}")
+        print(f"{x['rank']}. {x['name']}{tag}{' · 我的风格' if x['mine'] else ''}（{x['fam']} · {'增强档，需生图 ≈1.5 元/段' if x['tier'] == '增强' else '0 积分'}）—— {x['one']}")
         print(f"   为什么：{x['why']}")
         print(f"   搭配母版：{x['template']} {x['template_name']}")
         print(f"   样片：{x['sample']}　风格图：{x['still']}\n")

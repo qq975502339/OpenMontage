@@ -1,13 +1,13 @@
 # 半调拼贴 · HALFTONE COLLAGE
 
-> 家族：印刷与纸　|　档位：增强档 · 每段约 2 张生图（mj-v8.2，4 积分/张）　|　风格图：`still.jpg`　|　样片源码：`_samples/styles4_film.js → collage()`
+> 家族：印刷与纸　|　档位：增强档 · 每段约 2 张生图（qwen-image-3.0，0.18 元/张）　|　风格图：`still.jpg`　|　样片源码：`_samples/styles4_film.js → collage()`
 
 **一句话**：生图拆成「底 + 主体」两层，主体纸片拍下来，胶带、纸条、半调大数字、红印章，整页推走换下一页。
 
 | 项 | 写法 |
 |---|---|
 | 导演意图 | 解释性新闻的桌面拼贴：材料一张张拍上桌，每拍都有新纸片落下。 |
-| 材质 / 画法 | 增强档：2 张 mj-v8.2 拼贴整图 → Vision 前景分割拆出主体层 → 背景补洞（青纸区用纯色 + 噪声，复杂区用 inpaint）。代码：撕边纸条（锯齿 clip-path）、胶带、半调网点大数字（background-clip:text）、印章。 |
+| 材质 / 画法 | 增强档：2 张 qwen-image-3.0 拼贴整图 → Vision 前景分割拆出主体层 → 背景补洞（青纸区用纯色 + 噪声，复杂区用 inpaint）。代码：撕边纸条（锯齿 clip-path）、胶带、半调网点大数字（background-clip:text）、印章。 |
 | 配色逻辑 | 赭 #E9A85A · 红 #D63A2F · 青 #8F9D83 · 纸 #F4ECDD · 墨 #1D1A16 |
 | 字体 | Geist 900 半调大数字 + NotoSC 900 纸条字 |
 | 动态 | slap（1.18 → 1 + 旋转回正 0.22 秒）、slide（eOutQuint 0.3 秒）、胶带从屏外滑入；高潮整页 page-push 0.35 秒，新主体从下弹上来。 |

@@ -1,5 +1,5 @@
 // 风格样片集 · 第四批「增强档 · 东方与印刷」：敦煌壁画、青花、木刻、半调拼贴。同一段开场（复用第 01 期 B01 旁白）。
-// 每套 2 张 Renoise mj-v8.2 生图（4 积分/张），其余全部代码：壁画剥落、釉色晕开、刀刻显影、纸片拍入。字、数字、印章一律代码叠加。
+// 每套 2 张 qwen-image-3.0 生图（0.18 元/张），其余全部代码：壁画剥落、釉色晕开、刀刻显影、纸片拍入。字、数字、印章一律代码叠加。
 import { clamp, lerp, eOutCubic, eInOutCubic, eOutQuint, eOutBack, hit, el, css, rng } from "../../cine/engine/util.js";
 import { bg } from "../../cine/engine/know.js";
 
@@ -183,7 +183,7 @@ export async function build(ctx) {
       const no = el(s, "abs", `left:0;width:1920px;top:340px;text-align:center;font-family:Geist;font-size:26px;letter-spacing:10px;color:${st.th.dim};`, `ENHANCED STYLE ${i + 1} / ${STY.length} · ${st.en}`);
       const nm = el(s, "abs cn", `left:0;width:1920px;top:400px;text-align:center;font-size:150px;font-weight:900;color:${st.th.ink};letter-spacing:12px;`, st.name);
       const ft = el(s, "abs cn", `left:0;width:1920px;top:600px;text-align:center;font-size:40px;color:${st.th.accent};letter-spacing:3px;`, `适合：${st.fit}`);
-      const cr = el(s, "abs cn", `left:0;width:1920px;top:680px;text-align:center;font-size:26px;color:${st.th.dim};`, "增强档 · 本段 2 张 Renoise 生图（8 积分），动效全部代码");
+      const cr = el(s, "abs cn", `left:0;width:1920px;top:680px;text-align:center;font-size:26px;color:${st.th.dim};`, "增强档 · 本段 2 张生图（0.36 元），动效全部代码");
       return { s, ns: [no, nm, ft, cr] };
     }, (t, u) => {
       bg(ctx, st.th, { bloom: 0, vig: st.th.light ? 0.12 : 0.4 });
@@ -197,7 +197,7 @@ export async function build(ctx) {
     el(s, "abs", "inset:0;background:#0B0A0C;");
     el(s, "abs cn", "left:0;width:1920px;top:320px;text-align:center;font-size:84px;font-weight:900;color:#f6f2ea;", "风格库 +4：增强档 · 东方与印刷");
     STY.forEach((st, i) => el(s, "abs cn", `left:${170 + i * 400}px;top:500px;width:370px;padding:22px 0;text-align:center;border-radius:16px;font-size:40px;font-weight:800;color:${st.th.ink};background:#${st.th.bg.toString(16).padStart(6, "0")};border:3px solid ${st.th.accent};`, st.name));
-    el(s, "abs cn", "left:0;width:1920px;top:680px;text-align:center;font-size:30px;color:#a8a29a;", "每套 2 张生图（mj-v8.2，4 积分/张）· 剥落 / 晕开 / 刀刻 / 拍入全是代码");
+    el(s, "abs cn", "left:0;width:1920px;top:680px;text-align:center;font-size:30px;color:#a8a29a;", "每套 2 张生图（qwen-image-3.0，0.18 元/张）· 剥落 / 晕开 / 刀刻 / 拍入全是代码");
     return { s };
   }, () => bg(ctx, { bg: 0x0b0a0c }, { bloom: 0.3 }));
   return shots;

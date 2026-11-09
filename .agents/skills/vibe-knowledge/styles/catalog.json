@@ -1,5 +1,5 @@
 {
- "_how": "风格库的机器可读目录：recommend.py 按选题推荐、welcome.py 生成首次介绍图鉴、风格快闪片都读这一份。加新风格时同步这里和 STYLE.md。fam = 家族（推荐时同一家族最多 2 套）；tier = 基础（0 积分）/ 增强（需要 Renoise 生图）。",
+ "_how": "风格库的机器可读目录：recommend.py 按选题推荐、welcome.py 生成首次介绍图鉴、风格快闪片都读这一份。加新风格时同步这里和 STYLE.md。fam = 家族（推荐时同一家族最多 2 套）；tier = 基础（0 积分）/ 增强（需要 qwen-image-3.0 生图，0.18 元/张）。",
  "styles": [
   {
    "key": "gufeng",

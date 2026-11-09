@@ -1,18 +1,18 @@
 ---
 name: vibe-knowledge
-description: 「Vibe知识大赏」精品知识短片工作室：一个知识点 → 一条 45 秒～5 分钟、有旁白、每句有出处的精品知识短片（抖音 #Vibe知识大赏 / 知识区）。从 15 条爆款反推出的 6 种脚本母版（猜谜概念片、两难选择片、痛点原理片、一条主线片、闯关片、六面轮转片）→ 带出处的事实清单 → 旁白稿 + 对抗审查 → 用户本人克隆音色配音（小米 MiMo，限免）→ 两档画面：基础档 0 积分（Opus 手写 SVG 分层插画、粒子、数据组件、默认 BGM 按片长裁剪）/ 增强档按镜头挑用 Renoise（Midjourney/GPT Image 配图、Wan 3.0/Seedance 2.5 动态镜头、ElevenLabs 音效，先报价后生成）→ cine 代码成片（配图推拉、逐帧视频、关键词、计数器、地图扩散、光轨、竖排古文、出处脚注、两难按钮）→ 1080p60 逐帧渲染 → OCR 回读质检 → 发布包（标题、话题、封面、简介）。触发：做一期知识大赏 / Vibe知识大赏 / 知识科普短片 / 把这个概念做成知识视频 / 像电子智人、Iwanau、墨有意思那样 / 如果你活在古代那种 / 一口气讲清楚某个原理。不用于：系列课（ai-teardown）、财经口播（finance-explainer）、品牌宣传片（promo-video）、数字人出镜口播（digital-human-koubo）。
+description: 「Vibe知识大赏」精品知识短片工作室：一个知识点 → 一条 45 秒～5 分钟、有旁白、每句有出处的精品知识短片（抖音 #Vibe知识大赏 / 知识区）。从 15 条爆款反推出的 6 种脚本母版（猜谜概念片、两难选择片、痛点原理片、一条主线片、闯关片、六面轮转片）→ 带出处的事实清单 → 旁白稿 + 对抗审查 → 用户本人克隆音色配音（小米 MiMo，限免）→ 两档画面：基础档 0 积分（Opus 手写 SVG 分层插画、粒子、数据组件、默认 BGM 按片长裁剪）/ 增强档按镜头挑（qwen-image-3.0 配图 0.18 元/张、MiniMax H3 15s 动态镜头 0.05 元/秒、ElevenLabs 音效，先报价后生成）→ cine 代码成片（配图推拉、逐帧视频、关键词、计数器、地图扩散、光轨、竖排古文、出处脚注、两难按钮）→ 1080p60 逐帧渲染 → OCR 回读质检 → 发布包（标题、话题、封面、简介）。触发：做一期知识大赏 / Vibe知识大赏 / 知识科普短片 / 把这个概念做成知识视频 / 像电子智人、Iwanau、墨有意思那样 / 如果你活在古代那种 / 一口气讲清楚某个原理。不用于：系列课（ai-teardown）、财经口播（finance-explainer）、品牌宣传片（promo-video）、数字人出镜口播（digital-human-koubo）。
 ---
 
 # Vibe知识大赏 · 精品知识短片工作室
 
 一期 = 一个知识点 → 一条有旁白的精品短片（默认 16:9 1080p60）。**时长由用户定**：先按复杂度给四档建议（速览 / 精讲 / 标准 / 深挖），每档写清能讲多细、要砍什么（references/13-duration.md）。
-引擎复用 ai-teardown 的 **cine**（旁白驱动的 `seek(t)` 代码成片），本 skill 加四样东西：**6 种脚本母版**（讲法）、**风格库**（长相 + 讲法，`styles/`，44 套 · 8 个家族已验证（每个家族至少 3 套） + 用户自己的风格）、**知识片组件库 know.js**、**Renoise 增强层**（图 / 视频 / 配乐 / 音效）。
+引擎复用 ai-teardown 的 **cine**（旁白驱动的 `seek(t)` 代码成片），本 skill 加四样东西：**6 种脚本母版**（讲法）、**风格库**（长相 + 讲法，`styles/`，44 套 · 8 个家族已验证（每个家族至少 3 套） + 用户自己的风格）、**知识片组件库 know.js**、**增强层**（图 / 视频 / 配乐 / 音效：`qwen-image-3.0` + `minimax_h3_image_audio_to_video_v2_15s`）。
 
 一期 = **母版 × 风格 × 手法（≤2）× 档位**。风格分 8 个家族：东方、暗场概念、明亮流行、印刷与纸、图解与设计、剪辑与纪实、电影感、游戏；其中敦煌壁画、青花、木刻、半调拼贴、长卷、铜版博物是增强档风格（每段约 2 张生图）。风格可以用库里的、改成自己的、或从空白做（references/09-style-studio.md）。
 
 **两档制作**（references/08-tiers.md）：
 - **基础档 · 0 积分**：Opus 手写 SVG 分层插画 + 粒子 / 3D + 数据组件，小米 MiMo 配音（限免），**默认 BGM**（见下），**earshot 代码音效**（references/10-earshot.md，两档通用）。
-- **增强档 · 按镜头挑**：只把代码做不好的镜头（写实场景、最需要被记住的 1–3 个时刻、真实运动）交给 Renoise，其余照样代码。轻 ≈25–40 / 标准 ≈250–300 / 旗舰 ≈600–700 积分，每次先报价再生成。
+- **增强档 · 按镜头挑**：只把代码做不好的镜头（写实场景、最需要被记住的 1–3 个时刻、真实运动）交给生成模型（配图 `qwen-image-3.0`、动态镜头 `minimax_h3_image_audio_to_video_v2_15s`），其余照样代码。轻 ≈0.6–1.5 元 / 标准 ≈2.6–3.3 元 / 旗舰 ≈4.8–6 元，每次先报价再生成。
 - 同一份 film.js 两档通用（`ENH` 开关：plate/vclip ↔ layers）。
 
 ## BGM（强制，2026-10-28 起，两档通用）
@@ -27,22 +27,22 @@ $CINE_PY ~/.claude/skills/vibe-knowledge/tools/fit_bgm.py $L/assets/audio/bgm.wa
 ```
 
 film.js 里：`music.push({ src: P("audio/bgm.wav"), from: 0, at: 0, dur: END + TAIL, gain_curve: [[0, -11], [END, -11], [END + TAIL, -8]], fade_in: 0.3, fade_out: 1.8 })`（旁白段 finish.py 会自动再压低）。
-不再生成 Lyria 整段配乐（生成了也会被强制停用）；Renoise 只用来做短音效。
+不再生成 Lyria 整段配乐（生成了也会被强制停用）；增强层只用来做短音效。
 
 ## 首次使用与风格推荐（先做这一步）
 
 - **首次使用**（`~/.vibe-knowledge/welcomed` 不存在）：先跑 `python3 ~/.claude/skills/vibe-knowledge/tools/welcome.py`，生成并打开本地「风格图鉴」（`~/Desktop/vibe-knowledge/风格图鉴/index.html`：风格快闪片、样片集、按家族分组的风格卡、三种开口方式、两档、流程），然后在对话里用 5–6 句话介绍：母版 × 风格 × 档位、8 个家族各举一两套、三种开口方式，最后问「想先做哪个选题？」。风格库更新后用 `--force` 重新生成。
-- **用户给了选题**：先跑 `python3 ~/.claude/skills/vibe-knowledge/tools/recommend.py "<选题>"`，拿到 3 套推荐后用 AskUserQuestion 问（推荐第一的排第一、标「（推荐）」、description 写理由和搭配母版；preview 写一句画面描述和风格图路径），同时用 SendUserFile 把 3 张风格图发给用户对照。用户点名了风格就跳过推荐。推荐到增强档风格时，在选项 description 里写明「需生图，约 8 积分/段」。
+- **用户给了选题**：先跑 `python3 ~/.claude/skills/vibe-knowledge/tools/recommend.py "<选题>"`，拿到 3 套推荐后用 AskUserQuestion 问（推荐第一的排第一、标「（推荐）」、description 写理由和搭配母版；preview 写一句画面描述和风格图路径），同时用 SendUserFile 把 3 张风格图发给用户对照。用户点名了风格就跳过推荐。推荐到增强档风格时，在选项 description 里写明「需生图，约 1.5 元/段」。
 - 风格目录的唯一来源是 `styles/catalog.json`（推荐、图鉴、快闪片都读它）；加新风格时同步 catalog.json、STYLE.md、still.jpg。
 
 ## 核心主张（不能丢）
 
-1. **精品标准是硬门槛**（references/02-premium.md）：三层构图、没有静止超 3 秒的画面、每章一个「王炸」镜头（增强档 Renoise 动态镜头 / 基础档代码粒子、视差）、分层声音、整期一个视觉系统。
+1. **精品标准是硬门槛**（references/02-premium.md）：三层构图、没有静止超 3 秒的画面、每章一个「王炸」镜头（增强档 H3 动态镜头 / 基础档代码粒子、视差）、分层声音、整期一个视觉系统。
 2. **没出处不上屏**：数字、人名、年份、引文全部进 facts.md；示意画面标明；分歧两说并列。
 3. **旁白讲故事，画面给关键词**：画面字 ≤8 字一组、同屏最多两组；整句交给旁白和自动字幕。
 4. **先猜后讲、标题延后、一个主道具贯穿、结尾回问**（母版共用规则，references/01-templates.md）。
 6. **旁白对位硬规则**：没念到不露面、计数在念到时落定、强调有预算、最长静止 ≤3 秒（references/11-absorbed.md 第一节）。
-5. **能代码就代码，花积分先确认**：Renoise 只补代码做不好的镜头；所有生成先列表报价，用户在对话里明确同意才提交（references/04-renoise.md、08-tiers.md）。配音用小米 MiMo（限免）。
+5. **能代码就代码，花钱先确认**：生成模型只补代码做不好的镜头；所有生成先列表报价（张数 × 0.18 元、秒数 × 0.05 元），用户在对话里明确同意才提交（references/04-renoise.md、08-tiers.md）。配音用小米 MiMo（限免）。
 
 ## 工作区
 
@@ -52,7 +52,7 @@ python3 ~/.claude/skills/vibe-knowledge/tools/new_film.py <期号> --template A 
 S=~/Desktop/vibe-knowledge/examples/vk; L=$S/lessons/<期号>
 ```
 
-依赖：ai-teardown skill（cine 引擎、make_lesson 配音）、`CINE_PY`（numpy scipy pillow playwright 的 Python；本机是 `/usr/local/bin/python3.12`，跑之前 `PYTHONPATH=` 清空，否则会加载坏掉的 PIL）、MiMo 密钥 `~/.config/ai-teardown/mimo.env`、Renoise MCP（只有增强档需要；缺的话按 references/04-renoise.md「接入 Renoise」一节引导，注册链接原样给 https://renoise.ai/mcp?utm_medium=xcom&utm_source=official ）、ffmpeg、swiftc（OCR）。
+依赖：ai-teardown skill（cine 引擎、make_lesson 配音）、`CINE_PY`（numpy scipy pillow playwright 的 Python；本机是 `/usr/local/bin/python3.12`，跑之前 `PYTHONPATH=` 清空，否则会加载坏掉的 PIL）、MiMo 密钥 `~/.config/ai-teardown/mimo.env`、增强档另需 `DASHSCOPE_API_KEY`（qwen-image-3.0）与 AutoDL ComfyUI（`autodl_comfyui_video`，工作流 `minimax_h3_image_audio_to_video_v2_15s`；其提示词必须先读 `h3-prompt-writing` 技能）、ffmpeg、swiftc（OCR）。
 
 ## 流水线（三个确认点）
 
@@ -62,9 +62,9 @@ S=~/Desktop/vibe-knowledge/examples/vk; L=$S/lessons/<期号>
 | **确认 1** | 用户选题、母版、**时长**（先跑 `duration.py` 按复杂度给四档，推荐档排第一；用户选的档跟复杂度差两级以上要提醒）、**风格**（库里的 / 我的 / 改一套 / 从空白，见 09-style-studio.md；推荐项排第一附风格图）、**做哪一档**（基础 / 增强轻 / 标准 / 旗舰） | |
 | ② 查 | 事实清单（T1/T2/T3 分级、原文摘录、用在哪拍） | `facts.md` |
 | ③ 写 | 按母版骨架写旁白（字数上限见骨架 `_guide`）→ 子 agent 对抗审查（钩子、出处、字数）→ 改 | `narration.json` |
-| ④ 分镜 / 资产单 | 每拍画面分镜（标明哪些镜头代码做、哪些增强）；增强档写 assets.json + estimate_cost 报价；基础档选曲 | `assets.json` |
+| ④ 分镜 / 资产单 | 每拍画面分镜（标明哪些镜头代码做、哪些增强）；增强档写 assets.json + 按张/秒报价；基础档选曲 | `assets.json` |
 | **确认 2** | 用户看旁白稿 + 分镜（+ 增强镜头清单和报价），明确同意后才生成 | |
-| ⑤ 生成 | 增强档：Renoise 先图 + 音效 → 用户挑图 → 视频（首帧用选中的图）→ 下载、改名、clip2frames。基础档跳过 | `assets/` |
+| ⑤ 生成 | 增强档：qwen-image-3.0 先图 + 音效 → 用户挑图 → H3 15s 视频（首帧用选中的图，提示词用 `h3-prompt-writing` 写）→ 下载、改名、clip2frames。基础档跳过 | `assets/` |
 | ⑥ 配音 + 配乐 | 先出 15–20 秒开场试听让用户定音色和语速 → `tts_mimo.py --gap 0.2` → `speed.py` → `check_timings.py` → `voice_post.py` → `fit_bgm.py` 按片长裁默认 BGM | `build/timings.json`、`assets/audio/bgm.wav` |
 | ⑦ 编 | film.js（know.js 组件）→ stills.py 接触表逐张看（含动画中途帧） | `stills/` |
 | ⑧ 渲 | queue.sh（record → finish → deliver） | 成片 |
@@ -95,8 +95,8 @@ voice.log 里回读 <95% 的拍删掉 `build/audio/<拍>.*` 重配；专名用 l
 |---|---|
 | references/01-templates.md | 6 种母版（有旁白版）：每拍做什么、画面、对标作品 |
 | references/02-premium.md | 精品标准：画面、声音、内容、交付规格（交付前逐条过） |
-| references/03-visual-systems.md | 5 套视觉系统 + Renoise 画风前缀 + 时代拼贴 |
-| references/04-renoise.md | Renoise 增强层：单价、预算、流程、提示词写法、安全 |
+| references/03-visual-systems.md | 5 套视觉系统 + 生图画风前缀 + 时代拼贴 |
+| references/04-renoise.md | 增强层路由：qwen-image-3.0 单价、H3 15s 视频流程、提示词写法、预算、安全 |
 | references/05-publish.md | 发布包：活动标题规则、话题、封面、简介、交付文件夹 |
 | references/06-benchmarks.md | 对标作品数据与共性 |
 | references/07-kit.md | know.js 组件 API |
@@ -110,7 +110,7 @@ voice.log 里回读 <95% 的拍删掉 `build/audio/<拍>.*` 重配；专名用 l
 | references/08-tiers.md | 两档制作：基础档 0 积分怎么做到精品、增强档怎么挑镜头、预算、两档通用写法 |
 | templates/narration/A–F.json | 6 个母版的旁白骨架（每拍字数上限、[[cue]]） |
 | templates/film.skeleton.js | film.js 骨架（配乐、音效、冷开场、尾卡写法） |
-| templates/facts.md / assets.json | 事实清单、Renoise 资产清单模板 |
+| templates/facts.md / assets.json | 事实清单、增强档素材清单模板（图 / 视频 / 音效） |
 | tools/ | new_film.py、clip2frames.py、voice_post.py、qa.py（+ ocr.swift）、recommend.py（按选题推荐风格）、welcome.py（首次介绍图鉴）、style_reel.py（新风格样片集的时间轴 + 旁白）、vision_layers.swift（生图拆主体层 / 底层）、earshot_render.py / patch_earshot.py（代码音效）、fit_bgm.py（默认 BGM 按片长按小节裁剪 / 循环 + 节拍表）、cover_first.py（封面接成开头帧）、duration.py（按复杂度给时长建议）；qa.py 现在会报 >3 秒的静止画面 |
 
 cine 引擎本身的契约、组件、渲染队列、坑：`~/.claude/skills/ai-teardown/references/10-cine.md`（改引擎前必读）。
