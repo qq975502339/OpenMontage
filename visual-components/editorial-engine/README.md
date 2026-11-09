@@ -2,9 +2,9 @@
 
 此目录从 `xiaolin-explainer-packaging/templates/engine` 复制并按用户反馈改造，原技能保持不变。个人风格技能入口在 `../editorial-explainer-packaging/SKILL.md`。
 
-视觉方向：黑色深色场景、奶油黄、珊瑚红和暖橙；标题卡、片尾卡及计算器保留用户确认的专用设计。输入接口基于原引擎，具体字段及素材路径参见 `COMPONENT_GUIDE.md`。
+视觉方向：深蓝背景、织物质感与柔和金色，沿用用户确认的华尔街风格；标题卡和片尾卡保持原有设计，计算器保留原有结构。国旗、人民币和用户提供的素材保留自身颜色。堆叠、支柱、支柱顶部、文字、强调文字、闪光、横向条图、硬币、金币流和计算器保留统一风格前的主体视觉，只随场景更换背景。输入接口基于原引擎，具体字段及素材路径参见 `COMPONENT_GUIDE.md`。
 
-40 个注册元素均有相应实现；`ui`、`people`、`toon`、`meme`、`chart`、`arrow`、`scribble`、`coin`、`coinflow` 按用户要求使用原版实现。`paper` 的纵向和横向图表分别提供对照。批量新增的 30 个元素及横向变体视频保存在 `previews/`，索引为 `previews/index.html`。预览直接展示组件，原有场景层的摄像机与入场包装未全部加入对照。
+40 个注册元素均有相应实现；`ui`、`people`、`toon`、`meme`、`chart`、`arrow`、`scribble`、`coin`、`coinflow` 保留原有功能和动效，视觉配色按当前方向统一。`paper` 的纵向和横向图表分别提供对照。批量新增的 30 个元素及横向变体视频保存在 `previews/`，索引为 `previews/index.html`。预览直接展示组件，原有场景层的摄像机与入场包装未全部加入对照。
 
 40 个注册元素：
 

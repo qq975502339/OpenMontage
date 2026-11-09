@@ -1,6 +1,6 @@
 # 个人风格组件使用指南
 
-组件通过 `k` 指定类型，常用定位和时间参数为 `t`（秒）、`x`、`y`；除屏幕元素外，`x`、`y` 一般表示元素中心。`anim: 'none'` 可避免场景包装动画叠加组件自身动效。真实场景还要设置画面背景：`bg: {type: 'dark'}` 默认为黑色；标题、片尾和计算器有各自已确认的设计。
+组件通过 `k` 指定类型，常用定位和时间参数为 `t`（秒）、`x`、`y`；除屏幕元素外，`x`、`y` 一般表示元素中心。`anim: 'none'` 可避免场景包装动画叠加组件自身动效。真实场景还要设置画面背景：`bg: {type: 'dark'}` 默认采用深蓝织物质感背景；显式指定的背景仍按参数显示。标题和片尾保留已确认的独立设计，计算器保留原有结构。堆叠、支柱、支柱顶部、文字、强调文字、闪光、横向条图、硬币、金币流和计算器保留统一风格前的主体视觉，只随场景更换背景。
 
 下表列常用输入，不表示所有参数；未列出的参数与精确行为以 `src/els.tsx`、`src/els6.tsx` 及对应组件文件为准。文件路径相对工程 `public/`，使用前确保素材存在。
 
@@ -10,7 +10,7 @@
 | `concept` | 概念卡 | `word`、`en`、`sub`、`icon`、`size` |
 | `panel` | 大面板 | `title`、`en`、`w`、`h` |
 | `icon` | 图标卡 | `src`、`size`、`label`、`en` |
-| `people` | 人物比例，原版 | `src`、`n`、`litn`、`lt`、`size`；素材为 `public/icons/<src>.png` |
+| `people` | 人物比例，保留原有功能和动效 | `src`、`n`、`litn`、`lt`、`size`；素材为 `public/icons/<src>.png` |
 | `doc` | 小文档 | `org`、`seal`、`lines`、`w`、`h` |
 | `slider` | 滑块比较 | `min`、`max`、`a`、`b`、`unit`、`label`、`sub` |
 | `stack` | 堆叠 | `n`、`nw`、`gap`、`d` |
@@ -21,27 +21,27 @@
 | `entity` | 基础实体 | `name`、`en`、`c`、`size` |
 | `txt` | 文字 | `txt`、`en`、`size`、`font`、`color`、`grad` |
 | `photo` | 照片 | `src`、`cap`、`en`、`credit`、`w`、`h`、`pos` |
-| `meme` | 强调文字，原版 | `txt`、`size`、`burst`、`tilt`、`c` |
+| `meme` | 强调文字，保留原有功能和动效 | `txt`、`size`、`burst`、`tilt`、`c` |
 | `bubble` | 气泡 | `txt`、`side`、`size` |
 | `comment` | 评论 | `name`、`txt`、`meta`、`av`、`w` |
 | `stamp` | 印章 | `txt`、`size`、`c`、`tilt`、`bg` |
-| `toon` | 角色图片，原版 | `src`、`size`、`wig`；素材为 `public/toon/<src>.png` |
+| `toon` | 角色图片，保留原有功能和动效 | `src`、`size`、`wig`；素材为 `public/toon/<src>.png` |
 | `spark` | 闪光 | `size`、`c` |
 | `box` | 色块 | `w`、`h`、`bg`、`bd` |
-| `chart` | 折线图，原版 | `pts`（标签与数值数组）、`labels`、`min`、`max`、`unit`、`title` |
+| `chart` | 折线图，保留原有功能和动效 | `pts`（标签与数值数组）、`labels`、`min`、`max`、`unit`、`title` |
 | `bars` | 横向条形图 | `rows`（`label`、`v`、`txt`）、`max`、`w`、`bh` |
 | `tag` | 标签 | `txt`、`size`、`c`、`en` |
-| `coin` | 硬币，原版 | `size`；原版符号为固定 `¥` |
+| `coin` | 硬币，保留原有功能和动效 | `size`；原版符号为固定 `¥` |
 | `note` | 纸币 | `size` 或 `w`、`value`、`symbol`、`label`；改变面额时同时设置对应 `label` |
-| `coinflow` | 金币流，原版 | `from`、`to`、`n`、`d`、`tr`、`s` |
-| `arrow` | 箭头，原版 | `from`、`to`、`bend`、`sw`、`c` |
-| `scribble` | 手绘标注，原版 | `shape`、`x`、`y`、`w`、`h`、`c` |
+| `coinflow` | 金币流，保留原有功能和动效 | `from`、`to`、`n`、`d`、`tr`、`s` |
+| `arrow` | 箭头，保留原有功能和动效 | `from`、`to`、`bend`、`sw`、`c` |
+| `scribble` | 手绘标注，保留原有功能和动效 | `shape`、`x`、`y`、`w`、`h`、`c` |
 | `wall` | 卡片墙 | `cards`、`cols`、`cw`、`ch`、`gap`、`focus`；卡片可替换文字与图标 |
 | `paper` | 白卡图表 | `kind`、`title`、`en`、`rows`、`max`、`w`、`h`；支持横向条形图等变体 |
 | `docpage` | 整页文档 | 文档内容、来源和高亮；按原技能分镜接口用 `add_doc` 添加 |
 | `ent6` | 实体卡 | `name`、`en`、`strip`、`c` 或 `icon`、`w`、`h` |
 | `bignum` | 大数字 | `v` 或 `count`、`unit`、`size`、`kicker`、`cap`、`en` |
-| `ui` | 计算器，原版 | `title`、`fields`、`res`、`w`、`h` |
+| `ui` | 计算器，保留原有功能和动效 | `title`、`fields`、`res`、`w`、`h` |
 | `formula6` | 大公式条 | `toks`、`fs`、`ih`、`hl`、`pw`、`ph`；图标用 `toks[].icon` 或 `iconKind` |
 | `titlecard` | 标题卡 | `l1`、`l2`、`l2b`、`q`、`en`；使用 `layer: 'screen'` |
 | `endcard` | 片尾卡 | `title`、`subtitle`、`en`、`image`、`bgVariant`；使用 `layer: 'screen'` |

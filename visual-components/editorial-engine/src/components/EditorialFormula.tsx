@@ -17,12 +17,10 @@ export const EditorialFormula: React.FC<{e:any; t:number}> = ({e,t}) => {
   let cur=-1,prev=-1,at=-1e9;
   for(const [time,index] of e.hl ?? []) if(t>=time){prev=cur;cur=index;at=time;}
   const focus=eout(prog(t,at,.35));
-  return <div style={{position:'relative',width:w,height:h,overflow:'hidden',background:e.pbg ?? 'radial-gradient(ellipse at 50% 45%,#2b4349,#0b1821 78%)',boxShadow:'0 30px 70px rgba(0,0,0,.45)'}}>
-    <div style={{position:'absolute',inset:0,opacity:.2,backgroundImage:'radial-gradient(#a2aeaa 2px,transparent 2px)',backgroundSize:'32px 32px'}} />
-    <div style={{position:'absolute',left:0,top:0,width:'40%',height:'17%',background:'#bd504d',clipPath:'polygon(0 0,88% 0,100% 56%,0 100%)'}} />
-    <div style={{position:'absolute',right:0,bottom:0,width:'35%',height:'30%',background:'#e99659',clipPath:'polygon(0 100%,100% 0,100% 100%)'}} />
-    {e.title && <div style={{position:'absolute',left:margin,top:h*.055,right:margin,fontFamily:F.heavy,fontWeight:900,fontSize:Math.min(e.ts ?? 64,h*.085),color:'#fff1bd',whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{e.title}</div>}
-    {e.en && <div style={{position:'absolute',left:margin,top:h*.16,fontFamily:F.en,fontWeight:700,fontSize:Math.min(21,h*.027),letterSpacing:3,color:'#eac4a3'}}>{e.en}</div>}
+  return <div style={{position:'relative',width:w,height:h,overflow:'hidden',background:e.pbg ?? 'radial-gradient(ellipse at 50% 45%,#2e3a55,#0b1019 78%)',boxShadow:'0 30px 70px rgba(0,0,0,.45)'}}>
+    <div style={{position:'absolute',inset:0,opacity:.2,backgroundImage:'radial-gradient(#99a7bb 2px,transparent 2px)',backgroundSize:'32px 32px'}} />
+    {e.title && <div style={{position:'absolute',left:margin,top:h*.055,right:margin,fontFamily:F.heavy,fontWeight:900,fontSize:Math.min(e.ts ?? 64,h*.085),color:'#f7edce',whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{e.title}</div>}
+    {e.en && <div style={{position:'absolute',left:margin,top:h*.16,fontFamily:F.en,fontWeight:700,fontSize:Math.min(21,h*.027),letterSpacing:3,color:'#cfc5b0'}}>{e.en}</div>}
     <div style={{position:'absolute',left:margin,right:margin,top:e.sy ?? h*.26,display:'flex',gap,perspective:`${w}px`,alignItems:'flex-start'}}>
       {toks.map((k,i)=>{
         const cw=unit*(k.op?.55:1), entry=eout(prog(t,k.t ?? start+i*.18,.55));
@@ -31,18 +29,18 @@ export const EditorialFormula: React.FC<{e:any; t:number}> = ({e,t}) => {
         const size=Math.min((e.fs ?? 128)*(k.fs ?? 1)*(k.op?.72:1),cw*.86/Math.max(1,Array.from(String(k.s ?? '')).length)*1.25);
         const strike=(e.strike ?? []).find((s:any)=>s[1]===i), crossed=strike?eout(prog(t,strike[0],.35)):0;
         return <div key={i} style={{width:cw,flex:`0 0 ${cw}px`,opacity:entry*opacity,transform:`rotateX(${(1-entry)*-88}deg)`,transformOrigin:'center top',backfaceVisibility:'hidden',textAlign:'center'}}>
-          <div style={{position:'relative',height:h*.22,display:'flex',alignItems:'center',justifyContent:'center',background:k.op?'transparent':hi>.5?'#f7d69c':'#f9edce',clipPath:k.op?undefined:'polygon(0 0,91% 0,100% 15%,100% 100%,0 100%)',boxShadow:k.op?'none':'6px 7px 0 #a85e4f',fontFamily:k.font==='ys'?F.ys:F.heavy,fontWeight:900,fontSize:size,lineHeight:1,color:k.op?'#fff0bb':'#362d2b',whiteSpace:'nowrap'}}>
-            {k.s}<div style={{position:'absolute',left:'5%',right:'5%',height:Math.max(4,h*.009),top:'50%',background:'#d65e50',transform:`rotate(-10deg) scaleX(${crossed})`,transformOrigin:'left center'}} />
+          <div style={{position:'relative',height:h*.22,display:'flex',alignItems:'center',justifyContent:'center',background:k.op?'transparent':hi>.5?'#e5d4a9':'#f3eee1',clipPath:k.op?undefined:'polygon(0 0,91% 0,100% 15%,100% 100%,0 100%)',boxShadow:k.op?'none':'6px 7px 0 #b49b6a',fontFamily:k.font==='ys'?F.ys:F.heavy,fontWeight:900,fontSize:size,lineHeight:1,color:k.op?'#f7e9c4':'#27374c',whiteSpace:'nowrap'}}>
+            {k.s}<div style={{position:'absolute',left:'5%',right:'5%',height:Math.max(4,h*.009),top:'50%',background:'#b49d6e',transform:`rotate(-10deg) scaleX(${crossed})`,transformOrigin:'left center'}} />
           </div>
           {!k.op && (k.icon || k.iconKind || k.l || k.en) && <div style={{position:'relative',marginTop:h*.045,opacity:eout(prog(t,k.it ?? (k.t ?? start)+.25,.4)),fontFamily:F.heavy}}>
-            <div style={{width:2,height:h*.07,margin:'0 auto',background:'#db8c61'}} />
+            <div style={{width:2,height:h*.07,margin:'0 auto',background:'#d2be8e'}} />
             {(k.icon || k.iconKind) && <div style={{height:Math.min(e.ih ?? 130,h*.16),width:Math.min(e.ih ?? 130,h*.16,cw*.8),margin:'0 auto',filter:'drop-shadow(0 8px 10px rgba(0,0,0,.35))'}}><FormulaIcon kind={k.iconKind} src={k.icon}/></div>}
-            {k.l && <div style={{fontSize:Math.min(e.lfs ?? 32,cw*.16),fontWeight:800,color:'#fff1c7',whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{k.l}</div>}
-            {k.en && <div style={{fontFamily:F.en,fontWeight:700,fontSize:Math.min(18,cw*.09),letterSpacing:1,color:'#e4bc9a',whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{k.en}</div>}
+            {k.l && <div style={{fontSize:Math.min(e.lfs ?? 32,cw*.16),fontWeight:800,color:'#f7edd5',whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{k.l}</div>}
+            {k.en && <div style={{fontFamily:F.en,fontWeight:700,fontSize:Math.min(18,cw*.09),letterSpacing:1,color:'#cbbfa9',whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{k.en}</div>}
           </div>}
         </div>;
       })}
     </div>
-    {e.foot && <div style={{position:'absolute',left:margin,right:margin,bottom:h*.045,fontFamily:F.heavy,fontWeight:700,fontSize:Math.min(e.ffs ?? 30,h*.04),color:'#f5e4c7',opacity:eout(prog(t,e.ft ?? start,.4))}}>{e.foot}</div>}
+    {e.foot && <div style={{position:'absolute',left:margin,right:margin,bottom:h*.045,fontFamily:F.heavy,fontWeight:700,fontSize:Math.min(e.ffs ?? 30,h*.04),color:'#e9e4d6',opacity:eout(prog(t,e.ft ?? start,.4))}}>{e.foot}</div>}
   </div>;
 };

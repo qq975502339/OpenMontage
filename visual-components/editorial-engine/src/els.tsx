@@ -212,7 +212,7 @@ const LegacyPeople: React.FC<any> = ({e, t}) => {
         const lit = e.litn == null || t < (e.lt ?? 0) ? true : i < e.litn;
         return (
           <div key={i} style={{width: size * ar * fr, height: size, overflow: 'hidden', opacity: clamp(p * 3), transform: `translateY(${(1 - back(p)) * 40}px)`}}>
-            <Img src={img(`icons/${e.src}.png`)} style={{height: size, filter: lit ? 'drop-shadow(0 10px 14px rgba(0,0,0,.45))' : 'grayscale(1) brightness(.38)'}} />
+            <Img src={img(`icons/${e.src}.png`)} style={{height: size, filter: lit ? 'drop-shadow(0 10px 14px rgba(0,0,0,.45)) drop-shadow(0 0 2px rgba(220,202,153,.22))' : 'grayscale(1) brightness(.38)'}} />
           </div>
         );
       })}
@@ -247,7 +247,7 @@ const LegacyArrow: React.FC<any> = ({e, t}) => {
   const mx = (x1 + x2) / 2, my = (y1 + y2) / 2, len = Math.hypot(x2 - x1, y2 - y1) || 1;
   const cx = mx + (-(y2 - y1) / len) * bend, cy = my + ((x2 - x1) / len) * bend;
   const p = eout(prog(t, e.t, e.d ?? 0.55));
-  const ang = Math.atan2(y2 - cy, x2 - cx), hs = e.hs ?? 22, c = e.c || '#eef3c4', sw = e.sw ?? 5;
+  const ang = Math.atan2(y2 - cy, x2 - cx), hs = e.hs ?? 22, c = e.c || '#e5d3a4', sw = e.sw ?? 5;
   return (
     <svg width="10" height="10" style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
       <path d={`M${x1} ${y1} Q${cx} ${cy} ${x2} ${y2}`} fill="none" stroke={c} strokeWidth={sw} strokeLinecap="round" pathLength={1} strokeDasharray={e.dash ? '0.02 0.02' : '1'} strokeDashoffset={e.dash ? 0 : 1 - p} opacity={e.dash ? p : 1} />
@@ -257,7 +257,7 @@ const LegacyArrow: React.FC<any> = ({e, t}) => {
 };
 export const Arrow = LegacyArrow;
 const LegacyScribble: React.FC<any> = ({e, t}) => {
-  const {x, y, w, h} = e, p = eout(prog(t, e.t, e.d ?? 0.5)), c = e.c || '#ff5d73', sw = e.sw ?? 6;
+  const {x, y, w, h} = e, p = eout(prog(t, e.t, e.d ?? 0.5)), c = e.c || '#d4bb7e', sw = e.sw ?? 6;
   let d = '';
   if (e.shape === 'circle') {const rx = w / 2, ry = h / 2, cx = x, cy = y; d = `M${cx + rx * 0.2} ${cy - ry * 1.02} C${cx + rx * 1.15} ${cy - ry * 0.95}, ${cx + rx * 1.08} ${cy + ry * 1.02}, ${cx} ${cy + ry} C${cx - rx * 1.12} ${cy + ry * 0.98}, ${cx - rx * 1.06} ${cy - ry * 1.05}, ${cx + rx * 0.35} ${cy - ry * 0.92}`;}
   else if (e.shape === 'under') d = `M${x - w / 2} ${y} Q${x} ${y + 10} ${x + w / 2} ${y - 4}`;
@@ -577,7 +577,7 @@ const LegacyStamp: React.FC<any> = ({e}) => (
 );
 export const Stamp = EditorialStamp;
 const LegacyToon: React.FC<any> = ({e, t}) => (
-  <Img src={img(`toon/${e.src}.png`)} style={{height: e.size || 520, filter: 'drop-shadow(0 20px 30px rgba(0,0,0,.5))', transform: `rotate(${Math.sin(t * 3) * (e.wig ?? 2)}deg)`}} />
+  <Img src={img(`toon/${e.src}.png`)} style={{height: e.size || 520, filter: 'drop-shadow(0 20px 30px rgba(7,14,24,.5))', transform: `rotate(${Math.sin(t * 3) * (e.wig ?? 2)}deg)`}} />
 );
 export const Toon = LegacyToon;
 export const Spark = EditorialSpark;
@@ -588,12 +588,12 @@ const LegacyChart: React.FC<any> = ({e, t}) => {
   const w = e.w || 1100, h = e.h || 520, pts = e.pts as [string, number][], n = pts.length;
   const vs = pts.map((p) => p[1]), mn = e.min ?? Math.min(...vs) * 0.85, mx = e.max ?? Math.max(...vs) * 1.08;
   const pad = 70, X = (i: number) => pad + (i * (w - pad * 2)) / Math.max(1, n - 1), Y = (v: number) => h - 60 - ((v - mn) / (mx - mn)) * (h - 140);
-  const p = eio(prog(t, e.t + 0.2, e.d ?? 2.2)), c = e.c || '#ff7d95';
+  const p = eio(prog(t, e.t + 0.2, e.d ?? 2.2)), c = e.c || '#d0b87b';
   const d = pts.map((q, i) => `${i ? 'L' : 'M'}${X(i).toFixed(1)} ${Y(q[1]).toFixed(1)}`).join(' ');
   const area = `${d} L${X(n - 1)} ${h - 60} L${X(0)} ${h - 60} Z`;
   const lab: number[] = e.labels ?? [0, n - 1];
   return (
-    <div style={{position: 'relative', width: w, height: h, background: 'rgba(18,16,32,.72)', borderRadius: 26, border: '2px solid rgba(255,255,255,.12)', boxShadow: '0 24px 60px rgba(0,0,0,.45)'}}>
+    <div style={{position: 'relative', width: w, height: h, background: 'rgba(19,29,44,.86)', borderRadius: 26, border: '2px solid rgba(255,255,255,.12)', boxShadow: '0 24px 60px rgba(0,0,0,.45)'}}>
       {e.title && <div style={{position: 'absolute', left: 40, top: 26, fontFamily: F.ys, fontSize: e.tsize || 44, color: '#f3f1e6'}}>{e.title}<span style={{fontFamily: F.en, fontSize: 20, letterSpacing: 3, marginLeft: 18, color: 'rgba(240,238,225,.55)'}}>{e.en}</span></div>}
       <svg width={w} height={h} style={{position: 'absolute', left: 0, top: 0}}>
         <defs>
@@ -610,7 +610,7 @@ const LegacyChart: React.FC<any> = ({e, t}) => {
       {pts.map((q, i) => <div key={i} style={{position: 'absolute', left: X(i), top: h - 50, transform: 'translateX(-50%)', fontFamily: F.num, fontSize: 30, color: 'rgba(240,238,225,.6)'}}>{q[0]}</div>)}
       {lab.map((i) => {const q = pts[i]; const on = clamp((p - i / Math.max(1, n - 1)) * 6 + 0.2); return (
         <div key={`l${i}`} style={{position: 'absolute', left: X(i), top: Y(q[1]) - 92, transform: `translateX(-50%) scale(${0.6 + 0.4 * back(on)})`, opacity: on}}>
-          <GText txt={`${fmt(q[1], e.dec ?? 0)}${e.unit || ''}`} size={e.vsize || 64} font="num" grad={e.grad || 'rose'} />
+          <GText txt={`${fmt(q[1], e.dec ?? 0)}${e.unit || ''}`} size={e.vsize || 64} font="num" grad={e.grad || 'gold'} />
         </div>);})}
     </div>
   );

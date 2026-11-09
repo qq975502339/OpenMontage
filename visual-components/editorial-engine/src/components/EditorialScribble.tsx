@@ -3,7 +3,7 @@ import {eout,prog} from '../lib';
 
 /** Editorial emphasis snaps into place as a dashed, hand-drawn annotation. */
 export const EditorialScribble:React.FC<{e:any;t:number}>=({e,t})=>{
- const {x=0,y=0,w=100,h=60}=e,p=eout(prog(t,e.t ?? 0,e.d ?? .5)),c=e.c ?? '#e87559',sw=e.sw ?? 6;
+ const {x=0,y=0,w=100,h=60}=e,p=eout(prog(t,e.t ?? 0,e.d ?? .5)),c=e.c ?? '#d3b871',sw=e.sw ?? 6;
  let d='';
  if(e.shape==='circle')d=`M${x-w/2} ${y} a${w/2} ${h/2} 0 1 0 ${w} 0 a${w/2} ${h/2} 0 1 0 ${-w} 0`;
  else if(e.shape==='under')d=`M${x-w/2} ${y} Q${x} ${y+8} ${x+w/2} ${y-3}`;

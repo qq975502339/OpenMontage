@@ -134,7 +134,8 @@ export const BG: React.FC<{bg: any; t: number; cam: any; sc: any}> = ({bg, t, ca
   const lt = t - sc.t0;
   if (bg.type === 'dark') {
     return (
-      <AbsoluteFill style={{background: bg.base || '#000000'}}>
+      <AbsoluteFill style={{background: bg.base || 'radial-gradient(ellipse at 50% 45%,#2e3a55,#0b1019 80%)'}}>
+        {!bg.base && !bg.photo && <AbsoluteFill style={{backgroundImage:`url(${img('fx/wallstreet-fabric.jpg')})`,backgroundSize:'1024px 1024px',mixBlendMode:'overlay',opacity:.72,pointerEvents:'none'}} />}
         {bg.photo && <Img src={img(bg.photo)} style={{position: 'absolute', inset: 0, width: 1920, height: 1080, objectFit: 'cover', filter: `blur(${bg.blur ?? 10}px) brightness(${bg.bright ?? 0.35}) saturate(0.7)`, transform: `scale(${1.08 + lt * 0.004})`}} />}
         {bg.shapes === true && !bg.photo && (
           <div style={{position: 'absolute', inset: 0, filter: cam.s > 1.05 ? `blur(${Math.min(3.2, (cam.s - 1.05) * 6).toFixed(2)}px)` : undefined}}>
