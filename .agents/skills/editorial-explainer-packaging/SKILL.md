@@ -17,7 +17,7 @@ description: Use when packaging Chinese educational or finance explainer videos 
 
 ## 数字主持人按需生成
 
-需要数字主持人出镜时，主动按分镜逐段生成，无需用户提供完整数字人口播视频。每次编写或修改数字主持人的 H3 提示词前，必须读取并遵循项目中的 `.agents/skills/h3-prompt-writing/SKILL.md` 及其对应输入模式的参考文件。统一使用 AutoDL 的 `autodl_comfyui_video` 工具，指定 `workflow_id=minimax_h3_image_audio_to_video_v2_15s`；每个生成片段设为 5–15 秒，实际成片中主持人可见画面合计占视频总时长的 30%。固定形象和声音，按口播文本、时间线和素材生成；严禁虚称无参考素材的多次生成天然是同一个人。台词口型、配音、颈部肌肉稳定性和画面质量必须逐段检查，提示词不能保证绝对不动，质量不合格则调整或重生成。完整步骤、比例算法、参数和限制见 [数字主持人生成](references/autodl-presenter.md)。
+需要数字主持人出镜时，主动按分镜逐段生成，无需用户提供完整数字人口播视频。每次编写或修改数字主持人的 H3 提示词前，必须读取并遵循项目中的 `.agents/skills/h3-prompt-writing/SKILL.md` 及其对应输入模式的参考文件。统一使用 AutoDL 的 `autodl_comfyui_video` 工具，指定 `workflow_id=minimax_h3_image_audio_to_video_v2_15s`；每个生成片段设为 5–15 秒，实际成片中主持人可见画面合计占视频总时长的 30%。固定形象和声音，按口播文本、时间线和素材生成；严禁虚称无参考素材的多次生成天然是同一个人。提示词必须逐条禁止推拉摇移、重新构图、背景变化和画面抖动，并检查脖子、喉咙、下巴、肩膀、衣物和麦克风的皮肤波动、液化、融化、拉伸和几何变形；台词口型、配音和画面质量同样要逐段抽帧验收，提示词不能保证绝对不动，不合格则调整或重生成。完整步骤、比例算法、参数和限制见 [数字主持人生成](references/autodl-presenter.md)。
 
 ## 图标与真实素材
 
