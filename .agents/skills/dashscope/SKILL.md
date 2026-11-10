@@ -11,15 +11,16 @@ Requires `DASHSCOPE_API_KEY` in `.env`. Get one at https://dashscope.aliyun.com/
 
 **CRITICAL:** DashScope's `/compatible-mode/v1/` only supports `/chat/completions` and `/embeddings`. Image generation, TTS, ASR, and video understanding use **DashScope-native endpoints** — not OpenAI-compatible paths.
 
-All four tools use `Authorization: Bearer $DASHSCOPE_API_KEY`.
+All four tools use `Authorization: Bearer $DASHSCOPE_API_KEY`. Image generation additionally accepts `QIANWEN_API_KEY` (preferred, Token Plan).
 
 ### Image Generation
 
 ```text
-POST https://dashscope.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation
+POST https://maas.qianwenaiapi.com/api/v1/services/aigc/multimodal-generation/generation
 ```
+Default base URL is the Qianwen AI platform Token Plan endpoint (`QIANWEN_BASE_URL` overrides; set it to `https://dashscope.aliyuncs.com/api/v1` for Bailian pay-per-image).
 
-- Model: `qwen-image-3.0` (default), `qwen-image-3.0-pro`, `qwen-image-2.0-pro`, `qwen-image-max`, `wan2.7-image`, `z-image-turbo`
+- Model: `qwen-image-3.0-pro` (default), `qwen-image-3.0`, `qwen-image-2.0-pro`, `qwen-image-max`, `wan2.7-image`, `z-image-turbo`
 - Body: `{model, input: {messages: [{role: "user", content: [{text: "prompt"}]}]}, parameters: {size: "W*H", n, prompt_extend, watermark}}`
 - **Size format uses asterisk:** `"1024*1024"` not `"1024x1024"`
 - Response: `output.choices[0].message.content[0].image` (URL, valid ~24h) — must download separately

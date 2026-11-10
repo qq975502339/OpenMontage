@@ -205,9 +205,13 @@ class TestContract:
 
 class TestDashscopeImageSpecific:
 
-    def test_default_model_is_qwen_image_3_0(self):
+    def test_default_model_is_qwen_image_3_0_pro(self):
         tool = DashscopeImage()
-        assert tool.input_schema["properties"]["model"]["default"] == "qwen-image-3.0"
+        assert tool.input_schema["properties"]["model"]["default"] == "qwen-image-3.0-pro"
+
+    def test_default_endpoint_is_qianwen_token_plan(self):
+        tool = DashscopeImage()
+        assert tool._base_url() == "https://maas.qianwenaiapi.com/api/v1"
 
     def test_default_size_uses_asterisk_format(self):
         """CRITICAL: DashScope uses W*H (asterisk), not WxH."""

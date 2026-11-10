@@ -1,4 +1,9 @@
-"""DashScope (Alibaba Cloud Bailian) image generation via Qwen-Image models.
+"""Qwen-Image generation through the DashScope-compatible multimodal-generation API.
+
+Default target is the Qianwen AI platform (Token Plan) endpoint
+`https://maas.qianwenaiapi.com/api/v1`, so image generation is billed against the
+subscription instead of pay-per-image. Override with `QIANWEN_BASE_URL` to point
+at Alibaba Cloud Bailian or another compatible gateway.
 
 Uses the DashScope-native multimodal-generation endpoint (NOT OpenAI-compatible
 mode, which only supports /chat/completions and /embeddings). The response
@@ -39,8 +44,8 @@ class DashscopeImage(BaseTool):
 
     dependencies = []
     install_instructions = (
-        "Set DASHSCOPE_API_KEY to your Alibaba Cloud DashScope API key.\n"
-        "  Get one at https://dashscope.aliyun.com/"
+        "Set QIANWEN_API_KEY (Qianwen AI platform / Token Plan) or DASHSCOPE_API_KEY.\n"
+        "  Qianwen AI: https://platform.qianwenai.com/ · Bailian: https://dashscope.aliyun.com/"
     )
     fallback = "grok_image"
     fallback_tools = ["grok_image", "openai_image", "flux_image", "recraft_image"]
@@ -76,7 +81,7 @@ class DashscopeImage(BaseTool):
                     "wan2.7-image",
                     "z-image-turbo",
                 ],
-                "default": "qwen-image-3.0",
+                "default": "qwen-image-3.0-pro",
             },
             "size": {
                 "type": "string",
@@ -126,28 +131,37 @@ class DashscopeImage(BaseTool):
         "Inspect generated image for relevance and quality"
     ]
 
-    ENDPOINT = (
-        "https://dashscope.aliyuncs.com/api/v1/services/aigc/"
-        "multimodal-generation/generation"
-    )
+    # Qianwen AI platform (Token Plan) is the default; override to use Bailian.
+    DEFAULT_BASE_URL = "https://maas.qianwenaiapi.com/api/v1"
+    ENDPOINT_PATH = "/services/aigc/multimodal-generation/generation"
+    DEFAULT_MODEL = "qwen-image-3.0-pro"
+
+    @classmethod
+    def _base_url(cls) -> str:
+        return (os.environ.get("QIANWEN_BASE_URL") or cls.DEFAULT_BASE_URL).rstrip("/")
+
+    @staticmethod
+    def _api_key() -> str:
+        return os.environ.get("QIANWEN_API_KEY") or os.environ.get("DASHSCOPE_API_KEY", "")
 
     def get_status(self) -> ToolStatus:
-        if os.environ.get("DASHSCOPE_API_KEY"):
+        if self._api_key():
             return ToolStatus.AVAILABLE
         return ToolStatus.UNAVAILABLE
 
     def estimate_cost(self, inputs: dict[str, Any]) -> float:
-        # Conservative per-image estimate; DashScope bills per image.
-        # Check the DashScope console for actual pricing.
+        # Token Plan key = billed against the subscription, no marginal cost.
+        if os.environ.get("QIANWEN_API_KEY"):
+            return 0.0
         n = int(inputs.get("n", 1))
         return n * 0.02
 
     def execute(self, inputs: dict[str, Any]) -> ToolResult:
-        api_key = os.environ.get("DASHSCOPE_API_KEY")
+        api_key = self._api_key()
         if not api_key:
             return ToolResult(
                 success=False,
-                error="DASHSCOPE_API_KEY not set. " + self.install_instructions,
+                error="QIANWEN_API_KEY / DASHSCOPE_API_KEY not set. " + self.install_instructions,
             )
 
         import requests
@@ -156,7 +170,7 @@ class DashscopeImage(BaseTool):
         try:
             payload = self._build_payload(inputs)
             response = requests.post(
-                self.ENDPOINT,
+                self._base_url() + self.ENDPOINT_PATH,
                 headers={
                     "Authorization": f"Bearer {api_key}",
                     "Content-Type": "application/json",
@@ -256,7 +270,7 @@ class DashscopeImage(BaseTool):
             parameters["seed"] = int(inputs["seed"])
 
         return {
-            "model": inputs.get("model", "qwen-image-3.0"),
+            "model": inputs.get("model", self.DEFAULT_MODEL),
             "input": {
                 "messages": [
                     {
@@ -270,6 +284,9 @@ class DashscopeImage(BaseTool):
 
     @staticmethod
     def _safe_error(exc: Exception) -> str:
-        return str(exc).replace(
-            os.environ.get("DASHSCOPE_API_KEY", ""), "[redacted]"
-        )
+        msg = str(exc)
+        for name in ("QIANWEN_API_KEY", "DASHSCOPE_API_KEY"):
+            key = os.environ.get(name, "")
+            if key:
+                msg = msg.replace(key, "[redacted]")
+        return msg

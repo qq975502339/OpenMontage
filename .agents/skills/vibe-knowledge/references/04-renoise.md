@@ -1,10 +1,10 @@
-# 04 · 增强层：图用 qwen-image-3.0 / 视频用 H3 15s
+# 04 · 增强层：图用 qwen-image-3.0-pro（Token Plan）/ 视频用 H3 15s
 
 **本项目固定模型（用户 2026-11 指定，覆盖原 Renoise 方案）**：
 
 | 资产 | 模型 / 接口 | 单价 | 用在 |
 |---|---|---|---|
-| 配图 | `qwen-image-3.0`（DashScope 百炼图像接口） | **0.18 元 / 张** | 写实场景、主视觉底图、示意底图 |
+| 配图 | `qwen-image-3.0-pro`（千问AI平台 Token Plan，DashScope 兼容端点） | **0（走 Token Plan 额度）** | 写实场景、主视觉底图、示意底图 |
 | 动态镜头 | AutoDL 托管 ComfyUI 工作流 `minimax_h3_image_audio_to_video_v2_15s` | **0.05 元 / 秒**（15 秒 = 0.75 元） | 需要真实运动的镜头，首帧用已确认的配图 |
 | 配乐 | 技能自带 `vibe-bgm`（`tools/fit_bgm.py` 裁切） | 0 | 全片铺底（`bgm_force` 强制） |
 | 音效 | earshot 代码音效（references/10-earshot.md）；要真人质感的少量音效用 ElevenLabs | 0 / 按量 | 转折、揭晓、页面切换 |
@@ -13,11 +13,11 @@ Renoise MCP（`estimate_cost / create_tasks / wait_tasks / download_results`）*
 
 **花钱的硬规矩**：把整期的 assets.json 列成一张表（镜头、模型、提示词、张数 / 秒数、合计金额）发给用户，**等用户在对话里明确说可以**才提交生成。宿主的工具授权弹窗不算确认；之前说过「直接生成」也不算。改了任何提示词、模型、数量就要重新报价确认。
 
-## 出图：qwen-image-3.0
+## 出图：qwen-image-3.0-pro
 
-1. 读 `.env` 的 `DASHSCOPE_API_KEY`（缺了就让用户补，不要换模型）。
+1. 读 `.env` 的 `QIANWEN_API_KEY`（千问AI平台 Token Plan；缺了就退回 `DASHSCOPE_API_KEY`，都没有就让用户补，不要换模型）。端点默认 `https://maas.qianwenaiapi.com/api/v1`，可用 `QIANWEN_BASE_URL` 覆盖。
 2. 一次一张：`prompt` + `size`。16:9 用 `1664*928`（**星号分隔，不是 `x`**）；竖屏用 `928*1664`；需要方图或自定义尺寸时按 DashScope 支持的 `W*H` 取最接近的比例，成片里再 crop。
-3. `prompt_extend` 默认 `true`（百炼会改写提示词、出图更好看）；要严格照提示词出图（精确构图、器物结构）时显式设 `false`。
+3. `prompt_extend` 默认 `true`（平台会改写提示词、出图更好看）；要严格照提示词出图（精确构图、器物结构）时显式设 `false`。
 4. `watermark` 设 `false`。
 5. 下载到 `lessons/NN/assets/img/<id>.jpg`，`assets.json` 的 `status` 改 `done`，记下费用。
 
