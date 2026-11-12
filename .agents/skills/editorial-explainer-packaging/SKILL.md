@@ -7,6 +7,10 @@ description: Use when packaging Chinese educational or finance explainer videos 
 
 横屏讲解使用仓库中的个人组件引擎 `visual-components/editorial-engine` 制作画面。先阅读引擎内的 `COMPONENT_GUIDE.md`；处理口播、分镜、资料和混音时，结合仓库中 `.agents/skills/xiaolin-explainer-packaging/SKILL.md` 的相关流程，个人视觉画面使用个人引擎；已批准的华尔街画面使用独立华尔街引擎并保留原版风格，不要混称两者。安装到其他位置时，从仓库运行或用环境变量 `EDITORIAL_ENGINE_PATH` 指向个人引擎。
 
+## 旁白配音
+
+需要生成旁白时，默认使用 Token Plan 的 `token_plan_tts`，模型 `qwen-audio-3.0-tts-plus`，音色 `longanlingxin`；读取 [Token Plan 旁白](references/token-plan-narration.md)。此默认适用于个人画面、大头剪贴和华尔街画面的生成旁白；子技能中的默认配音服务与此不一致时，以本技能为准。用户明确指定其他声音、服务或提供原始口播时遵从用户要求；真人口播原声无需替换。旁白生成后按真实音频重新对齐分镜、字幕和混音。
+
 ## 人物、创业和公司故事
 
 遇到人物经历、创业故事、公司历史中适合故事化呈现的内容，主动调用随技能内置的 **bighead-collage 大头剪贴故事视觉模式**，保留其原版人物剪纸、小舞台、道具、字体、颜色、动作、镜头和转场；如果只是视频中的一段，该模式可作为独立故事片段使用。用户有明确视觉或画幅要求时优先服从。先读 [故事模式](references/story-mode.md) 和内置原项目 `vendor/bighead-collage/SKILL.md`，按其完整制作流程执行；使用 `node scripts/create-story.mjs <新工程目录>` 创建原版竖屏故事工程；横屏故事使用 `--landscape` 参数，再按横屏重新编排。横屏提供人物、道具和固定字幕辅助函数；故事片段可与个人图表片段通过合成清单拼接及混音，具体步骤见故事模式。故事画面仍需根据题目设计，跨引擎组合不等于自动嵌入 Remotion。横屏个人组件沿用已确认的视觉风格及动效。
