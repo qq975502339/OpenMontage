@@ -4,9 +4,11 @@ import {back, clamp, eio, eout, F, FPS, GText, img, lerp, loadFonts, prog} from 
 import {BG, FgBokeh, Sparkle} from './bg';
 import {ABS, ELS as ELS5, Place, Ruler} from './els';
 import {ELS6} from './els6';
+import {ELS7} from './els7';
+import {ELS8} from './els8';
 import {EditorialTitleCard} from './components/EditorialTitleCard';
 import {EditorialEndCard} from './components/EditorialEndCard';
-const ELS: any = {...ELS5, ...ELS6};
+const ELS: any = {...ELS5, ...ELS6, ...ELS7, ...ELS8};
 import D from './data/shots.json';
 
 loadFonts();

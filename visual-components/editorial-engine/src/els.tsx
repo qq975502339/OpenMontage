@@ -1,4 +1,5 @@
 import React from 'react';
+import {chartRiderPosition} from './chart-rider.mjs';
 import {Img} from 'remotion';
 import {back, clamp, eio, eout, F, fmt, GRAD, GText, img, lerp, prog, rnd} from './lib';
 import {Banknote, Sparkle} from './bg';
@@ -592,6 +593,7 @@ const LegacyChart: React.FC<any> = ({e, t}) => {
   const d = pts.map((q, i) => `${i ? 'L' : 'M'}${X(i).toFixed(1)} ${Y(q[1]).toFixed(1)}`).join(' ');
   const area = `${d} L${X(n - 1)} ${h - 60} L${X(0)} ${h - 60} Z`;
   const lab: number[] = e.labels ?? [0, n - 1];
+  const rider = e.rider?.src ? chartRiderPosition(pts, p, X, Y) : null;
   return (
     <div style={{position: 'relative', width: w, height: h, background: 'rgba(19,29,44,.86)', borderRadius: 26, border: '2px solid rgba(255,255,255,.12)', boxShadow: '0 24px 60px rgba(0,0,0,.45)'}}>
       {e.title && <div style={{position: 'absolute', left: 40, top: 26, fontFamily: F.ys, fontSize: e.tsize || 44, color: '#f3f1e6'}}>{e.title}<span style={{fontFamily: F.en, fontSize: 20, letterSpacing: 3, marginLeft: 18, color: 'rgba(240,238,225,.55)'}}>{e.en}</span></div>}
@@ -608,6 +610,7 @@ const LegacyChart: React.FC<any> = ({e, t}) => {
         {pts.map((q, i) => {const on = p >= i / Math.max(1, n - 1) - 0.001; return on ? <circle key={i} cx={X(i)} cy={Y(q[1])} r={lab.includes(i) ? 13 : 8} fill="#fff" stroke={c} strokeWidth="5" /> : null;})}
       </svg>
       {pts.map((q, i) => <div key={i} style={{position: 'absolute', left: X(i), top: h - 50, transform: 'translateX(-50%)', fontFamily: F.num, fontSize: 30, color: 'rgba(240,238,225,.6)'}}>{q[0]}</div>)}
+      {rider && t >= e.t + 0.2 && <Img src={img(e.rider.src)} style={{position: 'absolute', left: rider.x + (e.rider.dx ?? 0), top: rider.y + (e.rider.dy ?? 0), width: e.rider.w ?? 110, height: e.rider.h ?? e.rider.w ?? 110, objectFit: 'contain', transform: 'translate(-50%, -100%)', filter: 'drop-shadow(0 8px 12px rgba(0,0,0,.4))', pointerEvents: 'none'}} />}
       {lab.map((i) => {const q = pts[i]; const on = clamp((p - i / Math.max(1, n - 1)) * 6 + 0.2); return (
         <div key={`l${i}`} style={{position: 'absolute', left: X(i), top: Y(q[1]) - 92, transform: `translateX(-50%) scale(${0.6 + 0.4 * back(on)})`, opacity: on}}>
           <GText txt={`${fmt(q[1], e.dec ?? 0)}${e.unit || ''}`} size={e.vsize || 64} font="num" grad={e.grad || 'gold'} />

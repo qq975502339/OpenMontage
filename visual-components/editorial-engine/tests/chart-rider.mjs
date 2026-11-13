@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import { chartRiderPosition } from '../src/chart-rider.mjs';
+const X=i=>70+i*100, Y=v=>500-v*2, pts=[['A',10],['B',30],['C',20]];
+assert.deepEqual(chartRiderPosition(pts,0,X,Y),{x:70,y:480});
+assert.deepEqual(chartRiderPosition(pts,.25,X,Y),{x:120,y:460});
+assert.deepEqual(chartRiderPosition(pts,1,X,Y),{x:270,y:460});
+assert.deepEqual(chartRiderPosition([['A',10]],.7,X,Y),{x:70,y:480});
+assert.equal(chartRiderPosition([],0,X,Y),null);
+assert.deepEqual(chartRiderPosition(pts,2,X,Y),{x:270,y:460});
+console.log('chart rider follows the reveal');
