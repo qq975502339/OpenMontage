@@ -151,7 +151,6 @@ class ViduS2Avatar(BaseTool):
         "text_driven_avatar": True,
         "single_image_required": True,
         "timeline_actions": True,
-        "callback_url": True,
         "short_lived_result_urls": True,
         "cloud_render": True,
         "prompt_control": False,
@@ -232,10 +231,13 @@ class ViduS2Avatar(BaseTool):
                 "type": "boolean",
                 "default": False,
                 "description": (
-                    "Whether Vidu also renders a watermarked copy. The tool "
-                    "always downloads the clean ``creations[].url``; the "
-                    "watermarked variant is only reported. Set true when you "
-                    "need the compliance-marked file as well."
+                    "Whether Vidu also renders a watermarked copy carrying "
+                    "the AI-generated compliance mark. The API adds that copy "
+                    "by default when the field is omitted, so this tool always "
+                    "sends the value explicitly: false (the default) suppresses "
+                    "the extra copy, true keeps it. The video saved to "
+                    "output_path is always the clean creations[].url, never "
+                    "the watermarked variant."
                 ),
             },
             "payload": {
@@ -375,8 +377,10 @@ class ViduS2Avatar(BaseTool):
             else:
                 body["timeline"] = json.dumps(timeline, ensure_ascii=False)
 
-        if inputs.get("watermark") is True:
-            body["watermark"] = True
+        # Send the flag explicitly either way: the API defaults to creating a
+        # watermarked copy when the field is absent, so silence would mean
+        # "yes". Omitted here means the schema default (False).
+        body["watermark"] = bool(inputs.get("watermark", False))
         payload = str(inputs.get("payload") or "").strip()
         if payload:
             body["payload"] = payload
