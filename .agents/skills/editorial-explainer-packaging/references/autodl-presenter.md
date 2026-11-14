@@ -1,5 +1,7 @@
 # AutoDL 数字主持人按需生成
 
+> 这是数字主持人的**备用路径**。主持人默认走 Vidu S2 非实时版（见 [Vidu 数字主持人](vidu-presenter.md)）；仅当 Vidu 不可用、积分不足（低于 45 分）、用户明确指定 AutoDL，或需要逐镜约束镜头与人体时才使用本文件。
+
 在个人讲解视频需要数字主持人时，不要求用户上传完整的数字人视频。使用 OpenMontage 工具注册表中的 `autodl_comfyui_video`，显式指定 AutoDL 工作流 `minimax_h3_image_audio_to_video_v2_15s`。先读 `.agents/skills/autodl-comfyui/SKILL.md` 和项目中适用的制作流程；接口以 [AutoDL 工作流页面](https://www.autodl.art/large-model/comfyui/minimax_h3_image_audio_to_video_v2_15s) 为准。此工作流不同于默认的 H3 文生视频工作流。
 
 ## 提示词编写：强制步骤

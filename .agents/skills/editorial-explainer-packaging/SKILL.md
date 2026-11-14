@@ -13,7 +13,7 @@ description: Use when packaging Chinese educational or finance explainer videos 
 
 ## 人物、创业和公司故事
 
-遇到人物经历、创业故事、公司历史中适合故事化呈现的内容，主动调用随技能内置的 **bighead-collage 大头剪贴故事视觉模式**，保留其原版人物剪纸、小舞台、道具、字体、颜色、动作、镜头和转场；如果只是视频中的一段，该模式可作为独立故事片段使用。用户有明确视觉或画幅要求时优先服从。先读 [故事模式](references/story-mode.md) 和内置原项目 `vendor/bighead-collage/SKILL.md`，按其完整制作流程执行；使用 `node scripts/create-story.mjs <新工程目录>` 创建原版竖屏故事工程；横屏故事使用 `--landscape` 参数，再按横屏重新编排。横屏提供人物、道具和固定字幕辅助函数；故事片段可与个人图表片段通过合成清单拼接及混音，具体步骤见故事模式。故事画面仍需根据题目设计，跨引擎组合不等于自动嵌入 Remotion。横屏个人组件沿用已确认的视觉风格及动效。
+遇到人物经历、创业故事、公司历史中适合故事化呈现的内容，主动调用随技能内置的 **bighead-collage 大头剪贴故事视觉模式**，保留其原版人物剪纸、小舞台、道具、字体、颜色、动作、镜头和转场；如果只是视频中的一段，该模式可作为独立故事片段使用。用户有明确视觉或画幅要求时优先服从。先读 [故事模式](references/story-mode.md) 和内置原项目 `vendor/bighead-collage/SKILL.md`，按其完整制作流程执行；使用 `node scripts/create-story.mjs <新工程目录>` 创建原版竖屏故事工程；横屏故事使用 `--landscape` 参数，再按横屏重新编排。横屏提供人物、道具和固定字幕辅助函数；故事片段可与个人图表片段通过合成清单拼接及混音，具体步骤见故事模式。故事画面仍需根据题目设计，跨引擎组合不等于自动嵌入 Remotion。故事里的生图默认调用项目已实现的 QIANWEN 生图 `token_plan_image`（`qwen-image-3.0-pro`），主角照片通过 `image` 或 `images` 传入作参考，按 `gen/` 的目标文件名保存后再抠图；内置 `vendor/bighead-collage/scripts/gen_image.py` 只在用户明确指定 codex/OpenAI 或 QIANWEN 不可用时使用。横屏个人组件沿用已确认的视觉风格及动效。
 
 ## 财经证据与真人口播
 
@@ -21,7 +21,12 @@ description: Use when packaging Chinese educational or finance explainer videos 
 
 ## 数字主持人按需生成
 
-需要数字主持人出镜时，主动按分镜逐段生成，无需用户提供完整数字人口播视频。每次编写或修改数字主持人的 H3 提示词前，必须读取并遵循项目中的 `.agents/skills/h3-prompt-writing/SKILL.md` 及其对应输入模式的参考文件。统一使用 AutoDL 的 `autodl_comfyui_video` 工具，指定 `workflow_id=minimax_h3_image_audio_to_video_v2_15s`；每个生成片段设为 5–15 秒，实际成片中主持人可见画面合计占视频总时长的 30%。固定形象和声音，按口播文本、时间线和素材生成；严禁虚称无参考素材的多次生成天然是同一个人。提示词必须逐条禁止推拉摇移、重新构图、背景变化和画面抖动，并检查脖子、喉咙、下巴、肩膀、衣物和麦克风的皮肤波动、液化、融化、拉伸和几何变形；台词口型、配音和画面质量同样要逐段抽帧验收，提示词不能保证绝对不动，不合格则调整或重生成。完整步骤、比例算法、参数和限制见 [数字主持人生成](references/autodl-presenter.md)。
+需要数字主持人出镜时，主动按分镜逐段生成，无需用户提供完整数字人口播视频。默认先用 Vidu S2 非实时版；只有 Vidu 不可用、积分不足（低于 45 分）、用户明确指定 AutoDL，或需要逐镜约束镜头与人体时才改用 AutoDL H3，切换前告知用户并记录原因。
+
+- **默认路径：Vidu S2 非实时版**（`vidu_s2_avatar`，密钥 `VIDU_API_KEY`）：形象由一张单人角色图固定，音频或文本驱动，不需要写提示词，适合批量出片段。先读 [Vidu 数字主持人](references/vidu-presenter.md)。
+- **备用路径：AutoDL H3 image+audio**（`autodl_comfyui_video`，工作流 `minimax_h3_image_audio_to_video_v2_15s`）：参考图加参考音频，逐段提示词可约束镜头与人体。每次编写或修改 H3 提示词前，必须读取并遵循项目中的 `.agents/skills/h3-prompt-writing/SKILL.md` 及其对应输入模式的参考文件。先读 [数字主持人生成](references/autodl-presenter.md)。
+
+两条路径共同要求：固定形象和声音，按口播文本、时间线和素材生成；严禁虚称无参考素材的多次生成天然是同一个人。AutoDL 路径的每个生成片段设为 5–15 秒；Vidu 路径的片段时长由音频实际长度决定，按实际文件排布。实际成片中主持人可见画面合计占视频总时长的 30%，按最终时间线以时间区间的并集计算，以实际输出帧数和最终成片时长复核。台词口型、配音和画面质量同样要逐段抽帧验收，不合格则调整或重生成；提示词或角色图都不能保证绝对不动。完整步骤、比例算法、参数和限制见两篇参考文件。
 
 ## 图标与真实素材
 

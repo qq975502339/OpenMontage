@@ -1,6 +1,8 @@
 """Token Plan personal image and speech generation via native HTTP APIs."""
 from __future__ import annotations
 
+import base64
+import mimetypes
 import os
 from pathlib import Path
 from typing import Any
@@ -84,13 +86,51 @@ class TokenPlanImage(_TokenPlanMedia):
     tier = ToolTier.GENERATE
     capability = 'image_generation'
     provider = 'token_plan'
-    input_schema = {'type': 'object', 'required': ['prompt', 'output_path'], 'properties': {'prompt': {'type': 'string'}, 'output_path': {'type': 'string'}, 'size': {'type': 'string'}, 'include_remote_url': {'type': 'boolean', 'default': False}}}
+    input_schema = {
+        'type': 'object',
+        'required': ['prompt', 'output_path'],
+        'properties': {
+            'prompt': {'type': 'string'},
+            'output_path': {'type': 'string'},
+            'size': {'type': 'string'},
+            'image': {'type': 'string', 'description': 'Optional reference image: public URL, data URI, or local path.'},
+            'images': {'type': 'array', 'items': {'type': 'string'}, 'description': 'Optional multiple reference images.'},
+            'model': {'type': 'string', 'default': 'qwen-image-3.0-pro'},
+            'include_remote_url': {'type': 'boolean', 'default': False},
+        },
+    }
 
     def execute(self, inputs: dict[str, Any]) -> ToolResult:
         prompt = inputs.get('prompt', '').strip()
         if not prompt:
             return ToolResult(success=False, error='prompt is required')
-        payload = {'model': 'qwen-image-3.0-pro', 'input': {'messages': [{'role': 'user', 'content': [{'text': prompt}]}]}}
+        refs = []
+        if inputs.get('image'):
+            refs.append(str(inputs['image']))
+        refs.extend(str(item) for item in (inputs.get('images') or []) if item)
+        content: list[dict[str, Any]] = []
+        try:
+            for ref in refs:
+                content.append({'image': self._image_ref(ref)})
+        except (OSError, ValueError) as exc:
+            return ToolResult(success=False, error=f'Reference image failed: {exc}')
+        content.append({'text': prompt})
+        payload = {
+            'model': (inputs.get('model') or 'qwen-image-3.0-pro').strip(),
+            'input': {'messages': [{'role': 'user', 'content': content}]},
+        }
         if inputs.get('size'):
             payload['parameters'] = {'size': inputs['size']}
         return self._request('/services/aigc/multimodal-generation/generation', payload, inputs.get('output_path', ''), 'image', inputs.get('include_remote_url', False))
+
+    @staticmethod
+    def _image_ref(value: str) -> str:
+        """Pass URLs and data URIs through; encode local files as data URIs."""
+        text = value.strip()
+        if text.startswith(('http://', 'https://', 'data:')):
+            return text
+        path = Path(text)
+        if not path.is_file():
+            raise FileNotFoundError(f'not a URL, data URI or existing file: {text!r}')
+        mime = mimetypes.guess_type(path.name)[0] or 'image/png'
+        return f"data:{mime};base64,{base64.b64encode(path.read_bytes()).decode('ascii')}"
