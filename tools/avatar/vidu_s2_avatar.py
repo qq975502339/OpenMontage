@@ -364,16 +364,21 @@ class ViduS2Avatar(BaseTool):
         timeline = inputs.get("timeline")
         if timeline:
             if isinstance(timeline, str):
-                # The API wants a serialized JSON string; validate so a
-                # malformed value fails here rather than as FieldInvalid.
+                # The API wants a serialized `{"actions": [...]}` string;
+                # validate so a malformed value fails here rather than as
+                # FieldInvalid.
                 try:
-                    json.loads(timeline)
+                    parsed = json.loads(timeline)
                 except ValueError:
                     return ToolResult(
                         success=False,
                         error="timeline must be valid JSON (or a list of actions)",
                     )
-                body["timeline"] = timeline
+                if isinstance(parsed, list):
+                    parsed = {"actions": parsed}
+                body["timeline"] = json.dumps(parsed, ensure_ascii=False)
+            elif isinstance(timeline, list):
+                body["timeline"] = json.dumps({"actions": timeline}, ensure_ascii=False)
             else:
                 body["timeline"] = json.dumps(timeline, ensure_ascii=False)
 
