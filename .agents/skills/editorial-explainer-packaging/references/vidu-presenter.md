@@ -1,6 +1,6 @@
 # Vidu S2-Avatar 非实时版数字主持人
 
-需要数字主持人出镜、且形象已由一张角色图固定时，使用 OpenMontage 工具注册表中的 `vidu_s2_avatar`（provider `vidu`），密钥 `VIDU_API_KEY`。这是本技能生成数字主持人的默认路径；AutoDL H3 的 `autodl_comfyui_video` 是备用路径，只在 Vidu 不可用、积分不足（低于 45 分）、用户明确指定 AutoDL，或需要逐镜约束镜头与人体时使用，切换前告知用户并记录原因。
+角上圆窗（`host:'pip'`）——画面里只露出一张脸的排布——使用 OpenMontage 工具注册表中的 `vidu_s2_avatar`（provider `vidu`），密钥 `VIDU_API_KEY`。这是小窗呈现的默认路径；房间全屏（`scene:'host'`）、竖窗（`host:'window'`）这两类看得见头肩和上半身的排布，默认走 AutoDL H3 的 `autodl_comfyui_video`，只有 H3 不可用、权限不足或工作流失败时才改用 Vidu，切换前告知用户并记录原因。
 
 接口文档：https://platform.vidu.cn/vidu-stream/doc/s2-avatar/async/introduction 、https://platform.vidu.cn/vidu-stream/doc/s2-avatar/async/parameters
 
@@ -8,6 +8,7 @@
 
 | 项目 | Vidu S2 非实时版 | AutoDL H3 image+audio |
 |---|---|---|
+| 适用呈现 | 角上圆窗 `host:'pip'`，只露头肩 | 房间全屏 `scene:'host'`、竖窗 `host:'window'`，可见头肩和上半身 |
 | 输入 | 1 张单人角色图 + 音频（或文本） | 参考图 + 参考音频 + 逐段提示词 |
 | 提示词 | 不需要写提示词，也不需要读 `h3-prompt-writing` | 每次编写或修改提示词前必须读 `h3-prompt-writing` |
 | 镜头/人体约束 | 靠角色图与 `timeline` 动作时间段，不能逐镜约束镜头 | 靠提示词逐条写禁止项，可约束镜头与人体 |
@@ -15,7 +16,7 @@
 | 计费 | 1 积分/秒，1 积分 0.03125 元，余额低于 45 积分不能发起 | 按 AutoDL token 与工作统计费 |
 | 出片耗时 | 文档实测约 40 秒–2 分钟 | 视工作流与分辨率 |
 
-选择建议：默认走 Vidu；需要控制镜头、表情或人体姿态，已经有 H3 工作流与提示词资产，或 Vidu 积分不足时改走 AutoDL。切换前告知用户并记录决定。
+选择建议：角上圆窗走 Vidu，省提示词也省事；房间全屏、竖窗走 AutoDL H3，因为这两类画幅更容易暴露镜头漂移和颈部、肩膀变形，需要逐段提示词兜住。H3 不可用时大画幅段才退回 Vidu；Vidu 积分不足或用户指定 AutoDL 时小窗段改走 H3。切换前告知用户并记录决定。
 
 ## 调用参数
 
@@ -36,7 +37,7 @@
 ## 制作要点
 
 1. **配音先行**。本技能默认旁白仍由 Token Plan `token_plan_tts` 生成，按 [Token Plan 旁白](token-plan-narration.md) 分段产出 `.mp3`，再把对应分段的音频作为 `audio` 传入。这样音色与全片一致，跨片段也稳定；不要用 `text` 模式让 Vidu 另配一套声音，除非用户明确要求。
-2. **形象固定**。同一形象始终使用同一张角色图；不要用不同图片生成多段后声称是同一个人。
+2. **形象固定**。同一形象始终使用同一张角色图；不要用不同图片生成多段后声称是同一个人。小窗只露脸时也用全片这张图，靠剪辑裁到脸部，不为小窗另生成一张形象，否则同一支片里会出现两个人。
 3. **素材可访问性**。本地图片和音频会被工具自动编码为 base64，解码后上限 20 MB；更大的素材先上传为公网 URL 再传入。
 4. **失败处理**。任务失败时以 `err_code` + `err_msg` 判断：`ImageCheckFaceFailed`、`ImageCheckBodyJointsFailed`、`ImageObjectsUndetected`、`MultiFaceDetected` 需换角色图；`CreditInsufficient` 需充值；`TooManyRequests` 需降低轮询频率。报告实际原因，不擅自换服务。
 5. **生成物时效**。`creations[].url` 有效期 24 小时，工具会立即下载到 `output_path`，仍需在工程内确认文件存在再进入合成。

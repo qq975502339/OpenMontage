@@ -1,13 +1,14 @@
 # Vidu S2-Avatar 非实时版数字主持人
 
-主持人开场与收尾默认走 Vidu S2 非实时版：工具注册表中的 `vidu_s2_avatar`（provider `vidu`），密钥 `VIDU_API_KEY`。AutoDL H3 的 `autodl_comfyui_video` 是备用路径，只在 Vidu 不可用、积分不足（低于 45 分）、用户明确指定 AutoDL，或需要逐镜约束镜头与人体时使用，切换前告知用户并记录原因。
+主持人缩成角上圆窗、只露头肩时用工具注册表中的 `vidu_s2_avatar`（provider `vidu`），密钥 `VIDU_API_KEY`，默认走本路径。主持人占满画面（房间全屏）或缩在右侧竖窗里、看得到头肩和上半身时，默认走 AutoDL H3 的 `autodl_comfyui_video`；只有 H3 不可用、权限不足或工作流失败时才改用本路径，切换前告知用户并记录原因。
 
 接口文档：https://platform.vidu.cn/vidu-stream/doc/s2-avatar/async/introduction 、https://platform.vidu.cn/vidu-stream/doc/s2-avatar/async/parameters
 
 ## 适用判断
 
-- 主持人开场与收尾默认用本路径：形象已由一张单人角色图固定，不需要写提示词，也不需要读 `h3-prompt-writing`。
-- 需要控制镜头、表情、手部动作或人体姿态时，改用 AutoDL H3 image+audio 路径，按 [数字主持人生成](autodl-presenter.md) 执行。
+- 角上圆窗（只露出一张脸）默认用本路径：形象已由一张单人角色图固定，不需要写提示词，也不需要读 `h3-prompt-writing`。
+- 房间全屏、竖窗（看得见头肩和上半身）默认走 AutoDL H3 image+audio，按 [数字主持人生成](autodl-presenter.md) 执行。
+- 需要额外控制镜头、表情、手部动作或人体姿态时，即便在小窗里也改用 AutoDL H3。
 - 第一人称人物片段不走本路径，只走 AutoDL H3。
 - 切换路径前告知用户并记录决定。
 
@@ -30,7 +31,7 @@
 ## 制作要点
 
 1. **配音先行**。主持人与主线旁白按 [Token Plan 图片与配音](token-plan-media.md) 用 `token_plan_tts` 生成 `.mp3`，再把对应段落音频作为 `audio` 传入，保证全片音色一致。不要用 `text` 模式让 Vidu 另配声音，除非用户明确要求。
-2. **形象与声音固定**。开场与收尾始终使用同一张角色图、同一段音色；跨片段不得更换角色图后声称是同一个人。
+2. **形象与声音固定**。开场与收尾始终使用同一张角色图、同一段音色；跨片段不得更换角色图后声称是同一个人。小窗只露脸时也用这张图，靠剪辑裁到脸部，不为小窗另生成一张形象。
 3. **片段长度**。时长由音频实际长度决定，不是申请值；开场与收尾按实际文件时长排布，出镜总时长由内容决定，不设固定比例。
 4. **素材可访问性**。本地图片和音频会被自动编码为 base64，解码后上限 20 MB；更大的素材先上传为公网 URL。
 5. **失败处理**。以 `err_code` 和 `err_msg` 判断：`ImageCheckFaceFailed`、`ImageCheckBodyJointsFailed`、`ImageObjectsUndetected`、`MultiFaceDetected` 换角色图；`CreditInsufficient` 充值；`TooManyRequests` 降低轮询频率。如实报告，不擅自换服务。

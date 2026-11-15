@@ -21,10 +21,14 @@ description: Use when packaging Chinese educational or finance explainer videos 
 
 ## 数字主持人按需生成
 
-需要数字主持人出镜时，主动按分镜逐段生成，无需用户提供完整数字人口播视频。默认先用 Vidu S2 非实时版；只有 Vidu 不可用、积分不足（低于 45 分）、用户明确指定 AutoDL，或需要逐镜约束镜头与人体时才改用 AutoDL H3，切换前告知用户并记录原因。
+需要数字主持人出镜时，主动按分镜逐段生成，无需用户提供完整数字人口播视频。路径按该段主持人在成片里的呈现形态选，用华尔街口播层 `vendor/wallstreet-explainer/kit/host.js` 已有的形态名来认：
 
-- **默认路径：Vidu S2 非实时版**（`vidu_s2_avatar`，密钥 `VIDU_API_KEY`）：形象由一张单人角色图固定，音频或文本驱动，不需要写提示词，适合批量出片段。先读 [Vidu 数字主持人](references/vidu-presenter.md)。
-- **备用路径：AutoDL H3 image+audio**（`autodl_comfyui_video`，工作流 `minimax_h3_image_audio_to_video_v2_15s`）：参考图加参考音频，逐段提示词可约束镜头与人体。每次编写或修改 H3 提示词前，必须读取并遵循项目中的 `.agents/skills/h3-prompt-writing/SKILL.md` 及其对应输入模式的参考文件。先读 [数字主持人生成](references/autodl-presenter.md)。
+- **房间全屏 `scene:'host'`、竖窗 `host:'window'` → 默认 AutoDL H3 image+audio**（`autodl_comfyui_video`，工作流 `minimax_h3_image_audio_to_video_v2_15s`）：数字人占满画面，或缩在右侧竖条里但看得到头肩和上半身时，走 H3。这类画幅会把镜头漂移、颈部和肩膀变形放大，只有 H3 的逐段提示词能逐条约束镜头与人体；每段 5–15 秒。每次编写或修改 H3 提示词前，必须读取并遵循项目中的 `.agents/skills/h3-prompt-writing/SKILL.md` 及其对应输入模式的参考文件。先读 [数字主持人生成](references/autodl-presenter.md)。
+- **角上圆窗 `host:'pip'` → 默认 Vidu S2 非实时版**（`vidu_s2_avatar`，密钥 `VIDU_API_KEY`）：数字人缩成角上一个小圆、只露头肩时，走 Vidu。形象由一张单人角色图固定，音频或文本驱动，不需要写提示词；片段时长由音频实际长度决定。先读 [Vidu 数字主持人](references/vidu-presenter.md)。
+
+数字人只有这三种排布；需要第四种就说明有人在手写合成画面，先停下来确认，不自行发明形态。
+
+同一支片多种形态并存时按段分别选路径，但全片必须固定同一张角色图和同一音色，不得因为换了路径就换形象，成片里仍要是同一个人。切换路径的例外只有两种，都要先告知用户并记录原因：H3 不可用、权限不足或工作流失败时，大画幅段改用 Vidu；Vidu 不可用、积分不足（低于 45 分）或用户明确指定 AutoDL 时，小窗段改用 H3。用户的明确要求优先。
 
 两条路径共同要求：固定形象和声音，按口播文本、时间线和素材生成；严禁虚称无参考素材的多次生成天然是同一个人。AutoDL 路径的每个生成片段设为 5–15 秒；Vidu 路径的片段时长由音频实际长度决定，按实际文件排布。实际成片中主持人可见画面合计占视频总时长的 30%，按最终时间线以时间区间的并集计算，以实际输出帧数和最终成片时长复核。台词口型、配音和画面质量同样要逐段抽帧验收，不合格则调整或重生成；提示词或角色图都不能保证绝对不动。完整步骤、比例算法、参数和限制见两篇参考文件。
 
