@@ -12,7 +12,7 @@ export const EditorialEntityCard: React.FC<{e:any; t:number}> = ({e,t}) => {
   const stripSize=Math.min(e.ss ?? h*.12,w*.72/Math.max(1,Array.from(strip).length)*1.05);
   return <div style={{position:'relative',width:w,height:h+badge/2}}>
     <div style={{position:'absolute',left:0,top:badge/2,width:w,height:h,transform:`scaleX(${Math.max(.001,unfold)})`,transformOrigin:'center',filter:'drop-shadow(0 22px 24px rgba(0,0,0,.45))'}}>
-      <div style={{position:'absolute',inset:0,overflow:'hidden',clipPath:'polygon(0 0,88% 0,100% 9%,100% 100%,0 100%)',background:e.bg ?? '#1c2b3e',boxSizing:'border-box'}}>
+      <div style={{position:'absolute',inset:0,overflow:'hidden',clipPath:'polygon(0 0,88% 0,100% 9%,100% 100%,0 100%)',background:e.bg ?? '#3c5672',boxSizing:'border-box'}}>
         <div style={{position:'absolute',left:w*.08,right:w*.08,top:h*.27,height:2,background:'rgba(75,69,59,.22)'}} />
         {e.en && <div style={{position:'absolute',left:w*.08,right:w*.08,top:h*.31,fontFamily:F.en,fontWeight:700,fontSize:Math.min(w*.055,24),letterSpacing:2,color:e.enColor ?? '#c3b393',whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{e.en}</div>}
         <div style={{position:'absolute',left:w*.08,right:w*.08,top:h*.39,fontFamily:F.ys,fontWeight:900,fontSize:nameSize,lineHeight:1.1,color:e.nameColor ?? '#f5e9ca',whiteSpace:'nowrap',textShadow:'0 3px rgba(255,255,255,.45),0 7px 10px rgba(81,54,38,.2)'}}>{name}</div>

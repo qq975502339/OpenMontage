@@ -100,7 +100,7 @@ const Surface: React.FC<{e: any; w: number; h: number; children: (top: number) =
   const titleEl = !e.title ? null : TH.name === 'finance' ? <GText txt={e.title} size={e.ts ?? 72} grad="gold" glow={false} ls={6} />
     : <span style={{fontFamily: tf, fontWeight: W900(tf), fontSize: e.ts ?? 72, letterSpacing: 4, color: P.hdrInk, textShadow: P.phosphor ? phosphorTs('255,176,0') : undefined}}>{e.title}</span>;
   return (
-    <div style={{position: 'relative', width: w, height: h, borderRadius: P.r, ...bgOf(P.bg), border: P.border, overflow: 'hidden',
+    <div style={{position: 'relative', width: w, height: h, borderRadius: P.r, ...bgOf(e.surfaceBg ?? 'linear-gradient(135deg,#3c5672,#293e56)'), border: e.surfaceBorder ?? P.border ?? '2px solid rgba(230,207,153,.36)', overflow: 'hidden',
       boxShadow: P.flat ? '0 30px 80px rgba(20,20,40,.14)' : TH.name === 'desk' ? deskShadow(0.4) : '0 50px 110px rgba(0,0,0,.55)'}}>
       {P.frame && <div style={{position: 'absolute', inset: 18, border: `3px solid ${P.frame}`}} />}
       {band && (

@@ -15,7 +15,7 @@ export const EditorialColumnChart: React.FC<{e: any; t: number}> = ({e, t}) => {
   const ascending = items.length > 1 && items.every((item, i) => i === 0 || Number(item.v) >= Number(items[i - 1].v)) && Number(items[items.length - 1]?.v) > Number(items[0]?.v);
   const arrow = e.trendArrow !== false && ascending;
   const arrowProgress = eout(prog(t, t0 + (items.length - 1) * (e.stag ?? .1) + .25, .75));
-  return <div style={{position:'relative',width:w,height:h,overflow:'hidden',background:'radial-gradient(ellipse at 50% 52%,#2e3a55,#0b1019 76%)',fontFamily:F.heavy,color:'#f4e9ce'}}>
+  return <div style={{position:'relative',width:w,height:h,overflow:'hidden',background:e.bg ?? 'linear-gradient(135deg,#3c5672,#293e56)',fontFamily:F.heavy,color:'#f4e9ce'}}>
     <div style={{position:'absolute',inset:0,opacity:.2,backgroundImage:'radial-gradient(#98a4b4 2px,transparent 2px)',backgroundSize:'32px 32px'}} />
     <div style={{position:'absolute',left:margin,top:h*.065,fontWeight:900,fontSize:e.ts ?? Math.min(72,h*.085),lineHeight:1.1,whiteSpace:'nowrap',maxWidth:w*.72,overflow:'hidden',textOverflow:'ellipsis'}}>{e.title}</div>
     {e.en && <div style={{position:'absolute',left:margin,top:h*.18,fontFamily:F.en,fontWeight:700,fontSize:Math.min(24,h*.032),letterSpacing:3,color:'#d8ceb5'}}>{e.en}</div>}

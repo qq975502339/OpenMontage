@@ -595,7 +595,7 @@ const LegacyChart: React.FC<any> = ({e, t}) => {
   const lab: number[] = e.labels ?? [0, n - 1];
   const rider = e.rider?.src ? chartRiderPosition(pts, p, X, Y) : null;
   return (
-    <div style={{position: 'relative', width: w, height: h, background: 'rgba(19,29,44,.86)', borderRadius: 26, border: '2px solid rgba(255,255,255,.12)', boxShadow: '0 24px 60px rgba(0,0,0,.45)'}}>
+    <div style={{position: 'relative', width: w, height: h, background: e.bg ?? 'linear-gradient(135deg,#3c5672,#293e56)', borderRadius: 26, border: '2px solid rgba(230,207,153,.36)', boxShadow: '0 24px 60px rgba(0,0,0,.45)'}}>
       {e.title && <div style={{position: 'absolute', left: 40, top: 26, fontFamily: F.ys, fontSize: e.tsize || 44, color: '#f3f1e6'}}>{e.title}<span style={{fontFamily: F.en, fontSize: 20, letterSpacing: 3, marginLeft: 18, color: 'rgba(240,238,225,.55)'}}>{e.en}</span></div>}
       <svg width={w} height={h} style={{position: 'absolute', left: 0, top: 0}}>
         <defs>

@@ -13,7 +13,7 @@ const CardIcon: React.FC<{kind?:string;src?:string}> = ({kind,src}) => {
 export const EditorialInfoCard: React.FC<{e:any;t:number;v?:any}> = ({e,t,v}) => {
   const w=e.w ?? 560,h=e.h ?? 400,start=e.t ?? 0;
   const entrance=eout(prog(t,start,.65)), content=eout(prog(t,start+.28,.55));
-  const colors:any={navy:['#36495c','#0e1823'],cream:['#49463d','#191d24'],red:['#594047','#211a22'],blue:['#36495c','#0e1823'],teal:['#344b4d','#112121'],dark:['#36393f','#0b0b0d']};
+  const colors:any={navy:['#526982','#30465d'],cream:['#49463d','#191d24'],red:['#594047','#211a22'],blue:['#526982','#30465d'],teal:['#344b4d','#112121'],dark:['#36393f','#0b0b0d']};
   const palette=colors[e.theme ?? 'navy'] ?? colors.navy;
   let value=e.value;
   if(e.count){const [a,b,dec]=e.count; value=fmt(lerp(a,b,eio(prog(t,e.ct ?? start+.25,e.cd ?? 1.1))),dec ?? 0,e.sep);}

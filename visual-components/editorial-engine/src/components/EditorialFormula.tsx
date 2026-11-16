@@ -17,7 +17,7 @@ export const EditorialFormula: React.FC<{e:any; t:number}> = ({e,t}) => {
   let cur=-1,prev=-1,at=-1e9;
   for(const [time,index] of e.hl ?? []) if(t>=time){prev=cur;cur=index;at=time;}
   const focus=eout(prog(t,at,.35));
-  return <div style={{position:'relative',width:w,height:h,overflow:'hidden',background:e.pbg ?? 'radial-gradient(ellipse at 50% 45%,#2e3a55,#0b1019 78%)',boxShadow:'0 30px 70px rgba(0,0,0,.45)'}}>
+  return <div style={{position:'relative',width:w,height:h,overflow:'hidden',background:e.pbg ?? 'linear-gradient(135deg,#3c5672,#293e56)',boxShadow:'0 30px 70px rgba(0,0,0,.45)'}}>
     <div style={{position:'absolute',inset:0,opacity:.2,backgroundImage:'radial-gradient(#99a7bb 2px,transparent 2px)',backgroundSize:'32px 32px'}} />
     {e.title && <div style={{position:'absolute',left:margin,top:h*.055,right:margin,fontFamily:F.heavy,fontWeight:900,fontSize:Math.min(e.ts ?? 64,h*.085),color:'#f7edce',whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{e.title}</div>}
     {e.en && <div style={{position:'absolute',left:margin,top:h*.16,fontFamily:F.en,fontWeight:700,fontSize:Math.min(21,h*.027),letterSpacing:3,color:'#cfc5b0'}}>{e.en}</div>}
