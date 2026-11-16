@@ -130,6 +130,7 @@ export const Grain: React.FC<{t: number; o?: number}> = ({t, o = 0.07}) => {
 };
 
 export const BG: React.FC<{bg: any; t: number; cam: any; sc: any}> = ({bg, t, cam, sc}) => {
+  if (!bg || bg.type !== 'broll') return <AbsoluteFill><Img src={img('fx/editorial-background.png')} style={{width:'100%',height:'100%',objectFit:'cover'}} /></AbsoluteFill>;
   if (!bg || bg.type === 'none') return null;
   const lt = t - sc.t0;
   if (bg.type === 'dark') {

@@ -8,15 +8,15 @@ import {Img} from 'remotion';
 import {back, clamp, eio, eout, fmt, img, lerp, prog} from './lib';
 import {TH} from './theme';
 import {phosphorTs} from './skins';
+import {getPropShadow} from './prop-looks.mjs';
 
 const W900 = (f: string) => (f.includes("'PX'") || f.includes("'MSZ'") || f.includes("'YS'") || f.includes("'BB'") || f.includes("'DIN'") ? 400 : 900);
 
 // contact shadow for a cut-out prop, per theme (terminal props glow instead)
-export const propShadow = (lift = 0): string => {
-  if (TH.name === 'terminal') return `drop-shadow(0 0 ${(8 + 6 * lift).toFixed(0)}px rgba(51,255,136,.38))`;
-  if (TH.light) return `drop-shadow(0 ${(8 + 10 * lift).toFixed(0)}px ${(10 + 12 * lift).toFixed(0)}px rgba(40,30,20,${(0.26 + 0.06 * lift).toFixed(2)}))`;
-  return `drop-shadow(0 ${(12 + 10 * lift).toFixed(0)}px ${(16 + 14 * lift).toFixed(0)}px rgba(0,0,0,${(0.5 + 0.1 * lift).toFixed(2)}))`;
-};
+export const propShadow = (lift = 0, look?: string): string => getPropShadow(lift, look ?? TH.propLook, TH.light);
+export const PropImg: React.FC<{src: string; w: number; h: number; filter?: string; tint?: string}> = ({src,w,h,filter,tint}) => tint ? (
+  <div style={{width:w,height:h,filter}}><div style={{width:w,height:h,backgroundColor:tint,WebkitMaskImage:`url(${img(src)})`,WebkitMaskSize:'contain',WebkitMaskRepeat:'no-repeat',WebkitMaskPosition:'center',maskImage:`url(${img(src)})`,maskSize:'contain',maskRepeat:'no-repeat',maskPosition:'center'}} /></div>
+) : <Img src={img(src)} style={{width:w,height:h,objectFit:'contain',filter}} />;
 
 // point at fraction u of a polyline (by length): [x, y, angle, distance]
 export const polyAt = (pts: number[][], u: number) => {
@@ -69,7 +69,7 @@ export const Prop: React.FC<any> = ({e, t}) => {
     return (
       <div key={k} style={{position: 'absolute', left: 0, top: 0, width: w, height: h, opacity: op,
         transform: `translate(${x.toFixed(1)}px,${y.toFixed(1)}px) rotate(${rot.toFixed(2)}deg) scale(${(sx * sc).toFixed(4)},${(sc * sy).toFixed(4)})`, transformOrigin: e.origin ?? '50% 70%'}}>
-        <Img src={img(e.src)} style={{width: w, height: h, objectFit: 'contain', filter: e.noShadow ? e.fx : [propShadow(e.lift ?? 0), e.fx].filter(Boolean).join(' ')}} />
+        <PropImg src={e.src} w={w} h={h} tint={e.tint} filter={(e.noShadow ? [e.fx] : [propShadow(e.lift ?? 0,e.look),e.fx]).filter(Boolean).join(' ') || undefined} />
       </div>
     );
   };
@@ -90,7 +90,7 @@ export const Stack6: React.FC<any> = ({e, t}) => {
   const icon = (key: any, src: string, x: number, y: number, q: number, extra: any = {}) => q > 0 && (
     <div key={key} style={{position: 'absolute', left: x, top: y, width: iw, height: ih, opacity: clamp(q * 3) * (extra.op ?? 1),
       transform: `translateY(${((1 - eout(q)) * -drop).toFixed(1)}px) scale(${(lerp(0.6, 1, back(q)) * (extra.sc ?? 1)).toFixed(4)})`, transformOrigin: '50% 100%', clipPath: extra.clip}}>
-      <Img src={img(src)} style={{width: iw, height: ih, objectFit: 'contain', filter: [propShadow(0), extra.fx].filter(Boolean).join(' ')}} />
+      <PropImg src={src} w={iw} h={ih} tint={e.tint} filter={[propShadow(0,e.look), extra.fx].filter(Boolean).join(' ') || undefined} />
     </div>
   );
   if (e.grid) {

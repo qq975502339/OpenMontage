@@ -8,7 +8,7 @@ import {FlagSvg} from './els';
 import {EN, TH} from './theme';
 import {deskShadow, iconFx, Pin, phosphorTs, Ruled, Tape, torn} from './skins';
 import WORLD from './geo/world110.json';
-const propShadow = (lift = 0) => `drop-shadow(0 ${12 + 10 * lift}px ${16 + 14 * lift}px rgba(0,0,0,.5))`;
+import {propShadow} from './els8';
 
 const bgOf = (x: any) => (x == null ? {} : typeof x === 'string' ? {background: x} : x);
 const mix = (a: number[], b: number[], l: number, al = 1) => `rgba(${lerp(a[0], b[0], l).toFixed(0)},${lerp(a[1], b[1], l).toFixed(0)},${lerp(a[2], b[2], l).toFixed(0)},${al})`;

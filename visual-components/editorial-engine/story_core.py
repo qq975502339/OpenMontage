@@ -294,7 +294,7 @@ def build():
     for sc in SCENES.values():
         for e in sc['els']:
             if 'from_' in e: e['from'] = e.pop('from_')
-    data = dict(total=TOTAL, vsegs=vsegs, subs=subs, blocks=blocks, scenes=SCENES, trans=trans, brand=CFG.get('brand', {}))
+    data = dict(total=TOTAL, vsegs=vsegs, subs=subs, blocks=blocks, scenes=SCENES, trans=trans, brand=CFG.get('brand', {}), prop_look=CFG.get('prop_look'))
     os.makedirs(f'{ROOT}/src/data', exist_ok=True)
     with open(f'{ROOT}/src/data/shots.json', 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False)

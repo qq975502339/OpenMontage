@@ -17,7 +17,7 @@ try {await fs.access(target); throw new Error(`Target already exists: ${target}`
 await fs.access(path.join(source,'src','els.tsx'));
 await fs.mkdir(target,{recursive:true});
 const demoAssets=new Set(['shots/example-source.html','shots/example-source.png','shots/example-source.png.boxes.json','shots/example-real.png','shots/example-real.png.boxes.json','logos/example-mark.svg','logos/wikipedia.png','logos/CREDITS.txt']);
-for (const item of ['src','public','render.mjs','story_core.py','package.json','tsconfig.json','LICENSE']) {
+for (const item of ['src','public','scripts','render.mjs','story_core.py','package.json','tsconfig.json','LICENSE']) {
  const base=path.join(source,item);
  const options={recursive:true};
  if(item==='public') options.filter=(src)=>{const rel=path.relative(base,src).split(path.sep).join('/');return !demoAssets.has(rel) && !/^plates\/tech_/.test(rel);};

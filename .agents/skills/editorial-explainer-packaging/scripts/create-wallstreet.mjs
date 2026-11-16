@@ -9,6 +9,10 @@ try{await fs.access(dst);throw new Error('目标已存在，不会覆盖：'+dst
 for(const f of ['scripts/new_film.mjs','scripts/timeline_stub.mjs','kit/kit.js','kit/scenes.js','kit/scenes_plus.js','kit/host.js','kit/assets/fabric.jpg','kit/assets/grain.png','kit/assets/worldmap.png','starter/film.js','LICENSE'])await fs.access(path.join(src,f));
 const r=spawnSync(process.execPath,[path.join(src,'scripts','new_film.mjs'),dst],{stdio:'inherit'});
 if(r.error||r.status!==0)throw new Error('创建失败：'+(r.error?.message||r.status));
+// Use the user-supplied shared background as the Wall Street stage, retaining foreground components.
+const bgSource=path.resolve(process.env.EDITORIAL_ENGINE_PATH || path.join(root,'..','..','..','visual-components','editorial-engine'),'public','fx','editorial-background.png');
+await fs.copyFile(bgSource,path.join(dst,'assets','kit','editorial-background.png'));
+await fs.appendFile(path.join(dst,'lib','kit.css'), `\n/* Personal background */\n.k-stage{left:0;top:0;width:100%;height:100%;background:url(../assets/kit/editorial-background.png) center/cover no-repeat!important}\n.k-stage>.tex,.k-stage>.glow,.k-stage>.rings,.k-vig{display:none!important}\n`);
 const kitPath=path.join(dst,'lib','kit.js');let kit=await fs.readFile(kitPath,'utf8');
 const original='const scene=(name,def)=>{SCENES[name]=def;return def;};';
 if(!kit.includes(original))throw new Error('不支持的原项目版本：无法验证场景过滤规则');

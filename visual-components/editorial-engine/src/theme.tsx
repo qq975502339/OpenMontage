@@ -125,6 +125,7 @@ export const TH: any = {...BASE, ...OPTS, name: NAME, title: NAME, end: NAME, lu
 
 // The added layouts use the approved personal navy-and-gold palette, independent of upstream theme switches.
 Object.assign(TH, {
+  propLook: (D as any).prop_look,
   name: 'personal', light: false, ink: '#f5e9c8', ink2: 'rgba(226,214,184,.68)', acc: '#e6bf72', accInk: '#101a2c',
   mapc: ['#a9b7c7','#26384c','#d9b46a','#e7c983'], hot: '#d9b46a', seq: ['#e6bf72','#7692ac','#c99669','#9fadc1','#edd7a0','#617d9a'],
   card: {r: 14, base: 'linear-gradient(145deg,#17263a,#0c1728)', lit: 'linear-gradient(145deg,#edd59b,#bf9652)', dim: [205,211,218], on: [30,36,43], sdim: [160,174,189], son: [75,68,54]},
