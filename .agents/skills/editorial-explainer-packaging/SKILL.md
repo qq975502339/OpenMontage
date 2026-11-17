@@ -1,61 +1,57 @@
 ---
 name: editorial-explainer-packaging
-description: Use when packaging Chinese educational or finance explainer videos with the user's approved calm editorial component library, including configurable Remotion cards, charts, formulas, portrait stories and Wall Street style evidence and presenter scenes.
+description: Package Chinese educational and finance explainer videos using the user's personal editorial components, Wall Street scenes, news and real footage.
+metadata:
+  version: "2.0.0"
 ---
 
 # 个人风格讲解包装
 
-横屏讲解使用仓库中的个人组件引擎 `visual-components/editorial-engine` 制作画面。先阅读引擎内的 `COMPONENT_GUIDE.md`；处理口播、分镜、资料和混音时，结合仓库中 `.agents/skills/xiaolin-explainer-packaging/SKILL.md` 的相关流程，个人视觉画面使用个人引擎；已批准的华尔街画面使用独立华尔街引擎并保留原版风格，不要混称两者。安装到其他位置时，从仓库运行或用环境变量 `EDITORIAL_ENGINE_PATH` 指向个人引擎。
+以华尔街的导演表、证据素材、时间线和审片为整片主流程，按内容选择个人与华尔街画面，不设数量配额。默认横屏、无主持人、有旁白和字幕；用户当次明确要求优先。视觉保留用户确认的个人组件、动效及统一背景；标题卡、片尾卡保留独立背景。**先读 [混合制作流程](references/hybrid-production.md)**；每个镜头按选题设计动作和道具，禁止用固定卡片轮换冒充分镜。镜头可根据内容直接切换或选择转场，不要求专门设计跨组件承接；本条优先于原项目相关默认。
 
-## 旁白配音
+## 制作前确认
 
-需要生成旁白时，默认使用 Token Plan 的 `token_plan_tts`，模型 `qwen-audio-3.0-tts-plus`，音色 `longanlingxin`；读取 [Token Plan 旁白](references/token-plan-narration.md)。此默认适用于个人画面、大头剪贴和华尔街画面的生成旁白；子技能中的默认配音服务与此不一致时，以本技能为准。用户明确指定其他声音、服务或提供原始口播时遵从用户要求；真人口播原声无需替换。旁白生成后按真实音频重新对齐分镜、字幕和混音。
+正式视频默认先准备并向用户展示导演表、素材清单和预计预算，等待用户确认后再开始正式制作；可先进行必要的查证和免费、只读素材检索。用户当次明确要求直接制作或已确认同一方案时，不重复确认。仅要求方案或样片时按该请求执行。详见 [混合制作流程](references/hybrid-production.md)。
 
-## 人物、创业和公司故事
+## 选择画面
 
-遇到人物经历、创业故事、公司历史中适合故事化呈现的内容，主动调用随技能内置的 **bighead-collage 大头剪贴故事视觉模式**，保留其原版人物剪纸、小舞台、道具、字体、颜色、动作、镜头和转场；如果只是视频中的一段，该模式可作为独立故事片段使用。用户有明确视觉或画幅要求时优先服从。先读 [故事模式](references/story-mode.md) 和内置原项目 `vendor/bighead-collage/SKILL.md`，按其完整制作流程执行；使用 `node scripts/create-story.mjs <新工程目录>` 创建原版竖屏故事工程；横屏故事使用 `--landscape` 参数，再按横屏重新编排。横屏提供人物、道具和固定字幕辅助函数；故事片段可与个人图表片段通过合成清单拼接及混音，具体步骤见故事模式。故事画面仍需根据题目设计，跨引擎组合不等于自动嵌入 Remotion。故事里的生图默认调用项目已实现的 QIANWEN 生图 `token_plan_image`（`qwen-image-3.0-pro`），主角照片通过 `image` 或 `images` 传入作参考，按 `gen/` 的目标文件名保存后再抠图；内置 `vendor/bighead-collage/scripts/gen_image.py` 只在用户明确指定 codex/OpenAI 或 QIANWEN 不可用时使用。横屏个人组件沿用已确认的视觉风格及动效。
+- 真实事件和事实：先找可核实且使用条件适合的新闻原文、照片或实景；新闻与金融关系可选华尔街 article、headlines、footage、frames、flow、network 等。真实资料、示意和生成图明确区分。
+- 标题、片尾、需要个人组件样式的图表/公式、贴纸道具和动态示意：个人引擎；华尔街也有已接入的数字、柱状、折线、对比等，依镜头任务和可读性选，不因引擎数量强行平均。
+- 人物经历、创业及公司故事适合演绎时，读 [故事模式](references/story-mode.md)，明确该段与整片风格的结合方式；用户明确指定画风时优先。
+- 图标、照片、实景及素材授权读 [图标与素材](references/visual-assets.md)；照片背景和动态道具读 [画面设计](references/scene-treatment.md)。组件不解析稿件或自动找素材；制作流程应主动准备素材，可使用 API、搜索、截图、生成工具，核验内容、来源和许可。
 
-## 财经证据与真人口播
+## 明确不接入
 
-用户确认接入 `wallstreet-explainer` 的大数字、柱状图、折线图和其他已列入清单的财经、关系、素材和真人口播能力，保留其画面内容与动效，背景统一使用用户指定图片；不接入该项目的公式 `equation`、标题卡 `title` 和开场关键词 `flash`。原有个人组件及大头剪贴均保留。先读 [华尔街财经与真人口播模式](references/wallstreet-mode.md)，按文案选择，并用 `node scripts/create-wallstreet.mjs <新工程目录>` 创建。不同引擎的画面需实际渲染与组合，人物、图表、新闻和旁白按语义、授权及时间线准备。
+| 排除 | 仍可使用 |
+|---|---|
+| 华尔街 equation、title、flash | 个人公式与标题卡 |
+| 小林新版 line6 | 已确认的个人折线图及已接入华尔街折线图 |
+| 小林 v1.1 科技主题、webshot 截图标注、Logo、图标砖墙 | 普通新闻截图、照片和实景；已接入的华尔街新闻展示 |
+| 小林七套整片主题整体接入 | 已确认个人视觉、单独选择的道具画风 |
 
-## 数字主持人按需生成
+## 道具和默认语音
 
-需要数字主持人出镜时，主动按分镜逐段生成，无需用户提供完整数字人口播视频。路径按该段主持人在成片里的呈现形态选，用华尔街口播层 `vendor/wallstreet-explainer/kit/host.js` 已有的形态名来认：
+新个人工程默认写入 prop_look: sticker25d，使用小林 2.5D 卡通贴纸参考 visual-components/editorial-engine/public/prop_styles/sticker25d.png 与 prop_styles.json。原有工程外观不自动改变；实际道具需按内容准备，配置仅影响引擎支持的部分。用户可明确指定其他画风。具体参数见 visual-components/editorial-engine/COMPONENT_GUIDE.md。
 
-- **房间全屏 `scene:'host'`、竖窗 `host:'window'` → 默认 AutoDL H3 image+audio**（`autodl_comfyui_video`，工作流 `minimax_h3_image_audio_to_video_v2_15s`）：数字人占满画面，或缩在右侧竖条里但看得到头肩和上半身时，走 H3。这类画幅会把镜头漂移、颈部和肩膀变形放大，只有 H3 的逐段提示词能逐条约束镜头与人体；每段 5–15 秒。每次编写或修改 H3 提示词前，必须读取并遵循项目中的 `.agents/skills/h3-prompt-writing/SKILL.md` 及其对应输入模式的参考文件。先读 [数字主持人生成](references/autodl-presenter.md)。
-- **角上圆窗 `host:'pip'` → 默认 Vidu S2 非实时版**（`vidu_s2_avatar`，密钥 `VIDU_API_KEY`）：数字人缩成角上一个小圆、只露头肩时，走 Vidu。形象由一张单人角色图固定，音频或文本驱动，不需要写提示词；片段时长由音频实际长度决定。先读 [Vidu 数字主持人](references/vidu-presenter.md)。
+需要生成旁白时默认使用 Token Plan token_plan_tts、qwen-audio-3.0-tts-plus、longanlingxin，先读 [旁白](references/token-plan-narration.md)。基于实际音频对齐镜头和字幕；用户明确指定声音、提供音频或要求无旁白时优先遵从。
 
-数字人只有这三种排布；需要第四种就说明有人在手写合成画面，先停下来确认，不自行发明形态。
+## 主持人（仅在用户明确要求时）
 
-同一支片多种形态并存时按段分别选路径，但全片必须固定同一张角色图和同一音色，不得因为换了路径就换形象，成片里仍要是同一个人。切换路径的例外只有两种，都要先告知用户并记录原因：H3 不可用、权限不足或工作流失败时，大画幅段改用 Vidu；Vidu 不可用、积分不足（低于 45 分）或用户明确指定 AutoDL 时，小窗段改用 H3。用户的明确要求优先。
+默认无主持人，不设出镜配额。用户明确要求时，先确认当次形态、时长、音色、预算及是否有占比；全屏/竖窗读 [AutoDL H3](references/autodl-presenter.md)，圆窗读 [Vidu](references/vidu-presenter.md)。H3 每次 5–15 秒并必须先读项目 h3-prompt-writing；可在检查口型和音画衔接后剪短。若用户指定占比，以最终成片实际总帧数为分母、约定形态可见区间并集为分子，重叠只计一次；未指定则不设配额。不得将生成片段的溢出从成片分母扣除。
 
-两条路径共同要求：固定形象和声音，按口播文本、时间线和素材生成；严禁虚称无参考素材的多次生成天然是同一个人。AutoDL 路径的每个生成片段设为 5–15 秒；Vidu 路径的片段时长由音频实际长度决定，按实际文件排布。实际成片中主持人可见画面合计占视频总时长的 30%，按最终时间线以时间区间的并集计算，以实际输出帧数和最终成片时长复核。台词口型、配音和画面质量同样要逐段抽帧验收，不合格则调整或重生成；提示词或角色图都不能保证绝对不动。完整步骤、比例算法、参数和限制见两篇参考文件。
+## 工程与组合
 
-## 图标与真实素材
+在仓库运行；EDITORIAL_ENGINE_PATH 可指定个人引擎。使用说明和真实能力限制见 [混合制作流程](references/hybrid-production.md)、[华尔街模式](references/wallstreet-mode.md)、[故事模式](references/story-mode.md)。
 
-规划每个场景时，制作视频的助理应理解对应口播及上下文，为所有需要图片的地方按语义选择合适素材，包括人物比例、角色图片、图标、照片、国旗、卡片图像与实拍视频；不要沿用示例素材充当默认内容。人物比例还要按原始数据核对总数、点亮数及统计口径。真实人物和事件的素材要与实际对象、时间和场景相符。缺少适合的素材时先查找、准备或绘制；无法核实的真实素材不要臆造，必要时省略并说明。逐项检查素材含义、路径、大小、遮挡和出现时机；不是每个画面都必须加图。具体字段和示例见 [图标与素材使用](references/visual-assets.md)。
+| 工具 | 用途 |
+|---|---|
+| scripts/create-project.mjs | 创建个人组件工程，写入贴纸默认和渲染前检查 |
+| scripts/create-wallstreet.mjs | 创建华尔街工程 |
+| scripts/create-story.mjs --landscape | 创建横屏故事工程，仍需重新排版 |
+| scripts/prepare-wallstreet-clip.mjs | 个人片段转 30fps 帧序列供 footage 使用，不保留音轨 |
+| scripts/assemble-story.mjs | 按清单拼接并另混指定音轨；当前固定 720p/24fps、补边、硬切 |
+| assets/story-landscape.js | 横屏故事工程的人物、道具与字幕辅助函数，具体用法见故事模式 |
 
-科技、财经、知识等都可使用这套个人组件。按用户要求不接入原技能 v1.1 的科技主题、网页截图标注、Logo 及图标砖墙功能；已有的照片卡、照片和实拍视频仍可作为画面内容使用。真实素材须记录来源、许可和所需署名，区分视频、图片与生成示意图；生成图不得冒充真实事件证据。具体操作见 [图标与素材使用](references/visual-assets.md)。
+## 交付与检查
 
-## 按选题设计画面
-
-规划每个镜头时，按口播和事实明确背景、道具、动作、组件、素材来源及字幕和署名位置；需要时使用照片素材或现有折线图的动态道具 `rider`。先读 [画面设计和照片背景](references/scene-treatment.md)，根据内容灵活选择，不强制每个镜头使用照片或道具。标题和片尾保留原有独立背景；其他组件保留内容和动效，使用用户指定的统一背景图片。素材需人工准备并核验，代码不会自动按口播生成或检索。
-## 新增扩展版式
-
-个人组件引擎还提供七种可配置版式：`timeline6` 时间轴、`pie6` 饼图和环形图、`flow6` 流程图、`tree6` 树状拆解、`map6` 地图和航线、`vs6` 左右对比、`graph6` 关系图。按内容与既有个人组件和华尔街场景选择，具体参数、样例与地图使用限制见 `visual-components/editorial-engine/COMPONENT_GUIDE.md`。保留已确认的原有折线图，不接入新版 `line6`。地图为低精度示意，涉及中国疆域的公开出版应使用符合要求的标准地图素材。道具、图片和数据由制作助理按内容准备并核验，组件不会自动检索素材。
-## 动态道具和象形图
-
-个人引擎提供 `prop` 动态道具和 `stack6` 象形图：前者支持传入图片并设置摆动、移动、连续流动等动作；后者支持用图片堆叠成柱或用网格展示部分数量。根据当前选题选择、准备并核验图片素材，不把示例图当作真实事实。素材不会自动生成或检索，场景仍需配置背景；保持已确认的个人视觉风格。参数及示例见 `visual-components/editorial-engine/COMPONENT_GUIDE.md`。这两个组件的演示样片已经用户确认；制作实际视频时仍需检查素材、数据比例、运动和遮挡。
-## 道具画风 v1.5
-
-个人引擎提供 20 种可选道具画风，目录和提示词在 `visual-components/editorial-engine/public/prop_styles.json`，对应小样在 `visual-components/editorial-engine/public/prop_styles/`。根据选题与已确认的整片视觉选择，优先保持一期道具一致；参考图只用于画风，题材、人物和事实必须按实际内容准备核验。先使用已存在的素材；需要生成时使用项目配置的图片工具、参考小样及相应提示词，明确成本，不能声称选择画风后就自动生成道具。使用 `project.json` 的 `prop_look` 配置整期 `prop` 和部分新版式素材阴影，`prop`/`stack6` 可使用 `look` 覆盖；不指定时保留原有默认视觉。线稿可用 `tint` 着色。新工程可运行 `python scripts/prop_prep.py ... -o public/props/<topic>/` 裁透明边并缩图；`--luma` 只适合特定亮线黑底素材且需检查暗部丢失。风格、参数、深浅底适配和限制详见 `visual-components/editorial-engine/COMPONENT_GUIDE.md`。不得将原版七套整片主题一起接入；保留用户指定的统一背景及已确认的组件内容与动效。
-## 创建工程
-
-运行本技能目录下 `node scripts/create-project.mjs <新工程目录>`；可用环境变量 `EDITORIAL_ENGINE_PATH` 指向引擎。命令会复制引擎源代码、素材和运行文件，不会覆盖已有目录。进入新工程安装 `package.json` 的依赖，再按原技能的分镜 API 制作 `src/data/shots.json`；示例见引擎的 `preview/demo-shots.json`。根据实际内容准备图片、图标、音频和事实，图片文件要先存在，场景内容应可替换。
-
-个人组件和华尔街组件默认使用用户指定的统一背景图片 `visual-components/editorial-engine/public/fx/editorial-background.png`，标题卡与片尾卡保留原有独立背景；保留组件内容和动效。新闻截图、实景视频、照片等作为内容应正常显示，不以背景替代证据素材。保留既有组件的功能、参数、布局和动效，国旗、人民币及用户提供的图片素材保留自身颜色。堆叠、支柱、支柱顶部、文字、强调文字、闪光、横向条图、硬币、金币流和计算器保留统一风格前的主体视觉，只随场景更换背景。实景视频及照片作为内容时仍按素材显示，组件颜色按参数显示。横向条图与滑块默认透明。素材由制作视频的助理根据内容选择并显式填入组件参数；组件本身不解析口播或自动查找素材，不要声称具备此功能。
-
-在目标工程中用 `node render.mjs video <输出.mp4>` 渲染；Windows 可以设置 `CHROME_PATH` 使用本机 Chrome。使用前核对必要的字体、素材、依赖及许可；`YouShe.ttf` 不存在时回退到内置字体。渲染后查看不同时间点、文字边界和字幕遮挡，并明确区分示例数据与可核实事实。
-
-本地样片及对照位于引擎的 `previews/`。`personal-style-demo-voice.mp4` 使用电脑自带语音作为示例旁白。
+按 [混合制作流程](references/hybrid-production.md) 保留导演表、决定记录、事实及素材台账；字幕和音频仅在实际使用时保存。渲染前检查道具配置、字体、素材和依赖；渲染后检查画面、字幕、音频、时长/规格与来源，输出实际检查结果。新工程使用 node render.mjs video <输出.mp4>；Windows 可指定本机 CHROME_PATH。缺 YouShe.ttf 会回退字体，需在正式渲染前向用户说明。仅凭工程创建、配置或静帧不能声称整片已验证。

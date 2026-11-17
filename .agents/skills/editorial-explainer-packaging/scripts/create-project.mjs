@@ -23,4 +23,16 @@ for (const item of ['src','public','scripts','render.mjs','story_core.py','packa
  if(item==='public') options.filter=(src)=>{const rel=path.relative(base,src).split(path.sep).join('/');return !demoAssets.has(rel) && !/^plates\/tech_/.test(rel);};
  await fs.cp(base,path.join(target,item),options);
 }
+const shotsPath=path.join(target,'src','data','shots.json');
+const shots=JSON.parse(await fs.readFile(shotsPath,'utf8'));
+shots.prop_look='sticker25d';
+await fs.writeFile(shotsPath,JSON.stringify(shots,null,2)+'\n');
+await fs.writeFile(path.join(target,'project.json'),JSON.stringify({prop_look:'sticker25d'},null,2)+'\n');
+await fs.copyFile(path.join(path.dirname(fileURLToPath(import.meta.url)),'check-prop-look.mjs'),path.join(target,'scripts','check-prop-look.mjs'));
+const renderPath=path.join(target,'render.mjs');
+let render=await fs.readFile(renderPath,'utf8');
+const anchor="const t0 = Date.now();";
+if(!render.includes(anchor)) throw new Error('Unsupported engine render.mjs: cannot add prop validation');
+render=render.replace(anchor,"const t0 = Date.now();\nconst {checkPropLook}=await import('./scripts/check-prop-look.mjs');\ncheckPropLook(process.cwd());");
+await fs.writeFile(renderPath,render);
 console.log(`Created ${target}. Install the package.json dependencies before rendering.`);
