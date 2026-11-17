@@ -1,0 +1,28 @@
+rounds: 1
+capabilities: 并行+抓取
+decisions:
+  - id: d1
+    claim: 三个候选均为宽松许可证，闭源商用无障碍
+    level: decision
+    evidence: [f1, f2]
+    flags: []
+  - id: d2
+    claim: Qdrant 的运维复杂度是社区反馈最集中的短板
+    level: supporting
+    evidence: [f5]
+    flags: [single-source, high-risk]
+spot_checks:
+  - decision_id: d1
+    url: https://milvus.io/docs/overview.md
+    verdict: supports
+    note: 页面明确写 Apache-2.0，与结论一致
+  - decision_id: d1
+    url: https://github.com/qdrant/qdrant/blob/master/LICENSE
+    verdict: supports
+    note: LICENSE 原文为 Apache-2.0
+conflicts:
+  - 官方 QPS 与三方 benchmark 口径不一致（batch size 未对齐），已并列保留
+uncovered:
+  - 10 亿向量规模下的真实内存占用未见公开复现
+corrections:
+  - 删除 1 条仅有一篇博客支撑的结论，移入存疑

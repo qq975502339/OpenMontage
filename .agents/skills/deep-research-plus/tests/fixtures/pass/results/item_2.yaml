@@ -1,0 +1,21 @@
+item_id: 2
+title: Qdrant 许可证与商业可用性
+status: done
+findings:
+  - id: f2
+    claim: Qdrant 采用 Apache-2.0 许可证，仓库 LICENSE 可直接核对
+    value: Apache-2.0
+    field: license
+    source_url: https://github.com/qdrant/qdrant/blob/master/LICENSE
+    source_type: code
+    date: 2026-09-30
+    polarity: positive
+  - id: f9
+    claim: 官方文档明示商用无需额外授权
+    value: 无需商业授权
+    field: license
+    source_url: https://qdrant.tech/documentation/guides/licensing/
+    source_type: official
+    date: 2026-09-28
+    polarity: positive
+uncertainties: []
