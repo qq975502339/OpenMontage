@@ -31,6 +31,10 @@ sc.add('formula', t, x=960, y=520, size=120, items=[
 - `formula6.toks[].icon`、`wall.cards[].icon`：传 `icons/文件名.svg` 等完整相对路径；这些组件也有有限的内置 `iconKind`，指定已知内置 kind 时会优先使用它而不是 `icon` 文件。
 - `card.icon`、`icon.src` 可用对应组件支持的路径；`people.src` 和 `toon.src` 是原版的 PNG 名称，分别对应 `public/icons/<src>.png` 和 `public/toon/<src>.png`。组件和资源的完整参数以引擎 `COMPONENT_GUIDE.md` 及源代码为准。
 
+## YouTube 素材
+
+需要从 YouTube 获取用户拥有或已获授权可使用的视频时，按 [YouTube 素材获取](youtube-sourcing.md) 检查本机工具、现有配置和实际下载结果；先核对来源许可和平台条件，不把可访问或可下载当作获得使用权。
+
 ## 真实素材
 
 - 照片卡：在个人引擎中 `photo` 接受 `src: 'photos/xxx.jpg'`、`cap` 和 `credit`；将文件放到工程的 `public/photos/`，图片应与讲述的对象及时间相符。
