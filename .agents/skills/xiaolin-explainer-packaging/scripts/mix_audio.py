@@ -22,13 +22,8 @@ OUT = sys.argv[2] if len(sys.argv) > 2 else 'mix_raw.wav'
 sys.path.insert(0, ROOT)
 from story_core import load_timeline  # noqa: E402  (template copy lives in the project root)
 TL = load_timeline(TLP)
-with open(f'{ROOT}/sfx.json', encoding='utf-8') as f:
-    EV = json.load(f)
-if os.path.exists(f'{ROOT}/project.json'):
-    with open(f'{ROOT}/project.json', encoding='utf-8') as f:
-        CFG = json.load(f)
-else:
-    CFG = {}
+EV = json.load(open(f'{ROOT}/sfx.json'))
+CFG = json.load(open(f'{ROOT}/project.json')) if os.path.exists(f'{ROOT}/project.json') else {}
 TOTAL = TL[-1]['start'] + TL[-1]['dur']; NS = int(round(TOTAL * SR)) + SR
 rng = np.random.default_rng(7)
 BY = {s['id']: s for s in TL}

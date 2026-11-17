@@ -64,8 +64,7 @@ def sub_timeline(say, sub, t_a, t_b):
 
 # ------------------------------------------------------------ timeline
 def load_timeline(path):
-    with open(path, encoding='utf-8') as f:
-        segs = json.load(f)
+    segs = json.load(open(path))
     t = 0.0
     for s in segs:
         s.setdefault('kind', 'clip')
@@ -173,6 +172,65 @@ def doc_layout(paras, w=2300, size=60, mx=150, my=120, lh=1.9):
             lines.append({'cls': cls, 'segs': segs}); centers.append(y + lineH / 2)
             y += lineH
     return lines, pos, centers, y
+
+
+def web_y(src, q, frac=0.42, w=1640, h=860):
+    """Scroll y (screenshot px) that puts phrase q of public/<src>.boxes.json at frac of the add_web viewport height."""
+    import json as _j, struct as _s
+    with open('public/' + src, 'rb') as f:
+        iw, ih = _s.unpack('>II', f.read(24)[16:24])
+    r = _j.load(open('public/' + src + '.boxes.json'))[q]
+    k = w / iw
+    yc = (min(b[1] for b in r) + max(b[1] + b[3] for b in r)) / 2
+    return round(max(0, min(ih - h / k, yc - frac * h / k)))
+
+
+def add_web(sc, t, src, x=960, y=520, w=1640, h=860, url='', sy=None, marks=(), bar=56, **kw):
+    """Real screenshot (scripts/web_shot.mjs output under public/) in a browser frame.
+    sy: scroll keyframes [(t, y_px), (t, y_px, dur), ...] in screenshot pixels; default stays at the top.
+    marks: dict(t=, q='phrase' from <src>.boxes.json | r=[[x, y, w, h], ...], kind='hl'|'under'|'box',
+           spot=False (darken the rest), c=None, d=0.55, out=None).
+    Returns {'m': [(world_cx, world_cy) of each mark at its time], 'k': frame px per screenshot px,
+             'y_for': fn(phrase | rects, frac=0.4) -> scroll y that puts it at frac of the viewport height}."""
+    import json as _j, os as _o, struct as _s
+    p = _o.path.join('public', src)
+    with open(p, 'rb') as f:
+        hd = f.read(24)
+    assert hd[:8] == b'\x89PNG\r\n\x1a\n', 'add_web expects a PNG: ' + p
+    iw, ih = _s.unpack('>II', hd[16:24])
+    bj = p + '.boxes.json'
+    B = _j.load(open(bj)) if _o.path.exists(bj) else {}
+    k = w / iw
+    sy = [list(a) for a in (sy or [(t, 0)])]
+
+    def rects(m):
+        r = m.get('r') or B.get(m.get('q'))
+        if not r:
+            raise ValueError('add_web: no box for %r in %s (re-run web_shot.mjs --boxes)' % (m.get('q'), bj))
+        return r
+
+    def sy_at(tt):
+        v = sy[0][1]
+        for a in sy[1:]:
+            if tt >= a[0]:
+                v = a[1]
+        return v
+    ms, out = [], []
+    for m in marks:
+        r = rects(m)
+        r = [b for b in r if b[2] >= 24] or r      # drop slivers, e.g. a lone opening quote on the line above
+        x0 = min(b[0] for b in r); y0 = min(b[1] for b in r)
+        x1 = max(b[0] + b[2] for b in r); y1 = max(b[1] + b[3] for b in r)
+        ms.append(dict(t=round(m['t'], 3), r=r, kind=m.get('kind', 'hl'), spot=m.get('spot', False), c=m.get('c'),
+                       d=m.get('d', 0.55), out=m.get('out')))
+        out.append((x - w / 2 + (x0 + x1) / 2 * k, y - (h + bar) / 2 + bar + ((y0 + y1) / 2 - sy_at(m['t'])) * k))
+    sc.add('webshot', t, x=x, y=y, src=src, iw=iw, ih=ih, w=w, h=h, bar=bar, url=url, sy=sy, marks=ms, **kw)
+
+    def y_for(q, frac=0.4):
+        r = B.get(q) if isinstance(q, str) else q
+        yc = (min(b[1] for b in r) + max(b[1] + b[3] for b in r)) / 2
+        return round(max(0, min(ih - h / k, yc - frac * h / k)))
+    return {'m': out, 'k': k, 'y_for': y_for}
 
 
 def add_doc(sc, t, paras, x, y, marks, w=2300, size=60, **kw):
@@ -291,17 +349,22 @@ def build():
         if snd:
             SFX[:] = [x for x in SFX if not (abs(x[0] - tr['t']) < 0.2 and x[1] in ('whoosh', 'swish'))]
             SFX.append([round(tr['t'] + snd[1], 3), snd[0]])
+    def _strip_en(o):  # project.json "en_labels": false -> drop English sub-labels everywhere
+        if isinstance(o, dict):
+            o.pop('en', None)
+            for v in o.values(): _strip_en(v)
+        elif isinstance(o, list):
+            for v in o: _strip_en(v)
     for sc in SCENES.values():
         for e in sc['els']:
             if 'from_' in e: e['from'] = e.pop('from_')
-    data = dict(total=TOTAL, vsegs=vsegs, subs=subs, blocks=blocks, scenes=SCENES, trans=trans, brand=CFG.get('brand', {}))
+            if CFG.get('en_labels', True) is False: _strip_en(e)
+    data = dict(total=TOTAL, vsegs=vsegs, subs=subs, blocks=blocks, scenes=SCENES, trans=trans, brand=CFG.get('brand', {}),
+                theme=CFG.get('theme', 'finance'), en_labels=CFG.get('en_labels', True), prop_look=CFG.get('prop_look'))
     os.makedirs(f'{ROOT}/src/data', exist_ok=True)
-    with open(f'{ROOT}/src/data/shots.json', 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False)
-    with open(f'{ROOT}/sfx.json', 'w', encoding='utf-8') as f:
-        json.dump(sorted(SFX), f, ensure_ascii=False)
-    with open(f'{ROOT}/keyframes.json', 'w', encoding='utf-8') as f:
-        json.dump([(n, int(round(t * FPS))) for n, t in KF], f, ensure_ascii=False)
+    json.dump(data, open(f'{ROOT}/src/data/shots.json', 'w'), ensure_ascii=False)
+    json.dump(sorted(SFX), open(f'{ROOT}/sfx.json', 'w'))
+    json.dump([(n, int(round(t * FPS))) for n, t in KF], open(f'{ROOT}/keyframes.json', 'w'), ensure_ascii=False)
     print('total', TOTAL, 'frames', int(round(TOTAL * FPS)), 'blocks', len(blocks), 'scenes', len(SCENES), 'sfx', len(SFX), 'subs', len(subs))
     gaps = [(round(blocks[i]['t1'], 3), round(blocks[i + 1]['t0'], 3)) for i in range(len(blocks) - 1) if abs(blocks[i]['t1'] - blocks[i + 1]['t0']) > 0.01]
     print('gaps/overlaps', gaps[:10])
@@ -313,10 +376,7 @@ if __name__ == '__main__':
     if len(sys.argv) < 3: sys.exit(__doc__)
     SEGS = load_timeline(sys.argv[1]); SEG = {s['id']: s for s in SEGS}
     TOTAL = round(sum(s['dur'] for s in SEGS), 4)
-    if os.path.exists(f'{ROOT}/project.json'):
-        with open(f'{ROOT}/project.json', encoding='utf-8') as f:
-            CFG.update(json.load(f))
+    if os.path.exists(f'{ROOT}/project.json'): CFG.update(json.load(open(f'{ROOT}/project.json')))
     for f in sys.argv[2:]:
-        with open(f, encoding='utf-8') as scene_file:
-            exec(scene_file.read(), globals())
+        exec(open(f).read(), globals())
     build()

@@ -45,16 +45,52 @@
 - 上屏数字和原文数字一致。万、亿、百分点的换算写进事实文件。
 - 先确认有没有更新年份的数据，用最新已发布的。还没发布的数据不说（例：截至 10 月未公布的年度调整幅度，台词不提）。
 - 事实文件记两个日期：来源的发布日期和查阅日期。
-- `docpage` 只放逐字原文。摘录可以从句子中间截断，但不能改字、不能拼接不同段落。
+- `docpage` 只放逐字原文。摘录可以从句子中间截断，但不能改字、不能拼接不同段落。来源是网页时，优先用 `webshot` 真实截图；`docpage` 留给 PDF、纸质文件和截图看不清的长文。
 - 为了演示版式而用的假数据，`src` 行必须写"示意数据"或"演示数据"。
 - 不同来源数字冲突时，用一手来源，并在事实文件写明差异。
+
+## 真实素材：网页截图和 Logo
+
+小Lin说的画面里，报道、报告、产品页面都是真实截图，品牌用真实 Logo。来源是网页时，按下面的方法拿真实画面，不要自己重排。
+
+**网页截图**（`scripts/web_shot.mjs`，用 Remotion 自带的无头 Chrome，不需要另装）：
+
+```bash
+node <skill>/scripts/web_shot.mjs "<url>" public/shots/<名字>.png --w 1440 --h 1500 --wait 9 \
+     --boxes "要高亮的原文短语||另一句||css:img.chart"          # 写出 <png>.boxes.json，供 add_web 的 marks 用
+# 常用选项：--full 3600（往下多拍，整页长图）  --scroll "text:某句原文"（把这句滚到视窗中间）
+#          --blur "article img, figure img"（模糊图片社照片）  --hide "<css>"  --port 9353（并行拍时各用一个端口）
+```
+
+- `--boxes` 里的短语要和页面原文逐字一致（引号、空格容错）。拍完看输出的 `box` 行，`MISSING` 就换短语或换截图位置。
+- 有的页面正文在内部滚动容器里（如安天报告页），`--full` 不生效，用 `--scroll "text:…"` 把要用的段落滚进视窗。
+- 时点要对：台词说的是某个时间的数字（例："2800 多个"），去拍当时的版本。GitHub 用历史提交的 blob 页面（`/blob/<提交>/README.md`，用 API 列出该文件的提交，逐个取 raw 文件找到那个数字）；其他网站用 Wayback（`web.archive.org/web/<时间戳>if_/<url>`）。单页应用（React 等）的 Wayback 存档常常是空白，拍出来空白就放弃截图，换别的画法。
+- 截图里的新闻图片社照片（图注写 Getty、AP、Reuters、视觉中国等）用 `--blur` 模糊，只用页面文字。作者小头像、网站自己的界面可以保留。
+- 事实文件写：页面地址、拍摄日期、历史版本号或存档时间戳、高亮的原文。
+
+**视频**（实拍、录屏、产品演示）：
+
+- 可以用：Wikimedia Commons 的视频（`filetype:video`，许可同照片的规则）；美国联邦政府机构（NASA 等）的公有领域视频；用户自己的录屏和实拍；明确写了可以转载的官方素材。放进 `public/broll/`，用 `broll` 背景或画中画。
+- 不能用：YouTube、X、B 站等平台上别人的视频，包括产品官方的演示视频，除非页面写明了许可。
+- 找不到可以用的视频时，用 `webshot` 加 `sy` 滚动关键帧，做出"翻阅真实页面"的录屏感，并在交付说明里写明没有放视频的原因。
+
+**Logo**（`scripts/commons_logo.py`，从 Wikimedia Commons 取，SVG 由 Commons 渲染成 PNG，许可写进 `CREDITS.txt`）：
+
+```bash
+python3 <skill>/scripts/commons_logo.py public/logos "WhatsApp=File:WhatsApp.svg" "Slack=File:Slack icon 2019.svg" "Teams=Microsoft Teams"
+```
+
+- 写 `File:` 精确标题最稳；只写名称时按名称搜索，结果要目检（可能拿到白色字标、旧版 Logo 或粗糙的简化版）。
+- Commons 上没有合适的，用 Simple Icons（CC0 品牌图标库）：`https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/<名字>.svg` 是单色路径，填上它元数据里的官方品牌色（`data/simple-icons.json` 的 `hex`）。它自己的 CDN（cdn.simpleicons.org）会被 Cloudflare 拦。
+- 还没有的，去品牌官网的 press kit / brand 页下载官方文件。
 
 ## 图片权利
 
 - 只用公有领域、CC0、CC BY、CC BY-SA。NC（非商用）和 ND（禁止改编）都不用，因为包装会裁切、调色、加字。
 - CC BY 和 CC BY-SA 要署名。把 `commons_photo.py` 生成的署名写进事实文件，再放上屏：照片卡用 `photo` 的 `credit='图：…'`；整屏照片底或 `broll` 用屏幕层小字 `sc.add('txt', t0, layer='screen', x=960, y=1058, txt='背景图：…', size=17, font='heavy', color='rgba(255,255,255,.6)', glow=False, anim='fade')`。屏幕底部正中在字幕下方，三种画中画都挡不到。
-- CC 许可只管照片的版权，不管画面里的商标和人物肖像权。真实品牌只写文字名称，不放商标图形，除非讲的就是这个品牌。
-- 新闻图片社的照片（Getty、视觉中国、AP、Reuters）、其他视频的截图、她本人原片的画面，都不能用。
+- CC 许可只管照片的版权，不管画面里的商标和人物肖像权。
+- Logo 即使是公有领域文件，仍然是商标。只在讲到这个产品时用来指代它（指称性使用）；不改色、不变形，不排成暗示合作或背书的样子，不放在片名和片尾当装饰。来源写进 `public/logos/CREDITS.txt`。
+- 新闻图片社的照片（Getty、视觉中国、AP、Reuters）、其他视频的截图、她本人原片的画面，都不能用。网页截图里出现这类照片时用 `web_shot.mjs --blur` 模糊。
 
 ```bash
 python3 <skill>/scripts/commons_photo.py search "Otto von Bismarck portrait" --n 6   # 英文关键词结果更多

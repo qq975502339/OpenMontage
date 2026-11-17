@@ -1,6 +1,11 @@
 {
-  "brand": {"logo": "", "label": "AI生成 · 实验作品 · 非本人"},
+  "brand": {
+    "logo": "",
+    "label": "AI生成 · 实验作品 · 非本人"
+  },
   "voice_db": -19.5,
   "music": [],
-  "sting": null
+  "sting": null,
+  "theme": "finance",
+  "en_labels": false
 }

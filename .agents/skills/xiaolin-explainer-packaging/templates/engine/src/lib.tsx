@@ -20,11 +20,13 @@ export const F: any = {
   ys: "'YS','NSC',sans-serif",
   heavy: "'NSC',sans-serif",
   num: "'BB','DIN','NSC',sans-serif",
-  din: "'DIN','BB',sans-serif",
+  din: "'DIN','BB','NSC',sans-serif",
   en: "'QS',sans-serif",
   wm: "'QS','NSC',sans-serif",
   serif: "Georgia,'Times New Roman',serif",
   serifsc: "'NSERIF','Songti SC',serif",
+  hand: "'MSZ','NSC',sans-serif",
+  px: "'PX','NSC',monospace",
 };
 
 export const GRAD: any = {
@@ -43,25 +45,29 @@ export const GRAD: any = {
 const GLOW: any = {lime: 'rgba(236,244,150,0.35)', gold: 'rgba(255,205,90,0.35)', steel: 'rgba(170,190,240,0.3)', rose: 'rgba(255,140,170,0.35)', mint: 'rgba(120,230,190,0.3)', lilac: 'rgba(210,170,255,0.3)', white: 'rgba(255,255,255,0.25)', red: 'rgba(255,110,90,0.35)', yellow: 'rgba(250,245,110,0.3)', sky: 'rgba(120,190,255,0.3)'};
 const EXT: any = {gold: '#6e4a12', lime: '#4f5520', steel: '#2f3a5e', rose: '#7a2c44', red: '#6d1d18', mint: '#1f5a49', lilac: '#4b3270', white: '#3a3848', yellow: '#6a6420', sky: '#1d4a78'};
 
-export const GText: React.FC<any> = ({txt, size = 100, font = 'ys', grad = 'lime', glow = true, ext = false, italic = false, ls = 0, weight, color, stroke, style}) => {
+// grad: a GRAD name or any CSS background (texture + gradient, halftone, hatch); blend: background-blend-mode for layered fills;
+// extc: colour of the stacked "paper thickness" layers when ext=true; phosphor: 'r,g,b' adds a CRT glow instead of a drop shadow
+export const GText: React.FC<any> = ({txt, size = 100, font = 'ys', grad = 'lime', glow = true, ext = false, italic = false, ls = 0, weight, color, stroke, style, blend, extc, phosphor, flat}) => {
   const fw = weight ?? (font === 'heavy' ? 900 : font === 'en' ? 700 : 400);
   const sh: string[] = [];
   // v6: cap filter passes. Large text (500px+) with ~20 chained drop-shadows hangs headless Chrome.
   if (ext) {
-    const c = EXT[grad] || '#333'; const n = Math.min(6, Math.max(2, Math.round(size / 28)));
+    const c = extc || EXT[grad] || '#333'; const n = Math.min(6, Math.max(2, Math.round(size / 28)));
     const step = Math.max(1.5, (size / 28) * 1.6 / n);
     for (let i = 1; i <= n; i++) sh.push(`drop-shadow(0 ${i === 1 ? Math.max(2, step).toFixed(1) : step.toFixed(1)}px 0 ${c})`);
   }
-  sh.push(`drop-shadow(0 ${Math.round(Math.min(size * 0.05, 26))}px ${Math.round(Math.min(size * 0.08, 34))}px rgba(0,0,0,0.45))`);
-  if (glow) sh.push(`drop-shadow(0 0 ${Math.round(Math.min(size * 0.22, 56))}px ${GLOW[grad] || 'rgba(255,255,255,.2)'})`);
+  if (phosphor) {sh.push(`drop-shadow(0 0 ${Math.round(Math.min(size * 0.05, 14))}px rgba(${phosphor},.85))`); sh.push(`drop-shadow(0 0 ${Math.round(Math.min(size * 0.16, 44))}px rgba(${phosphor},.45))`);}
+  else if (!flat) sh.push(`drop-shadow(0 ${Math.round(Math.min(size * 0.05, 26))}px ${Math.round(Math.min(size * 0.08, 34))}px rgba(0,0,0,0.45))`);
+  if (glow && !phosphor) sh.push(`drop-shadow(0 0 ${Math.round(Math.min(size * 0.22, 56))}px ${GLOW[grad] || 'rgba(255,255,255,.2)'})`);
   const base: any = {
     fontFamily: F[font] || font, fontSize: size, fontWeight: fw, letterSpacing: ls, whiteSpace: 'pre', lineHeight: 1.08,
     display: 'inline-block', fontStyle: italic ? 'italic' : 'normal', paddingRight: italic ? size * 0.06 : 0,
   };
-  if (color) return <span style={{...base, color, filter: sh.join(' '), WebkitTextStroke: stroke, ...style}}>{txt}</span>;
+  const filt = sh.length ? sh.join(' ') : undefined;
+  if (color) return <span style={{...base, color, filter: filt, WebkitTextStroke: stroke, ...style}}>{txt}</span>;
   return (
-    <span style={{display: 'inline-block', filter: sh.join(' '), ...style}}>
-      <span style={{...base, background: GRAD[grad] || grad, WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', isolation: 'isolate'}}>{txt}</span>
+    <span style={{display: 'inline-block', filter: filt, ...style}}>
+      <span style={{...base, background: GRAD[grad] || grad, backgroundBlendMode: blend, WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', isolation: 'isolate'}}>{txt}</span>
     </span>
   );
 };
@@ -69,6 +75,7 @@ export const GText: React.FC<any> = ({txt, size = 100, font = 'ys', grad = 'lime
 const FONTS: [string, string, string][] = [
   ['YS', 'fonts/YouShe.ttf', '400'], ['NSC', 'fonts/NotoSC.ttf', '100 900'], ['QS', 'fonts/Quicksand.ttf', '300 700'],
   ['BB', 'fonts/Bebas.ttf', '400'], ['DIN', 'fonts/DDINCond.ttf', '400'], ['OSW', 'fonts/Oswald.ttf', '200 700'], ['NSERIF', 'fonts/NotoSerifSC.ttf', '200 900'],
+  ['MSZ', 'fonts/MaShanZheng.ttf', '400'], ['PX', 'fonts/FusionPixel12.woff2', '400'],
 ];
 let fontsStarted = false;
 export const loadFonts = () => {

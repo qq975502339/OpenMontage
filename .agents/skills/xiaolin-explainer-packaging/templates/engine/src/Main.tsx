@@ -4,7 +4,14 @@ import {back, clamp, eio, eout, F, FPS, GText, img, lerp, loadFonts, prog} from 
 import {BG, FgBokeh, Sparkle} from './bg';
 import {ABS, ELS as ELS5, Place, Ruler} from './els';
 import {ELS6} from './els6';
-const ELS: any = {...ELS5, ...ELS6};
+import {ELS7} from './els7';
+import {ELS8} from './els8';
+import {TECH_ELS} from './bg_tech';
+import {REAL_ELS} from './els_real';
+import {TH} from './theme';
+import {CrtFx, ENDS, TITLES} from './skins';
+import {STYLE7} from './styles7';
+const ELS: any = {...ELS5, ...ELS6, ...ELS7, ...ELS8, ...TECH_ELS, ...REAL_ELS};
 import D from './data/shots.json';
 
 loadFonts();
@@ -44,7 +51,7 @@ const TitleCard: React.FC<any> = ({e, t}) => {
         {e.l2b && Array.from(e.l2b as string).map((c, i) => {const p = prog(t, slam + 0.25 + i * 0.06, 0.35); return <span key={'b' + i} style={{fontFamily: F.heavy, fontWeight: 900, fontSize: e.s2b ?? 150, lineHeight: 1.1, color: '#f8f56b', display: 'inline-block', transform: `scale(${lerp(2, 1, back(p))}) rotate(${[4, -3, 5][i % 3]}deg)`, opacity: clamp(p * 4), textShadow: '0 12px 22px rgba(0,0,0,.5)'}}>{c}</span>;})}
         {e.q && <span style={{fontFamily: F.heavy, fontWeight: 900, fontSize: 170, color: '#f6f4ee', display: 'inline-block', transform: `rotate(14deg) scale(${back(prog(t, slam + 0.45, 0.35))})`, marginLeft: 10}}>{e.q}</span>}
       </div>
-      {[[e.sp1x ?? 330, 470, 90, 0], [e.sp1x ? e.sp1x + 40 : 370, 590, 54, 1], [e.sp2x ?? 1560, 460, 80, 2], [e.sp2x ? e.sp2x - 30 : 1530, 590, 50, 3]].map(([x, y, s, k], i) => (
+      {[[e.sp1x ?? 330, 470 + (e.spy ?? 0), 90, 0], [e.sp1x ? e.sp1x + 40 : 370, 590 + (e.spy ?? 0), 54, 1], [e.sp2x ?? 1560, 460 + (e.spy ?? 0), 80, 2], [e.sp2x ? e.sp2x - 30 : 1530, 590 + (e.spy ?? 0), 50, 3]].map(([x, y, s, k], i) => (
         <div key={i} style={{position: 'absolute', left: x, top: y, opacity: clamp(prog(t, slam + 0.2 + i * 0.08, 0.3) * 2), transform: `scale(${0.8 + 0.2 * Math.sin(t * 5 + k)}) rotate(${k * 9}deg)`}}><Sparkle s={s} /></div>
       ))}
       {e.en && <div style={{position: 'absolute', left: 0, right: 0, top: e.ye ?? 790, textAlign: 'center', fontFamily: F.en, fontWeight: 700, fontSize: e.se ?? 40, color: '#f6f4ee', letterSpacing: 1.5, opacity: eout(prog(t, slam + 0.55, 0.5))}}>{e.en}</div>}
@@ -53,18 +60,23 @@ const TitleCard: React.FC<any> = ({e, t}) => {
 };
 const EndCard: React.FC<any> = ({e, t}) => {
   const w = Array.from('谢谢观看');
+  // dark end (plate themes): title-yellow heading + light text; light end: pink heading on mint
+  const DK = TH.end === 'dark', ink = DK ? '#f6f4ee' : '#1f5a49';
   return (
     <AbsoluteFill>
       <div style={{position: 'absolute', left: 170, top: 300, display: 'flex', gap: 10}}>
-        {w.map((c, i) => {const p = prog(t, e.t + 0.1 + i * 0.1, 0.45); return <span key={i} style={{fontFamily: F.heavy, fontWeight: 900, fontSize: 210, color: '#ff7fa3', WebkitTextStroke: '10px #ffffff', paintOrder: 'stroke fill', display: 'inline-block', transform: `translateY(${(1 - back(p)) * 140}px) rotate(${[-6, 5, -4, 6][i]}deg)`, opacity: clamp(p * 3), filter: 'drop-shadow(0 14px 18px rgba(30,90,70,.35))'}}>{c}</span>;})}
+        {w.map((c, i) => {const p = prog(t, e.t + 0.1 + i * 0.1, 0.45); return <span key={i} style={{fontFamily: F.heavy, fontWeight: 900, fontSize: 210, color: DK ? '#f8f56b' : '#ff7fa3', WebkitTextStroke: DK ? undefined : '10px #ffffff', paintOrder: 'stroke fill', textShadow: DK ? '0 12px 30px rgba(0,0,0,.55)' : undefined, display: 'inline-block', transform: `translateY(${(1 - back(p)) * 140}px) rotate(${[-6, 5, -4, 6][i]}deg)`, opacity: clamp(p * 3), filter: 'drop-shadow(0 14px 18px rgba(30,90,70,.35))'}}>{c}</span>;})}
       </div>
-      <div style={{position: 'absolute', left: 190, top: 590, fontFamily: F.en, fontWeight: 700, fontSize: 48, color: '#1f5a49', letterSpacing: 4, opacity: eout(prog(t, e.t + 0.8, 0.5))}}>THANKS FOR WATCHING</div>
-      <div style={{position: 'absolute', left: 190, top: 680, fontFamily: F.heavy, fontWeight: 800, fontSize: 52, color: '#1f5a49', opacity: eout(prog(t, e.t + 1.1, 0.5))}}>我们下期再见</div>
+      {(D as any).en_labels !== false && <div style={{position: 'absolute', left: 190, top: 590, fontFamily: F.en, fontWeight: 700, fontSize: 48, color: ink, letterSpacing: 4, opacity: eout(prog(t, e.t + 0.8, 0.5))}}>THANKS FOR WATCHING</div>}
+      <div style={{position: 'absolute', left: 190, top: 680, fontFamily: F.heavy, fontWeight: 800, fontSize: 52, color: ink, textShadow: DK ? '0 6px 18px rgba(0,0,0,.6)' : undefined, opacity: eout(prog(t, e.t + 1.1, 0.5))}}>我们下期再见</div>
       {(D as any).brand?.endToon && <Img src={img((D as any).brand.endToon)} style={{position: 'absolute', right: 140, top: 160 + Math.sin(t * 3) * 8, height: 860, filter: 'drop-shadow(0 24px 30px rgba(20,70,55,.35))', transform: `rotate(${Math.sin(t * 2.6) * 2}deg)`, opacity: clamp(prog(t, e.t, 0.4) * 2)}} />}
     </AbsoluteFill>
   );
 };
-const SCREEN: any = {titlecard: TitleCard, endcard: EndCard, ruler: Ruler};
+// each theme has its own title and end card (skins.tsx); TitleCard / EndCard stay as the generic fallback
+const TitleAny: React.FC<any> = (p) => {const C = (TH.s7 && STYLE7[TH.style]?.Title) || TITLES[TH.title] || TitleCard; return <C {...p} />;};
+const EndAny: React.FC<any> = (p) => {const C = (TH.s7 && STYLE7[TH.style]?.End) || ENDS[TH.end] || EndCard; return <C {...p} />;};
+const SCREEN: any = {titlecard: TitleAny, endcard: EndAny, ruler: Ruler};
 
 // ---------------------------------------------------------------- element dispatcher
 const ElView: React.FC<{e: any; t: number; xb?: number}> = ({e, t, xb = 0}) => {
@@ -118,7 +130,8 @@ const SceneView: React.FC<{sc: any; t: number}> = ({sc, t}) => {
           </div>
         </AbsoluteFill>
       )}
-      <FgBokeh sc={sc} cam={cam} t={t} />
+      <FgBokeh sc={sc} cam={cam} lag={camAt(sc.cam, t - 0.45)} t={t} />
+      <CrtFx sc={sc} t={t} />
       {screen.length > 0 && <AbsoluteFill style={{zIndex: 5}}>{screen.map((e: any, i: number) => <ElView key={i} e={e} t={t} />)}</AbsoluteFill>}
       {flash > 0 && <AbsoluteFill style={{background: '#fff', opacity: flash, zIndex: 9}} />}
     </AbsoluteFill>
@@ -139,18 +152,20 @@ const ARoll: React.FC<{t: number; b: any}> = ({t, b}) => {
     // v6: tall rounded-rect PiP on the left (her 2025+ panel layout), about 450x760
     const L = b.px ?? 110, T = b.py ?? 150, w = b.pw ?? 450, h = b.ph ?? 740, k = b.pipk ?? 0.78;
     const p = prog(t, b.t0, 0.4), vw = 1920 * k, vh = 1097 * k;
-    outer = {position: 'absolute', left: L, top: T, width: w, height: h, borderRadius: 22, overflow: 'hidden', zIndex: 40, border: '4px solid rgba(240,232,255,.85)', boxShadow: '0 24px 60px rgba(0,0,0,.6)', transform: `translateX(${(1 - eout(p)) * -560}px)`, background: '#222'};
+    outer = {position: 'absolute', left: L, top: T, width: w, height: h, borderRadius: TH.name === 'finance' ? 22 : TH.name === 'desk' ? 10 : 0, overflow: 'hidden', zIndex: 40, border: `4px solid ${TH.pip?.rect ?? 'rgba(240,232,255,.85)'}`, boxShadow: '0 24px 60px rgba(0,0,0,.6)', transform: `translateX(${(1 - eout(p)) * -560}px)`, background: '#222'};
     inner = {position: 'absolute', left: w / 2 - vw * (b.pfx ?? 0.5), top: (b.fy ?? 250) - vh * (b.pfy ?? 0.36), width: vw, height: vh};
   } else if (mode === 'pip') {
     const d = b.pipd ?? 330, [cx, cy] = b.pip === 'br' ? [1690, 836] : b.pip === 'tr' ? [1690, 250] : [222, 836];
     const p = prog(t, b.t0, 0.35), k = (b.pipk ?? 0.62);
     const vw = 1920 * k, vh = 1097 * k;
-    outer = {position: 'absolute', left: cx - d / 2, top: cy - d / 2, width: d, height: d, borderRadius: '50%', overflow: 'hidden', zIndex: 40, border: '5px solid #efe0a8', boxShadow: '0 14px 40px rgba(0,0,0,.6)', transform: `scale(${back(p)})`, background: '#222'};
+    outer = {position: 'absolute', left: cx - d / 2, top: cy - d / 2, width: d, height: d, borderRadius: '50%', overflow: 'hidden', zIndex: 40, border: `5px solid ${TH.pip?.ring ?? '#efe0a8'}`, boxShadow: '0 14px 40px rgba(0,0,0,.6)', transform: `scale(${back(p)})`, background: '#222'};
     inner = {position: 'absolute', left: d / 2 - vw * (b.pfx ?? 0.5), top: d / 2 - vh * (b.pfy ?? 0.4), width: vw, height: vh};
   } else if (mode === 'full') {
     const z = zoomAt(b.zoom, t);
-    outer = {position: 'absolute', left: 0, top: 0, width: 1920, height: 1080, overflow: 'hidden', zIndex: 0};
-    inner = {position: 'absolute', left: 0, top: -8, width: 1920, height: 1097, transformOrigin: `${z.cx}% ${z.cy}%`, transform: `scale(${z.z})`};
+    // adim / ablur: darken and soften the presenter so a card can sit on top of her (her 'card over A-roll' layout)
+    const soft = b.adim != null || b.ablur;
+    outer = {position: 'absolute', left: 0, top: 0, width: 1920, height: 1080, overflow: 'hidden', zIndex: 0, filter: soft ? `brightness(${b.adim ?? 1}) blur(${b.ablur ?? 0}px) saturate(.9)` : undefined};
+    inner = {position: 'absolute', left: 0, top: -8, width: 1920, height: 1097, transformOrigin: `${z.cx}% ${z.cy}%`, transform: `scale(${z.z * (b.ablur ? 1.04 : 1)})`};
   } else {
     outer = {position: 'absolute', left: 0, top: 0, width: 4, height: 4, overflow: 'hidden', opacity: 0, zIndex: 0};
     inner = {width: 4, height: 4};

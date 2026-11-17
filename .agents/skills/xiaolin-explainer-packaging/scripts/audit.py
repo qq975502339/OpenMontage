@@ -8,8 +8,7 @@ from PIL import Image, ImageDraw
 P = os.getcwd(); VIDEO = sys.argv[1] if len(sys.argv) > 1 else "video.mp4"; STEP = int(sys.argv[2]) if len(sys.argv) > 2 else 72
 VID = VIDEO if os.path.isabs(VIDEO) else f"{P}/{VIDEO}"; D = f"{P}/stills/audit"; os.makedirs(f"{D}/v", exist_ok=True); os.makedirs(f"{D}/s", exist_ok=True)
 SKIP = os.environ.get("SKIP") == "1"
-with open(f"{P}/src/data/shots.json", encoding='utf-8') as f:
-    TOTALF = int(round(json.load(f)["total"] * 24))
+TOTALF = int(round(json.load(open(f"{P}/src/data/shots.json"))["total"] * 24))
 frames = list(range(0, TOTALF, STEP))
 if not SKIP:
   for f in glob.glob(f"{D}/v/*.png") + glob.glob(f"{D}/s/*.png"): os.remove(f)
@@ -26,8 +25,7 @@ for k, fr in enumerate(frames):
     d = np.abs(a - b).mean(2)
     blk = d[: 540 // 20 * 20, : 960 // 20 * 20].reshape(27, 20, 48, 20).mean((1, 3))
     res.append((fr, float(d.mean()), float(blk.max())))
-with open(f"{D}/audit.json", "w", encoding='utf-8') as f:
-    json.dump(res, f)
+json.dump(res, open(f"{D}/audit.json", "w"))
 miss = [r for r in res if r[1] < 0]
 bad = sorted([r for r in res if r[2] > 38], key=lambda r: -r[2])
 print("frames", len(res), "missing", len(miss), "flagged", len(bad))

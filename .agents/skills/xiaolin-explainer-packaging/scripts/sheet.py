@@ -6,8 +6,7 @@ import json, os, sys
 from PIL import Image, ImageDraw, ImageFont
 
 d = sys.argv[1]
-with open(sys.argv[2] if len(sys.argv) > 2 else 'keyframes.json', encoding='utf-8') as f:
-    kf = json.load(f)
+kf = json.load(open(sys.argv[2] if len(sys.argv) > 2 else 'keyframes.json'))
 per = int(sys.argv[3]) if len(sys.argv) > 3 else 6
 font = None
 for fp in ['/System/Library/Fonts/STHeiti Medium.ttc', '/System/Library/Fonts/PingFang.ttc', '/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc', 'public/fonts/NotoSC.ttf']:

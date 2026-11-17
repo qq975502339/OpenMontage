@@ -2,6 +2,9 @@ import React from 'react';
 import {Img} from 'remotion';
 import {back, clamp, eio, eout, F, fmt, GRAD, GText, img, lerp, prog, rnd} from './lib';
 import {Banknote, Sparkle} from './bg';
+import {TechTile} from './bg_tech';
+import {TH} from './theme';
+const bgOf = (x: any) => (x == null ? {} : typeof x === 'string' ? {background: x} : x);
 
 // ---------------------------------------------------------------- envelope
 export const envelope = (e: any, t: number) => {
@@ -55,7 +58,7 @@ const TAGC: any = {
 export const Tag: React.FC<any> = ({txt, c = 'lime', size = 34, en}) => {
   const [bg, fg] = TAGC[c] || TAGC.lime;
   return (
-    <div style={{background: bg, color: fg, fontFamily: F.ys, fontSize: size, padding: `${size * 0.16}px ${size * 0.62}px ${size * 0.12}px`, borderRadius: size * 0.2, whiteSpace: 'nowrap', boxShadow: '0 8px 22px rgba(0,0,0,.38)', letterSpacing: size * 0.08, textAlign: 'center', lineHeight: 1.15}}>
+    <div style={{background: bg, color: fg, fontFamily: TH.name === 'finance' ? F.ys : TH.f.card, fontWeight: TH.name === 'finance' || /PX|MSZ/.test(TH.f.card) ? 400 : 900, fontSize: size, padding: `${size * 0.16}px ${size * 0.62}px ${size * 0.12}px`, borderRadius: size * 0.2, whiteSpace: 'nowrap', boxShadow: '0 8px 22px rgba(0,0,0,.38)', letterSpacing: size * 0.08, textAlign: 'center', lineHeight: 1.15}}>
       {txt}
       {en && <div style={{fontFamily: F.en, fontWeight: 700, fontSize: size * 0.36, letterSpacing: 1.5, opacity: 0.75, marginTop: 1}}>{en}</div>}
     </div>
@@ -79,7 +82,8 @@ export const Corners: React.FC<{c: string; i?: number}> = ({c, i = 12}) => (
   </>
 );
 
-const TH: any = {
+// colour sets for the number Card (e.theme); kept apart from the global theme TH
+const CARD_TH: any = {
   navy: {bg: 'linear-gradient(165deg,#1d2546 0%,#121830 100%)', bd: '#dfe0a6', orn: 'rgba(223,224,166,.75)', label: '#e8ecc6', en: 'rgba(222,226,190,.62)', grad: 'lime', glow: 'rgba(230,240,150,.45)'},
   cream: {bg: 'linear-gradient(165deg,#fffbea 0%,#efe6c6 100%)', bd: '#fff7d2', orn: 'rgba(120,100,50,.55)', label: '#3a3020', en: 'rgba(60,50,30,.6)', grad: 'gold', glow: 'rgba(255,240,180,.6)'},
   red: {bg: 'linear-gradient(165deg,#86313d 0%,#5c1f2a 100%)', bd: '#f4b0b4', orn: 'rgba(244,176,180,.7)', label: '#ffe9e9', en: 'rgba(255,220,220,.6)', grad: 'gold', glow: 'rgba(255,140,150,.5)'},
@@ -90,7 +94,7 @@ const TH: any = {
 
 // ---------------------------------------------------------------- Card (number / info card)
 export const Card: React.FC<any> = ({e, t, v}) => {
-  const th = TH[e.theme || 'navy'], w = e.w || 560, h = e.h || 400;
+  const th = CARD_TH[e.theme || 'navy'], w = e.w || 560, h = e.h || 400;
   let val = e.value;
   if (e.count) {const [a, b, dec] = e.count; const p = eio(prog(t, e.ct ?? e.t + 0.25, e.cd ?? 1.1)); val = fmt(lerp(a, b, p), dec ?? 0, e.sep);}
   const vs = e.vsize || 170;
@@ -118,14 +122,16 @@ export const Card: React.FC<any> = ({e, t, v}) => {
 
 // ---------------------------------------------------------------- Concept card (big gradient word + icon)
 export const Concept: React.FC<any> = ({e, v}) => {
-  const w = e.w || 760, h = e.h || 340;
+  const w = e.w || 760, h = e.h || 340, GL = TH.card === 'glass';
   return (
-    <div style={{position: 'relative', width: w, height: h, borderRadius: 20, background: 'linear-gradient(165deg,#25232b,#16151a)', border: `2.5px solid ${e.bd || 'rgba(238,226,170,.7)'}`, boxShadow: `0 34px 70px rgba(0,0,0,.55)${v.litv ? `, 0 0 ${46 * v.litv}px rgba(255,220,140,.45)` : ''}`}}>
-      <div style={{position: 'absolute', inset: 14, borderRadius: 12, border: '2px dashed rgba(255,255,255,.16)'}} />
+    <div style={{position: 'relative', width: w, height: h, borderRadius: 20, ...(TH.name === 'finance' ? {background: GL ? 'linear-gradient(160deg,rgba(40,42,58,.80),rgba(14,15,22,.88))' : 'linear-gradient(165deg,#25232b,#16151a)'} : bgOf(TH.card.lit)), border: `${GL ? 1.5 : 2.5}px solid ${e.bd || (GL ? 'rgba(238,226,170,.55)' : 'rgba(238,226,170,.7)')}`, boxShadow: `0 34px 70px rgba(0,0,0,.55)${GL ? ', inset 0 1.5px 0 rgba(255,255,255,.2), inset 0 0 70px rgba(150,170,255,.05)' : ''}${v.litv ? `, 0 0 ${46 * v.litv}px rgba(255,220,140,.45)` : ''}`}}>
+      <div style={{position: 'absolute', inset: 14, borderRadius: 12, border: `${GL ? 1.5 : 2}px dashed rgba(255,255,255,${GL ? 0.09 : 0.16})`}} />
+      {GL && <div style={{position: 'absolute', left: 0, right: 0, top: 0, height: '46%', borderRadius: '20px 20px 0 0', background: 'linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,0))'}} />}
       <div style={{position: 'absolute', left: e.icon ? 60 : 0, right: e.icon ? undefined : 0, top: 0, bottom: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: e.icon ? 'flex-start' : 'center'}}>
-        <GText txt={e.word} size={e.size || 150} font="ys" grad={e.grad || 'gold'} ext />
+        <GText txt={e.word} size={e.size || 150} font={TH.name === 'finance' ? 'ys' : TH.f.card} grad={e.grad || 'gold'} ext={TH.name === 'finance'} flat={TH.name !== 'finance'}
+          color={TH.name === 'finance' ? undefined : e.grad === 'rose' || e.grad === 'red' ? '#d0442f' : `rgb(${TH.card.on.join(',')})`} weight={TH.name === 'finance' || /PX|MSZ/.test(TH.f.card) ? undefined : 900} />
         {e.en && <div style={{fontFamily: F.en, fontWeight: 700, fontSize: e.ensize || 40, color: 'transparent', WebkitTextStroke: '1.6px rgba(255,255,255,.42)', letterSpacing: 2, marginTop: 4, whiteSpace: 'nowrap'}}>{e.en}</div>}
-        {e.sub && <div style={{fontFamily: F.ys, fontSize: 36, color: '#efeadb', marginTop: 10, whiteSpace: 'nowrap'}}>{e.sub}</div>}
+        {e.sub && <div style={{fontFamily: TH.name === 'finance' ? F.ys : TH.f.body, fontWeight: TH.name === 'finance' ? 400 : 700, fontSize: 36, color: TH.name === 'finance' ? '#efeadb' : `rgba(${TH.card.on.join(',')},.62)`, marginTop: 10, whiteSpace: 'nowrap'}}>{e.sub}</div>}
       </div>
       {e.icon && <Img src={img(`icons/${e.icon}.png`)} style={{position: 'absolute', right: 40, top: '50%', height: e.iconh || h * 0.78, transform: 'translateY(-50%)', filter: 'drop-shadow(0 14px 20px rgba(0,0,0,.5))'}} />}
     </div>
@@ -137,12 +143,12 @@ export const Panel: React.FC<any> = ({e}) => {
   const w = e.w || 1600, h = e.h || 860;
   const bg = e.theme === 'teal' ? 'linear-gradient(170deg,#24394d 0%,#172634 100%)' : e.theme === 'slate' ? 'linear-gradient(170deg,#3a3d4e 0%,#262833 100%)' : 'linear-gradient(170deg,#4b3672 0%,#33244f 60%,#2a1e42 100%)';
   return (
-    <div style={{position: 'relative', width: w, height: h, borderRadius: 30, background: bg, border: '2px solid rgba(255,255,255,.13)', boxShadow: '0 50px 110px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.12)', overflow: 'hidden'}}>
+    <div style={{position: 'relative', width: w, height: h, borderRadius: TH.name === 'finance' ? 30 : TH.panel.r, ...(TH.name === 'finance' || e.theme ? {background: bg} : bgOf(TH.panel.bg)), border: TH.name === 'finance' ? '2px solid rgba(255,255,255,.13)' : TH.panel.border, boxShadow: '0 50px 110px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.12)', overflow: 'hidden'}}>
       {e.photo && <Img src={img(e.photo)} style={{position: 'absolute', right: 0, top: 0, width: w * 0.62, height: h, objectFit: 'cover', filter: 'blur(16px) brightness(.55)', opacity: 0.55, maskImage: 'linear-gradient(90deg, transparent 0%, black 40%)'}} />}
       <div style={{position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.08), rgba(255,255,255,0) 60%)'}} />
       {e.title && (
         <div style={{position: 'absolute', left: 0, right: 0, top: e.ht ?? 34, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-          <GText txt={e.title} size={e.tsize || 76} font="ys" grad={e.tgrad || 'lilac'} color={e.tcolor} ls={8} glow={false} />
+          <GText txt={e.title} size={e.tsize || 76} font={TH.name === 'finance' ? 'ys' : TH.f.title} grad={e.tgrad || 'lilac'} color={e.tcolor ?? (TH.name === 'finance' ? undefined : TH.panel.title)} ls={8} glow={false} weight={TH.name === 'finance' || /PX|MSZ/.test(TH.f.title) ? undefined : 900} />
           {e.en && (
             <div style={{display: 'flex', alignItems: 'center', gap: 18, marginTop: 2, width: w * 0.86}}>
               <div style={{flex: 1, height: 1.5, background: 'rgba(255,255,255,.22)'}} />
@@ -160,7 +166,8 @@ export const Panel: React.FC<any> = ({e}) => {
 // ---------------------------------------------------------------- Icon (+label)
 export const Icon: React.FC<any> = ({e, v}) => (
   <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-    <Img src={img(e.src.includes('/') ? e.src : `icons/${e.src}.png`)} style={{height: e.size || 220, filter: `drop-shadow(0 16px 22px rgba(0,0,0,.5))${e.gray ? ' grayscale(1) brightness(.6)' : ''}`}} />
+    {String(e.src).startsWith('tech:') ? <TechTile name={e.src.slice(5)} s={e.size || 220} c={e.c || 'teal'} /> :
+    <Img src={img(e.src.includes('/') ? e.src : `icons/${e.src}.png`)} style={{height: e.size || 220, filter: `drop-shadow(0 16px 22px rgba(0,0,0,.5))${e.gray ? ' grayscale(1) brightness(.6)' : ''}`}} />}
     {e.label && <div style={{fontFamily: F.ys, fontSize: e.lsize || 42, color: e.lc || '#f3f1e6', marginTop: 8, whiteSpace: 'nowrap', textShadow: '0 3px 10px rgba(0,0,0,.6)'}}>{e.label}</div>}
     {e.en && <div style={{fontFamily: F.en, fontWeight: 700, fontSize: 19, letterSpacing: 2, color: 'rgba(240,238,225,.6)', marginTop: 2, whiteSpace: 'nowrap'}}>{e.en}</div>}
   </div>
@@ -209,7 +216,7 @@ export const Arrow: React.FC<any> = ({e, t}) => {
   const mx = (x1 + x2) / 2, my = (y1 + y2) / 2, len = Math.hypot(x2 - x1, y2 - y1) || 1;
   const cx = mx + (-(y2 - y1) / len) * bend, cy = my + ((x2 - x1) / len) * bend;
   const p = eout(prog(t, e.t, e.d ?? 0.55));
-  const ang = Math.atan2(y2 - cy, x2 - cx), hs = e.hs ?? 22, c = e.c || '#eef3c4', sw = e.sw ?? 5;
+  const ang = Math.atan2(y2 - cy, x2 - cx), hs = e.hs ?? 22, c = e.c || (TH.name === 'finance' ? '#eef3c4' : TH.light ? TH.acc : TH.ink), sw = e.sw ?? 5;
   return (
     <svg width="10" height="10" style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
       <path d={`M${x1} ${y1} Q${cx} ${cy} ${x2} ${y2}`} fill="none" stroke={c} strokeWidth={sw} strokeLinecap="round" pathLength={1} strokeDasharray={e.dash ? '0.02 0.02' : '1'} strokeDashoffset={e.dash ? 0 : 1 - p} opacity={e.dash ? p : 1} />
@@ -476,8 +483,10 @@ export const Ruler: React.FC<any> = ({e, t}) => {
 // ---------------------------------------------------------------- misc
 export const Txt: React.FC<any> = ({e}) => (
   <div style={{textAlign: e.align || 'center', whiteSpace: 'nowrap'}}>
-    <GText txt={e.txt} size={e.size || 90} font={e.font || 'ys'} grad={e.grad || 'white'} color={e.color} ext={e.ext} glow={e.glow ?? true} ls={e.ls ?? 0} italic={e.italic} />
-    {e.en && <div style={{fontFamily: F.en, fontWeight: 700, fontSize: e.ensize || 26, letterSpacing: 3, color: 'rgba(255,255,255,.62)', marginTop: 4}}>{e.en}</div>}
+    <GText txt={e.txt} size={e.size || 90} font={e.font || (TH.name === 'finance' ? 'ys' : TH.f.card)} grad={e.grad || 'white'} italic={e.italic} ls={e.ls ?? 0}
+      color={e.color ?? (e.grad || TH.name === 'finance' ? undefined : TH.ink)} ext={e.ext} glow={e.glow ?? TH.name === 'finance'} flat={TH.light}
+      phosphor={TH.name === 'terminal' && !e.grad ? '255,176,0' : undefined} weight={TH.name === 'finance' || /PX|MSZ/.test(TH.f.card) ? undefined : 900} />
+    {e.en && <div style={{fontFamily: F.en, fontWeight: 700, fontSize: e.ensize || 26, letterSpacing: 3, color: TH.ink2, marginTop: 4}}>{e.en}</div>}
   </div>
 );
 export const Photo: React.FC<any> = ({e}) => (
@@ -514,7 +523,7 @@ export const Comment: React.FC<any> = ({e}) => (
     <div style={{flex: 1}}>
       <div style={{fontFamily: F.heavy, fontWeight: 600, fontSize: 24, color: '#fb7299'}}>{e.name}</div>
       <div style={{fontFamily: F.heavy, fontWeight: 600, fontSize: 32, color: '#222', marginTop: 4, lineHeight: 1.35}}>{e.txt}</div>
-      <div style={{fontFamily: F.heavy, fontSize: 20, color: '#9a9aa6', marginTop: 8}}>{e.meta || '👍 2.3万'}</div>
+      {e.meta !== '' && <div style={{fontFamily: F.heavy, fontSize: 20, color: '#9a9aa6', marginTop: 8}}>{e.meta ?? '👍 2.3万'}</div>}
     </div>
   </div>
 );

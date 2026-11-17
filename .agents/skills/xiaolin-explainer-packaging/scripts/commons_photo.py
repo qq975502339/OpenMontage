@@ -78,8 +78,7 @@ def get(title, out, width=2000):
     req = urllib.request.Request(r["url"], headers={"User-Agent": UA})
     with urllib.request.urlopen(req, timeout=120) as resp, open(out, "wb") as f:
         f.write(resp.read())
-    with open(out + ".json", "w", encoding="utf-8") as f:
-        json.dump(r, f, ensure_ascii=False, indent=1)
+    json.dump(r, open(out + ".json", "w"), ensure_ascii=False, indent=1)
     print(f"saved {out}\n  license: {r['license']}\n  credit: {r['credit']}\n  page: {r['page']}")
     return r
 

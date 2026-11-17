@@ -4,6 +4,14 @@
 # Clamp scene starts with max(S.t0, ...) when the keyword opens the sentence, or the scene overlaps the previous segment.
 # Coordinates are world pixels; the camera frames 1920x1080 around (x, y) at scale s.
 
+# Host picture-in-picture over graphics scenes. Turn it on only when the A-roll clips show a real host
+# that looks good small (a round window bottom-right, or a tall window on the left beside formula6 / ui).
+# The demo clips are flat placeholders, so it stays off and the graphics get the whole frame.
+HOST_PIP = False
+PIP = dict(aroll='pip', pip='br') if HOST_PIP else {}
+RECT = dict(aroll='piprect') if HOST_PIP else {}
+FX, UX = (1210, 1290) if HOST_PIP else (1080, 960)   # piprect covers the left of the frame: shift formula6 / ui right
+
 def title():
     T = G('TITLE')
     sc = Scene('title', T.t0, {'type': 'title'}, sway=0)
@@ -17,7 +25,6 @@ def title():
 def chapter():
     C = G('CH1'); name = '涨价的三个原因'
     sc = Scene('ch1', C.t0, {'type': 'title'}, sway=0)
-    sc.add('tag', C.t0 + 0.02, layer='screen', x=960, y=330, txt='PART 01', c='lime', size=40, anim='pop')
     sc.add('titlecard', C.t0 + 0.02, layer='screen', l1='', l2=name, s2=150, y2=420, en='Three Reasons Behind the Price',
            ye=640, se=36, slam=0.12, sp1x=220, sp2x=1620)
     sc.fx(C.t0 + 0.2, 'shake', a=10, d=0.25); sfx(C.t0 + 0.12, 'whoosh')
@@ -33,7 +40,7 @@ def d01():
     sc.cam(t0, x=930, y=500, s=1.15).cam(S.k('三十块', -0.2), x=930, y=520, s=1.0, d=1.0)
     sc.add('bignum', t0 + 0.02, x=900, y=455, v='30', count=[15, 30, 0], ct=S.k('三十块', -0.15), cd=0.8, size=560, unit='元',
            kicker='一杯咖啡', cap='演示数据 · 从 15 元涨到 30 元', en='PRICE PER CUP', anim='zoom', ad=0.5, nodof=True, sfx='whoosh')
-    show(sc, t0, t1, aroll='pip', pip='br')
+    show(sc, t0, t1, **PIP)
     KF.append(('bignum', t1 - 0.3))
     # 2) paper col chart: white card on dark, dark title bar, last column lit
     t0, t1 = t1, S.t1
@@ -43,7 +50,7 @@ def d01():
            kicker='2024 — 2026', unit='指数（演示）', src='演示数据，仅用于测试版式', bw=180, vs=40, ls=32, stag=0.12,
            cols=[dict(l='2024', v=100), dict(l='2025', v=160), dict(l='2026', v=230)],
            hi=[[t0, -1], [S.k('翻了一倍多'), 2]], anim='up', ad=0.6, rot=-2, nodof=True, sfx='whoosh')
-    show(sc, t0, t1, aroll='pip', pip='br')
+    show(sc, t0, t1, **PIP)
     KF.append(('paper col', t1 - 0.3))
 
 
@@ -71,7 +78,7 @@ def d02():
     for i, (c, n, en) in enumerate([('us', '美国', 'UNITED STATES'), ('jp', '日本', 'JAPAN')]):
         sc.add('ent6', t0 + 0.02 + i * 0.15, x=700 + i * 520, y=520, w=440, h=620, c=c, name=n, en=en, strip='大买家', ss=60,
                anim='flipy', ad=0.6, nodof=True, sfx='whoosh')
-    show(sc, t0, t1, aroll='pip', pip='br')
+    show(sc, t0, t1, **PIP)
     KF.append(('ent6', t1 - 0.3))
 
 
@@ -86,7 +93,7 @@ def d03():
     D = add_doc(sc, t0, paras, x=1000, y=780, marks=marks, w=2300, size=64, anim='up', ad=0.5, logo='example.org')
     look(sc, t0, 1000, D['lines'][0] + 330, 1.0, 0.1)
     look(sc, S.k('下降了百分之八', -0.45), D['m'][0][0], D['m'][0][1], 1.22, 0.9, D['left'], D['left'] + 2300)
-    show(sc, t0, t1, aroll='pip', pip='br')
+    show(sc, t0, t1, **PIP)
     KF.append(('docpage', t1 - 0.3))
     # 6) formula6: big purple formula bar; each token gets an arrow, icon and label below; current token highlighted
     t0, t1 = t1, S.t1
@@ -100,10 +107,10 @@ def d03():
             dict(s='人工', t=S.k('人工', -0.2), icon='icons/young_worker.png', l='员工', en='LABOR')]
     # token column width = iw, so iw must be >= len(token) * fs or the token wraps
     sc.cam(t0, x=1080, y=540, s=1.0)
-    sc.add('formula6', t0, x=1210, y=520, pw=1280, ph=860, fs=104, gap=6, iw=240, ih=118, lfs=28, title='一杯咖啡的价格',
+    sc.add('formula6', t0, x=FX, y=520, pw=1280, ph=860, fs=104, gap=6, iw=240, ih=118, lfs=28, title='一杯咖啡的价格',
            en='WHAT YOU PAY FOR', toks=toks, hl=[[S.k('豆子', -0.1), 2], [S.k('房租', -0.1), 4], [S.k('人工', -0.1), 6]],
            anim='up', ad=0.6, nodof=True, sfx='whoosh')
-    show(sc, t0, t1, aroll='piprect')
+    show(sc, t0, t1, **RECT)
     KF.append(('formula6', t1 - 0.3))
 
 
@@ -114,11 +121,11 @@ def d04():
     sc = Scene('calc', t0, {'type': 'paper'})
     fields = [dict(l='每杯价格', v='30', u='元', t=S.k('三十块', -0.2)), dict(l='一年天数', v='365', u='天', t=S.k('三百六十五天', -0.2))]
     res = [dict(l='一年花费', f='30×365', v=10950, u='元', t=S.k('一万零九百五十块', -0.6), total=True)]
-    # piprect covers screen x 110-560. Screen x = world x - cam x + 960 (at s=1), so keep the UI's left edge on screen >= 600
+    # with piprect on, it covers screen x 110-560. Screen x = world x - cam x + 960 (at s=1), so keep the UI's left edge on screen >= 600
     sc.cam(t0, x=960, y=540, s=1.0)
-    sc.add('ui', t0 + 0.05, x=1290, y=540, w=1180, h=880, lw=420, title='咖啡开销计算器', sub='演示 · 每天一杯',
+    sc.add('ui', t0 + 0.05, x=UX, y=540, w=1180, h=880, lw=420, title='咖啡开销计算器', sub='演示 · 每天一杯',
            fields=fields, res=res, anim='up', ad=0.6, nodof=True, sfx='whoosh')
-    show(sc, t0, t1, aroll='piprect')
+    show(sc, t0, t1, **RECT)
     KF.append(('ui', t1 - 0.3))
 
 

@@ -1,6 +1,10 @@
 import React from 'react';
 import {AbsoluteFill, Img, OffthreadVideo, Sequence} from 'remotion';
 import {clamp, eio, eout, F, FPS, img, lerp, prog, rnd} from './lib';
+import {TH} from './theme';
+import {DotGrid, TechDeco, TechTitle, techBokeh} from './bg_tech';
+import {PlateDark, PlatePaper, PlateTitle} from './bg_lux';
+import {STYLE7} from './styles7';
 
 export const Banknote: React.FC<{w?: number; c?: string; style?: any}> = ({w = 120, c = '#e98e9c', style}) => (
   <svg width={w} height={w * 0.54} viewBox="0 0 120 65" style={style}>
@@ -105,7 +109,7 @@ export const Particles: React.FC<{t: number; n?: number; seed?: number}> = ({t, 
     <AbsoluteFill>
       {ps.map((p, i) => {
         const y = ((p.y + t * p.sp) % 1180) - 50;
-        return <div key={i} style={{position: 'absolute', left: p.x + Math.sin(t * 0.7 + p.ph) * 12, top: y, fontFamily: 'Arial', fontWeight: 900, fontSize: p.s, color: '#e9c46a', opacity: p.o, filter: `blur(${p.b}px)`}}>¥</div>;
+        return <div key={i} style={{position: 'absolute', left: p.x + Math.sin(t * 0.7 + p.ph) * 12, top: y, fontFamily: 'Arial', fontWeight: 900, fontSize: p.s, color: '#e9c46a', opacity: p.o, filter: `blur(${p.b}px)`}}>{TH.glyph}</div>;
       })}
     </AbsoluteFill>
   );
@@ -132,13 +136,21 @@ export const Grain: React.FC<{t: number; o?: number}> = ({t, o = 0.07}) => {
 export const BG: React.FC<{bg: any; t: number; cam: any; sc: any}> = ({bg, t, cam, sc}) => {
   if (!bg || bg.type === 'none') return null;
   const lt = t - sc.t0;
+  if (TH.s7bd && ['dark', 'paper', 'title', 'end'].includes(bg.type) && typeof bg.plate !== 'string' && !bg.photo) {
+    const B = STYLE7[TH.style].Backdrop;
+    return <B bg={bg} t={t} lt={lt} cam={cam} />;
+  }
   if (bg.type === 'dark') {
+    // plate backgrounds (theme plates or a per-scene bg.plate); bg.photo keeps the old darkened-photo path
+    if (!bg.photo && bg.plate !== false && (TH.plates || typeof bg.plate === 'string'))
+      return <PlateDark bg={bg} t={t} lt={lt} cam={cam} plates={TH.plates ?? [bg.plate]} Grain={Grain} Vignette={Vignette} />;
     return (
-      <AbsoluteFill style={{background: bg.base || 'radial-gradient(ellipse at 50% 45%, #29272f 0%, #1b1a20 60%, #141318 100%)'}}>
+      <AbsoluteFill style={{background: bg.base || TH.dark}}>
+        {TH.grid && !bg.photo && <DotGrid cam={cam} />}
         {bg.photo && <Img src={img(bg.photo)} style={{position: 'absolute', inset: 0, width: 1920, height: 1080, objectFit: 'cover', filter: `blur(${bg.blur ?? 10}px) brightness(${bg.bright ?? 0.35}) saturate(0.7)`, transform: `scale(${1.08 + lt * 0.004})`}} />}
-        {bg.shapes !== false && !bg.photo && (
+        {bg.shapes !== false && !bg.photo && TH.deco !== 'none' && (
           <div style={{position: 'absolute', inset: 0, filter: cam.s > 1.05 ? `blur(${Math.min(3.2, (cam.s - 1.05) * 6).toFixed(2)}px)` : undefined}}>
-            <Shapes cam={cam} t={t} v={bg.v || 0} />
+            {TH.deco === 'tech' ? <TechDeco cam={cam} t={t} v={bg.v || 0} /> : <Shapes cam={cam} t={t} v={bg.v || 0} />}
           </div>
         )}
         {bg.particles && <Particles t={t} seed={bg.seed || 7} />}
@@ -148,6 +160,8 @@ export const BG: React.FC<{bg: any; t: number; cam: any; sc: any}> = ({bg, t, ca
     );
   }
   if (bg.type === 'paper') {
+    const pp = typeof bg.plate === 'string' ? bg.plate : TH.paperPlate;
+    if (pp && bg.plate !== false) return <PlatePaper bg={bg} t={t} lt={lt} cam={cam} src={pp} Grain={Grain} Vignette={Vignette} />;
     return (
       <AbsoluteFill style={{background: bg.base || '#f4f4f1'}}>
         <Grain t={t} />
@@ -158,7 +172,7 @@ export const BG: React.FC<{bg: any; t: number; cam: any; sc: any}> = ({bg, t, ca
   if (bg.type === 'broll') {
     const d = Math.max(1, (bg.t1 ?? sc.t0 + 8) - sc.t0), p = clamp(lt / d);
     const s = lerp(bg.s0 ?? 1.04, bg.s1 ?? 1.14, p), dx = lerp(bg.x0 ?? 0, bg.x1 ?? -30, p), dy = lerp(bg.y0 ?? 0, bg.y1 ?? 0, p);
-    const filt = bg.bw ? 'grayscale(1) contrast(1.15) brightness(0.92) sepia(0.18)' : `brightness(${bg.bright ?? 0.95}) saturate(${bg.sat ?? 1})`;
+    const filt = (bg.bw ? 'grayscale(1) contrast(1.15) brightness(0.92) sepia(0.18)' : `brightness(${bg.bright ?? 0.95}) saturate(${bg.sat ?? 1})`) + (bg.blur ? ` blur(${bg.blur}px)` : '');
     return (
       <AbsoluteFill style={{background: '#000'}}>
         {bg.video ? (
@@ -168,7 +182,7 @@ export const BG: React.FC<{bg: any; t: number; cam: any; sc: any}> = ({bg, t, ca
         ) : (
           <Img src={img(bg.img)} style={{position: 'absolute', inset: 0, width: 1920, height: 1080, objectFit: 'cover', filter: filt, transform: `scale(${s}) translate(${dx}px,${dy}px)`}} />
         )}
-        {bg.dim ? <AbsoluteFill style={{background: `rgba(10,10,16,${bg.dim})`}} /> : null}
+        {bg.dim ? <AbsoluteFill style={{background: TH.light && !bg.dark ? `rgba(244,240,232,${Math.min(0.86, bg.dim + 0.18)})` : `rgba(10,10,16,${bg.dim})`}} /> : null}
         <AbsoluteFill style={{background: 'linear-gradient(180deg, rgba(0,0,0,0) 62%, rgba(0,0,0,0.55) 100%)'}} />
         {bg.bw && <Grain t={t} o={0.16} />}
         <Vignette k={bg.bw ? 0.75 : 0.45} />
@@ -176,6 +190,9 @@ export const BG: React.FC<{bg: any; t: number; cam: any; sc: any}> = ({bg, t, ca
     );
   }
   if (bg.type === 'title') {
+    const tp = typeof bg.plate === 'string' ? bg.plate : TH.titlePlate;
+    if (tp && bg.plate !== false) return <PlateTitle bg={bg} t={t} lt={lt} src={tp} Grain={Grain} Vignette={Vignette} />;
+    if (TH.title !== 'finance') return <TechTitle t={t} Grain={Grain} />;
     return (
       <AbsoluteFill style={{background: '#141316'}}>
         <NoteRows t={t} />
@@ -185,6 +202,9 @@ export const BG: React.FC<{bg: any; t: number; cam: any; sc: any}> = ({bg, t, ca
     );
   }
   if (bg.type === 'end') {
+    // dark themes close on a plate (TH.endPlate or a per-project bg.plate) instead of the mint waves
+    const ep = typeof bg.plate === 'string' ? bg.plate : TH.endPlate;
+    if (ep && bg.plate !== false) return <PlateTitle bg={bg} t={t} lt={lt} src={ep} Grain={Grain} Vignette={Vignette} />;
     return (
       <AbsoluteFill style={{background: 'linear-gradient(160deg,#bfeee0 0%,#9fe0d0 100%)'}}>
         <svg width="1920" height="1080" style={{position: 'absolute', inset: 0}}>
@@ -200,20 +220,24 @@ export const BG: React.FC<{bg: any; t: number; cam: any; sc: any}> = ({bg, t, ca
 };
 
 // v5: out-of-focus foreground objects (coins / banknotes) at the frame edges, moving faster than the camera (parallax)
-export const FgBokeh: React.FC<{sc: any; cam: any; t: number}> = ({sc, cam, t}) => {
+export const FgBokeh: React.FC<{sc: any; cam: any; t: number; lag?: any}> = ({sc, cam, t, lag}) => {
   const bg = sc.bg || {};
-  if (sc.fg === false || bg.type !== 'dark') return null;
+  if (sc.fg === false || bg.type !== 'dark' || TH.fg === 'none') return null;
   const r = rnd((Math.round(sc.t0 * 100) % 9973) + 11);
   if (sc.fg !== true && r() > 0.62) return null;
-  const spots = [[-60, 940], [1985, 150], [1935, 1000], [-30, 110], [1700, 1135], [250, 1125]];
+  // tech theme: corners only, so the bokeh never drifts behind the subtitles (y 905–960)
+  const spots = TH.fg === 'tech' ? [[-60, 960], [1985, 120], [1960, 1010], [-50, 90]] : [[-60, 940], [1985, 150], [1935, 1000], [-30, 110], [1700, 1135], [250, 1125]];
   const pick = spots.map((p) => ({p, k: r()})).sort((a, b) => a.k - b.k).slice(0, 3);
-  const px = -(cam.x - 960) * 0.45, py = -(cam.y - 540) * 0.45, zs = 1 + (cam.s - 1) * 0.7;
+  // lagged parallax: props swing across the frame while the camera moves and settle back in the corners when it stops
+  const lim = (v: number) => Math.max(-1100, Math.min(1100, v));
+  const px = lim(-(cam.x - (lag?.x ?? 960)) * 0.9), py = lim(-(cam.y - (lag?.y ?? 540)) * 0.9), zs = 1 + (cam.s - 1) * 0.7;
   return (
     <AbsoluteFill style={{zIndex: 4, pointerEvents: 'none', transform: `translate(${px}px,${py}px) scale(${zs})`, transformOrigin: '960px 540px'}}>
       {pick.map(({p: [x, y]}, i) => {
         const rot = (r() - 0.5) * 70, sz = 1 + r() * 0.5, ph = r() * 6;
         const dx = Math.sin(t * 0.35 + ph) * 18, dy = Math.cos(t * 0.3 + ph) * 14;
         const st: any = {position: 'absolute', left: x + dx, top: y + dy, transform: `translate(-50%,-50%) rotate(${rot}deg) scale(${sz})`, filter: `blur(${15 + i * 4}px)`, opacity: 0.82};
+        if (TH.fg === 'tech') return techBokeh(i, st);
         return i === 1 ? <Banknote key={i} w={340} style={st} /> : <Img key={i} src={img('icons/coins.png')} style={{...st, width: i === 0 ? 300 : 230}} />;
       })}
     </AbsoluteFill>

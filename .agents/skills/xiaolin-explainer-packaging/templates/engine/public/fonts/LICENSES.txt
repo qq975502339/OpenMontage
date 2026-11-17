@@ -11,6 +11,8 @@ They are redistributed unmodified.
 | NotoSC.ttf      | Noto Sans SC (variable) | Copyright 2014-2021 Adobe, Reserved Font Name "Source"                    | https://github.com/google/fonts/tree/main/ofl/notosanssc |
 | NotoSerifSC.ttf | Noto Serif SC (variable)| Copyright 2017-2024 Adobe                                                 | https://github.com/google/fonts/tree/main/ofl/notoserifsc |
 | Oswald.ttf      | Oswald                  | Copyright 2016 The Oswald Project Authors                                 | https://github.com/googlefonts/OswaldFont |
+| MaShanZheng.ttf | Ma Shan Zheng (马善政)   | Copyright 2018 The Ma Shan Zheng Project Authors                           | https://github.com/google/fonts/tree/main/ofl/mashanzheng |
+| FusionPixel12.woff2 | Fusion Pixel Font 12px (缝合像素字体) | Copyright (c) 2022, TakWolf                                | https://github.com/TakWolf/fusion-pixel-font |
 | Quicksand.ttf   | Quicksand               | Copyright 2019 The Quicksand Project Authors, Reserved Font Name "Quicksand" | https://github.com/andrew-paglinawan/QuicksandFamily |
 
 Not bundled: YouShe.ttf (优设标题黑, YouShe Network Technology Co., Ltd). It is free for commercial use,

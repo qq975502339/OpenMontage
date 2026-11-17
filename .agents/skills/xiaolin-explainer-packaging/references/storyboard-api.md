@@ -53,7 +53,9 @@ src/data/shots.json（Remotion 输入）  sfx.json（音效事件）  keyframes.
 }
 ```
 
-- `brand.logo` 右上台标，`brand.label` 左上 AI 标注（必须保留），`brand.endToon` 片尾卡的透明 PNG（可选）。
+- `brand.logo` 右上台标，`brand.label` 左上 AI 标注（出镜画面是 AI 生成时必须保留；用真人实拍素材时可以为空），`brand.endToon` 片尾卡的透明 PNG（可选）。
+- `theme`：7 套主力画风 `"finance"`（默认）、`"press"`、`"terminal"`、`"banknote"`、`"casefile"`、`"chalk"`、`"pixelgame"`；旧主题 `"blueprint"`、`"desk"`、`"editorial"`、`"finance_classic"`、`"press_classic"`、`"terminal_classic"`（旧名 `tech`、`plain` 仍可用），也可以写对象覆盖局部，见 `layouts.md` 的"主题"。`en_labels`：`false` 时删掉全部英文副标。
+- `prop_look`：本期道具的画风 id（20 种之一，目录在 `templates/prop_styles.json`，选法见 `treatment.md` 第 4 节），决定道具的阴影方式。不写时用主题默认画风。
 - `music`：每段音乐的起止时刻、从源文件第几秒开始（`off`）、说话时的增益（`clip`）和卡片或停顿时的增益（`card`）、淡入淡出（`fi` `fo`）。音乐不够长时自动循环并交叉淡化。
 - 时刻写法：秒数，或 `"片段id"`（片段开始），或 `"片段id.end"`（片段结束），后面可以加 `+0.3` 或 `-0.15`。
 - `sting`：片名重击音。脚本找到音频里最强的起音点，把它对齐到 `at`。
